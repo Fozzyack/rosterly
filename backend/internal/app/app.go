@@ -1,9 +1,8 @@
 package app
 
 import (
-	"os"
-
 	"github.com/rs/zerolog"
+	"os"
 )
 
 type Application struct {

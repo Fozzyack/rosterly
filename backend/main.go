@@ -7,6 +7,8 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/Fozzyack/rosterly/m/internal/app"
+	"github.com/Fozzyack/rosterly/m/internal/routes"
 	"github.com/joho/godotenv"
 )
 
@@ -21,8 +23,16 @@ func main() {
 	flag.IntVar(&port, "port", 8000, "server address port")
 	flag.Parse()
 
+	app, err := app.NewApplication()
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	routes := routes.SetupRoutes(app)
+
 	server := &http.Server{
 		Addr:         fmt.Sprintf(":%d", port),
+		Handler:      routes,
 		WriteTimeout: time.Second * 5,
 		ReadTimeout:  time.Second * 10,
 		IdleTimeout:  time.Second * 60,
