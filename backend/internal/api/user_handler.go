@@ -30,13 +30,13 @@ func (uh *UserHandler) CreateUser(w http.ResponseWriter, r *http.Request) {
 
 	passwordHash, err := auth.HashPassword(newUserRequest.Password)
 	if err != nil {
-		sendError(w, err.Error(), http.StatusInternalServerError)
+		sendError(w, "Failed to Create User", http.StatusInternalServerError)
 		return
 	}
 
 	newUser, err := uh.userStore.CreateUser(r.Context(), newUserRequest, passwordHash)
 	if err != nil {
-		sendError(w, err.Error(), http.StatusInternalServerError)
+		sendError(w, "Failed to Create User", http.StatusInternalServerError)
 		return
 	}
 

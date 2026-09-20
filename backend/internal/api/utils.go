@@ -15,6 +15,7 @@ func decodeJSON(r *http.Request, v interface{}) error {
 }
 
 func sendError(w http.ResponseWriter, errMsg string, code int) {
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(code)
-	sendJSON(w, map[string]string{"error": errMsg})
+	json.NewEncoder(w).Encode(map[string]string{"error": errMsg})
 }

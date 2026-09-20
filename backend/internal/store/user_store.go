@@ -22,6 +22,7 @@ func (ps *PostgresStore) CreateUser(ctx context.Context, newUserRequest models.N
 	if err != nil {
 		return nil, err
 	}
+	defer tx.Rollback()
 
 	query := `
 	INSERT into users (name, email, password_hash)
@@ -37,6 +38,10 @@ func (ps *PostgresStore) CreateUser(ctx context.Context, newUserRequest models.N
 		&newUser.CreatedAt,
 		&newUser.UpdatedAt,
 	)
+	if err != nil {
+		return nil, err
+	}
+	err = tx.Commit()
 	if err != nil {
 		return nil, err
 	}

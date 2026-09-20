@@ -5,7 +5,7 @@ services:
     restart: always
     environment:
       POSTGRES_USER: rosterly 
-      POSTGRES_PASSWORD: rostlerly 
+      POSTGRES_PASSWORD: rosterly 
       POSTGRES_DB: rosterly
     ports:
       - "5432:5432"
@@ -19,8 +19,6 @@ services:
     container_name: backend
     ports:
       - "8000:8000"
-    environment:
-      - DATABASE_URL=postgresql://rosterly:rostlerly@db/rosterly
     depends_on:
       - db
 
