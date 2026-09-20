@@ -1,4 +1,5 @@
 import { LogoMark, SiteHeader } from "./components/site-header";
+import { PageAnimations } from "./components/page-animations";
 
 const days = [
   { day: "MON", date: "14" },
@@ -30,9 +31,10 @@ const shifts = [
 export default function Home() {
   return (
     <main className="min-h-screen overflow-hidden bg-[#f5f3ea] font-sans text-[#17211e] selection:bg-[#d9ff57] selection:text-[#17211e]">
+      <PageAnimations />
       <SiteHeader />
 
-      <section className="relative mx-auto flex max-w-[1240px] flex-col items-center px-5 pb-10 pt-14 text-center sm:px-8 sm:pt-20 lg:pt-24">
+      <section className="relative mx-auto flex max-w-[1240px] flex-col items-center px-5 pb-10 pt-14 text-center sm:px-8 sm:pt-20 lg:pt-24" data-animate-hero>
         <h1 className="relative max-w-4xl text-balance text-[clamp(3.25rem,8vw,7.4rem)] font-semibold leading-[0.88] tracking-[-0.075em]">
           Your week,
           <span className="relative inline-block px-3 italic text-[#55715e] sm:px-5">

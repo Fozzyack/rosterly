@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { PageAnimations } from "../components/page-animations";
 import { SiteFooter } from "../components/site-footer";
 import { SiteHeader } from "../components/site-header";
 
@@ -53,9 +54,10 @@ function Arrow() {
 export default function ProductPage() {
   return (
     <main className="min-h-screen bg-[#f5f3ea] font-sans text-[#17211e] selection:bg-[#d9ff57] selection:text-[#17211e]">
+      <PageAnimations />
       <SiteHeader current="product" />
 
-      <section className="mx-auto max-w-[1240px] px-5 pb-16 pt-16 text-center sm:px-8 sm:pb-24 sm:pt-24">
+      <section className="mx-auto max-w-[1240px] px-5 pb-16 pt-16 text-center sm:px-8 sm:pb-24 sm:pt-24" data-animate-hero>
         <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#66726d]">Automated roster builder</p>
         <h1 className="mx-auto mt-5 max-w-5xl text-balance text-[clamp(3.2rem,7.6vw,7rem)] font-semibold leading-[0.9] tracking-[-0.07em]">
           A better roster before your coffee gets cold.
@@ -152,7 +154,7 @@ export default function ProductPage() {
         </div>
       </section>
 
-      <section className="bg-white py-20 sm:py-28">
+      <section className="bg-white py-20 sm:py-28" data-scroll-reveal>
         <div className="mx-auto max-w-[1240px] px-5 sm:px-8">
           <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
             <div>
@@ -160,9 +162,9 @@ export default function ProductPage() {
               <h2 className="mt-4 max-w-lg text-4xl font-semibold leading-[0.98] tracking-[-0.055em] sm:text-6xl">Everything the week needs. Nothing it doesn&apos;t.</h2>
               <p className="mt-6 max-w-md text-base leading-7 text-[#68736f]">Rosterly focuses on the decisions that cost managers time: who can work, where they are needed, and whether the week is fair.</p>
             </div>
-            <div className="grid gap-3 sm:grid-cols-2">
+            <div className="grid gap-3 sm:grid-cols-2" data-scroll-stagger>
               {features.map((feature) => (
-                <article className={`${feature.tone} flex min-h-64 flex-col justify-between rounded-[24px] p-6 sm:p-7`} key={feature.number}>
+                <article className={`${feature.tone} flex min-h-64 flex-col justify-between rounded-[24px] p-6 sm:p-7`} key={feature.number} data-scroll-item>
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-bold tracking-[0.13em]">{feature.number}</span>
                     <span className="grid size-9 place-items-center rounded-full bg-white/70"><Arrow /></span>
@@ -178,7 +180,7 @@ export default function ProductPage() {
         </div>
       </section>
 
-      <section className="bg-[#17211e] py-20 text-white sm:py-28">
+      <section className="bg-[#17211e] py-20 text-white sm:py-28" data-scroll-reveal>
         <div className="mx-auto grid max-w-[1240px] gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:items-center lg:gap-20">
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.17em] text-[#d9ff57]">Built around your business</p>
@@ -205,7 +207,7 @@ export default function ProductPage() {
         </div>
       </section>
 
-      <section className="bg-[#d9ff57] px-5 py-16 text-center sm:px-8 sm:py-20">
+      <section className="bg-[#d9ff57] px-5 py-16 text-center sm:px-8 sm:py-20" data-scroll-reveal>
         <h2 className="mx-auto max-w-3xl text-4xl font-semibold leading-none tracking-[-0.055em] sm:text-6xl">Put next week on autopilot.</h2>
         <p className="mx-auto mt-5 max-w-xl text-sm leading-6 text-[#506038] sm:text-base">Create your first roster free. No credit card, no complicated setup.</p>
         <Link className="mt-7 inline-flex items-center gap-2 rounded-full bg-[#17211e] px-6 py-3.5 text-sm font-semibold text-white" href="/#signup">Start building <Arrow /></Link>

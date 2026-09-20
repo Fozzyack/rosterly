@@ -13,7 +13,7 @@ export function SiteFooter() {
           <Link className="hover:text-[#17211e]" href="/product">Product</Link>
           <Link className="hover:text-[#17211e]" href="/how-it-works">How it works</Link>
           <Link className="hover:text-[#17211e]" href="/#pricing">Pricing</Link>
-          <Link className="hover:text-[#17211e]" href="/#login">Log in</Link>
+          <Link className="hover:text-[#17211e]" href="/login">Log in</Link>
         </div>
         <p className="text-xs text-[#89918e]">Built for small teams with big weeks.</p>
       </div>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { PageAnimations } from "../components/page-animations";
 import { SiteFooter } from "../components/site-footer";
 import { SiteHeader } from "../components/site-header";
 
@@ -37,9 +38,10 @@ function StepNumber({ children }: { children: string }) {
 export default function HowItWorksPage() {
   return (
     <main className="min-h-screen bg-[#f5f3ea] font-sans text-[#17211e] selection:bg-[#d9ff57] selection:text-[#17211e]">
+      <PageAnimations />
       <SiteHeader current="how-it-works" />
 
-      <section className="mx-auto max-w-[1240px] px-5 pb-16 pt-16 text-center sm:px-8 sm:pb-24 sm:pt-24">
+      <section className="mx-auto max-w-[1240px] px-5 pb-16 pt-16 text-center sm:px-8 sm:pb-24 sm:pt-24" data-animate-hero>
         <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#66726d]">How Rosterly works</p>
         <h1 className="mx-auto mt-5 max-w-5xl text-balance text-[clamp(3.2rem,7.5vw,7rem)] font-semibold leading-[0.9] tracking-[-0.07em]">
           From messy availability to a ready roster.
@@ -51,8 +53,8 @@ export default function HowItWorksPage() {
           Make my first roster <Arrow />
         </Link>
 
-        <div className="mt-16 grid gap-3 text-left md:grid-cols-3 sm:mt-20">
-          <article className="flex min-h-[420px] flex-col rounded-[26px] bg-[#d8e7fa] p-5 sm:p-7">
+        <div className="mt-16 grid gap-3 text-left md:grid-cols-3 sm:mt-20" data-scroll-stagger>
+          <article className="flex min-h-[420px] flex-col rounded-[26px] bg-[#d8e7fa] p-5 sm:p-7" data-scroll-item>
             <div className="flex items-start justify-between"><StepNumber>01</StepNumber><span className="text-[10px] font-bold uppercase tracking-[0.13em] text-[#62758d]">Collect</span></div>
             <div className="my-8 rounded-2xl bg-white p-4 shadow-[0_14px_35px_rgba(63,79,98,0.12)]">
               <div className="flex items-center gap-2.5 border-b border-[#e8e9e3] pb-3">
@@ -71,7 +73,7 @@ export default function HowItWorksPage() {
             <div className="mt-auto"><h2 className="text-2xl font-semibold tracking-[-0.04em]">Your team shares what changed.</h2><p className="mt-2 text-sm leading-6 text-[#52677c]">A simple weekly prompt collects availability and time off without spreadsheets or group-chat chasing.</p></div>
           </article>
 
-          <article className="flex min-h-[420px] flex-col rounded-[26px] bg-[#f8d9b7] p-5 sm:p-7">
+          <article className="flex min-h-[420px] flex-col rounded-[26px] bg-[#f8d9b7] p-5 sm:p-7" data-scroll-item>
             <div className="flex items-start justify-between"><StepNumber>02</StepNumber><span className="text-[10px] font-bold uppercase tracking-[0.13em] text-[#826849]">Set rules</span></div>
             <div className="my-8 rounded-2xl bg-white p-4 shadow-[0_14px_35px_rgba(98,74,43,0.1)]">
               <p className="text-xs font-semibold">Monday coverage</p>
@@ -85,7 +87,7 @@ export default function HowItWorksPage() {
             <div className="mt-auto"><h2 className="text-2xl font-semibold tracking-[-0.04em]">You define a good week.</h2><p className="mt-2 text-sm leading-6 text-[#725d43]">Tell Rosterly your coverage, roles, budgets, hour limits, and non-negotiables. Set them once, adjust anytime.</p></div>
           </article>
 
-          <article className="flex min-h-[420px] flex-col rounded-[26px] bg-[#d8efe2] p-5 sm:p-7">
+          <article className="flex min-h-[420px] flex-col rounded-[26px] bg-[#d8efe2] p-5 sm:p-7" data-scroll-item>
             <div className="flex items-start justify-between"><StepNumber>03</StepNumber><span className="text-[10px] font-bold uppercase tracking-[0.13em] text-[#577361]">Generate</span></div>
             <div className="my-8 rounded-2xl bg-white p-4 shadow-[0_14px_35px_rgba(57,91,68,0.1)]">
               <div className="flex items-center justify-between"><div><p className="text-xs font-semibold">Roster ready</p><p className="mt-0.5 text-[9px] text-[#7d8783]">Generated in 12 seconds</p></div><span className="grid size-8 place-items-center rounded-full bg-[#d9ff57]">&#10003;</span></div>
@@ -101,7 +103,7 @@ export default function HowItWorksPage() {
         </div>
       </section>
 
-      <section className="bg-[#17211e] py-20 text-white sm:py-28">
+      <section className="bg-[#17211e] py-20 text-white sm:py-28" data-scroll-reveal>
         <div className="mx-auto max-w-[1240px] px-5 sm:px-8">
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start lg:gap-24">
             <div className="lg:sticky lg:top-10">
@@ -109,9 +111,9 @@ export default function HowItWorksPage() {
               <h2 className="mt-4 text-4xl font-semibold leading-[0.98] tracking-[-0.055em] sm:text-6xl">Fast doesn&apos;t mean careless.</h2>
               <p className="mt-6 max-w-md text-base leading-7 text-white/65">Rosterly checks every possible assignment against the details that make your business work.</p>
             </div>
-            <div className="border-t border-white/15">
+            <div className="border-t border-white/15" data-scroll-stagger>
               {checks.map((check, index) => (
-                <div className="grid grid-cols-[52px_1fr_auto] items-center gap-3 border-b border-white/15 py-6 sm:grid-cols-[72px_1fr_auto] sm:py-8" key={check}>
+                <div className="grid grid-cols-[52px_1fr_auto] items-center gap-3 border-b border-white/15 py-6 sm:grid-cols-[72px_1fr_auto] sm:py-8" key={check} data-scroll-item>
                   <span className="font-mono text-xs text-white/35">0{index + 1}</span>
                   <div><h3 className="text-lg font-semibold sm:text-2xl">{check}</h3><p className="mt-1 text-xs leading-5 text-white/50 sm:text-sm">{index === 0 ? "No one is placed outside the times they offered." : index === 1 ? "Every shift has the right experience on hand." : index === 2 ? "Hours stay fair, compliant, and within budget." : "The day starts and finishes with enough people."}</p></div>
                   <span className="grid size-8 place-items-center rounded-full bg-[#d9ff57] text-[#17211e]">&#10003;</span>
@@ -122,7 +124,7 @@ export default function HowItWorksPage() {
         </div>
       </section>
 
-      <section className="bg-white py-20 sm:py-28">
+      <section className="bg-white py-20 sm:py-28" data-scroll-reveal>
         <div className="mx-auto max-w-[1240px] px-5 sm:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-xs font-bold uppercase tracking-[0.17em] text-[#68736f]">You stay in control</p>
@@ -145,7 +147,7 @@ export default function HowItWorksPage() {
         </div>
       </section>
 
-      <section className="bg-[#d9ff57] px-5 py-16 text-center sm:px-8 sm:py-20">
+      <section className="bg-[#d9ff57] px-5 py-16 text-center sm:px-8 sm:py-20" data-scroll-reveal>
         <h2 className="mx-auto max-w-3xl text-4xl font-semibold leading-none tracking-[-0.055em] sm:text-6xl">Next week could already be sorted.</h2>
         <p className="mx-auto mt-5 max-w-xl text-sm leading-6 text-[#506038] sm:text-base">Start with your team and let Rosterly do the checking.</p>
         <Link className="mt-7 inline-flex items-center gap-2 rounded-full bg-[#17211e] px-6 py-3.5 text-sm font-semibold text-white" href="/#signup">Try Rosterly free <Arrow /></Link>

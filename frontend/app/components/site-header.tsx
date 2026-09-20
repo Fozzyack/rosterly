@@ -25,7 +25,7 @@ export function SiteHeader({ current, inverse = false }: SiteHeaderProps) {
 
   return (
     <header className={text}>
-      <nav className="mx-auto flex h-20 w-full max-w-[1240px] items-center justify-between px-5 sm:px-8" aria-label="Main navigation">
+      <nav className="mx-auto flex h-20 w-full max-w-[1240px] items-center justify-between px-5 sm:px-8" aria-label="Main navigation" data-animate-nav>
         <Link href="/" className="flex items-center gap-2.5" aria-label="Rosterly home">
           <LogoMark />
           <span className="text-xl font-semibold tracking-[-0.04em]">rosterly</span>
@@ -39,7 +39,7 @@ export function SiteHeader({ current, inverse = false }: SiteHeaderProps) {
         </div>
 
         <div className="flex items-center gap-3">
-          <Link className="hidden px-3 py-2 text-sm font-semibold sm:block" href="/#login">Log in</Link>
+          <Link className="hidden px-3 py-2 text-sm font-semibold sm:block" href="/login">Log in</Link>
           <Link
             className={`rounded-full px-5 py-2.5 text-sm font-semibold transition-transform hover:-translate-y-0.5 ${inverse ? "bg-[#d9ff57] text-[#17211e]" : "bg-[#17211e] text-white"}`}
             href="/#signup"
