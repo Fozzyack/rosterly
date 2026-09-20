@@ -4,12 +4,18 @@ import (
 	"os"
 
 	"github.com/Fozzyack/rosterly/m/internal/database"
+	"github.com/Fozzyack/rosterly/m/internal/store"
 	"github.com/Fozzyack/rosterly/m/migrations"
 	"github.com/rs/zerolog"
 )
 
 type Application struct {
+
+	// Logger
 	Logger *zerolog.Logger
+
+	// Stores
+	UserStore store.UserStore
 }
 
 func NewApplication() (*Application, error) {
@@ -26,8 +32,13 @@ func NewApplication() (*Application, error) {
 		return nil, err
 	}
 
+	userStore := store.NewUserStore(db)
+
 	app := &Application{
+
 		Logger: &logger,
+
+		UserStore: userStore,
 	}
 
 	return app, nil
