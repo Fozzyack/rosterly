@@ -14,7 +14,11 @@ func SetupRoutes(app *app.Application) *chi.Mux {
 	r.Use(middleware.RequestID)
 	r.Use(middleware.Recoverer)
 
+	// Health Check
 	r.Get("/health/", app.HealthHandler.GetHealth)
+
+	// User Creation and Login
+	r.Post("/auth/login/", app.UserHandler.LoginUser)
 	r.Post("/users/", app.UserHandler.CreateUser)
 
 	return r
