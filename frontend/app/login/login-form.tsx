@@ -21,7 +21,7 @@ export function LoginForm() {
 
     try {
       const response = await fetch(
-        `${getApiUrl()}/login`,
+        `${getApiUrl()}/auth/login/`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -35,6 +35,9 @@ export function LoginForm() {
       if (!response.ok) {
         throw new Error("Request failed");
       }
+
+      const data = (await response.json()) as { token: string };
+      localStorage.setItem("session_token", data.token);
 
       router.push("/");
     } catch {
