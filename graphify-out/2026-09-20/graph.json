@@ -70,6 +70,18 @@
       "source_location": "L12"
     },
     {
+      "id": "frontend_app_components_page_animations_pageanimations",
+      "label": "PageAnimations()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "how-it-works/page.tsx",
+      "file_type": "code",
+      "norm_label": "pageanimations()",
+      "source_file": "frontend/app/components/page-animations.tsx",
+      "source_location": "L9"
+    },
+    {
       "id": "frontend_app_components_site_footer_sitefooter",
       "label": "SiteFooter()",
       "_callable": true,
@@ -115,7 +127,7 @@
       "file_type": "code",
       "norm_label": "arrow()",
       "source_file": "frontend/app/how-it-works/page.tsx",
-      "source_location": "L25"
+      "source_location": "L26"
     },
     {
       "id": "frontend_app_how_it_works_page_howitworkspage",
@@ -127,7 +139,7 @@
       "file_type": "code",
       "norm_label": "howitworkspage()",
       "source_file": "frontend/app/how-it-works/page.tsx",
-      "source_location": "L37"
+      "source_location": "L38"
     },
     {
       "id": "frontend_app_how_it_works_page_stepnumber",
@@ -139,7 +151,7 @@
       "file_type": "code",
       "norm_label": "stepnumber()",
       "source_file": "frontend/app/how-it-works/page.tsx",
-      "source_location": "L33"
+      "source_location": "L34"
     },
     {
       "id": "frontend_app_page_home",
@@ -151,7 +163,7 @@
       "file_type": "code",
       "norm_label": "home()",
       "source_file": "frontend/app/page.tsx",
-      "source_location": "L30"
+      "source_location": "L31"
     },
     {
       "id": "frontend_app_product_page_arrow",
@@ -163,7 +175,7 @@
       "file_type": "code",
       "norm_label": "arrow()",
       "source_file": "frontend/app/product/page.tsx",
-      "source_location": "L45"
+      "source_location": "L46"
     },
     {
       "id": "frontend_app_product_page_productpage",
@@ -175,14 +187,14 @@
       "file_type": "code",
       "norm_label": "productpage()",
       "source_file": "frontend/app/product/page.tsx",
-      "source_location": "L53"
+      "source_location": "L54"
     },
     {
       "id": "frontend_eslint_config",
       "label": "eslint.config.mjs",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Frontend Package Configuration",
+      "community_name": "package.json",
       "file_type": "code",
       "norm_label": "eslint.config.mjs",
       "source_file": "frontend/eslint.config.mjs",
@@ -193,7 +205,7 @@
       "label": "eslintConfig",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Frontend Package Configuration",
+      "community_name": "package.json",
       "file_type": "code",
       "norm_label": "eslintconfig",
       "source_file": "frontend/eslint.config.mjs",
@@ -204,7 +216,7 @@
       "label": "package.json",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Frontend Package Configuration",
+      "community_name": "package.json",
       "file_type": "code",
       "norm_label": "package.json",
       "source_file": "frontend/package.json",
@@ -215,18 +227,18 @@
       "label": "ignoreScripts",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Frontend Package Configuration",
+      "community_name": "package.json",
       "file_type": "code",
       "norm_label": "ignorescripts",
       "source_file": "frontend/package.json",
-      "source_location": "L28"
+      "source_location": "L29"
     },
     {
       "id": "frontend_package_name",
       "label": "name",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Frontend Package Configuration",
+      "community_name": "package.json",
       "file_type": "code",
       "norm_label": "name",
       "source_file": "frontend/package.json",
@@ -237,40 +249,95 @@
       "label": "packageManager",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Frontend Package Configuration",
+      "community_name": "package.json",
       "file_type": "code",
       "norm_label": "packagemanager",
       "source_file": "frontend/package.json",
-      "source_location": "L27"
+      "source_location": "L28"
     },
     {
       "id": "frontend_package_private",
       "label": "private",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Frontend Package Configuration",
+      "community_name": "package.json",
       "file_type": "code",
       "norm_label": "private",
       "source_file": "frontend/package.json",
       "source_location": "L4"
     },
     {
+      "id": "frontend_package_scripts",
+      "label": "scripts",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "scripts",
+      "source_file": "frontend/package.json",
+      "source_location": "L5"
+    },
+    {
+      "id": "frontend_package_scripts_build",
+      "label": "build",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "build",
+      "source_file": "frontend/package.json",
+      "source_location": "L7"
+    },
+    {
+      "id": "frontend_package_scripts_dev",
+      "label": "dev",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "dev",
+      "source_file": "frontend/package.json",
+      "source_location": "L6"
+    },
+    {
+      "id": "frontend_package_scripts_lint",
+      "label": "lint",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "lint",
+      "source_file": "frontend/package.json",
+      "source_location": "L9"
+    },
+    {
+      "id": "frontend_package_scripts_start",
+      "label": "start",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "start",
+      "source_file": "frontend/package.json",
+      "source_location": "L8"
+    },
+    {
       "id": "frontend_package_trusteddependencies",
       "label": "trustedDependencies",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Frontend Package Configuration",
+      "community_name": "package.json",
       "file_type": "code",
       "norm_label": "trusteddependencies",
       "source_file": "frontend/package.json",
-      "source_location": "L32"
+      "source_location": "L33"
     },
     {
       "id": "frontend_package_version",
       "label": "version",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Frontend Package Configuration",
+      "community_name": "package.json",
       "file_type": "code",
       "norm_label": "version",
       "source_file": "frontend/package.json",
@@ -281,121 +348,110 @@
       "label": "eslint",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Frontend Package Configuration",
+      "community_name": "package.json",
       "file_type": "concept",
       "norm_label": "eslint",
       "source_file": "frontend/package.json",
-      "source_location": "L22"
+      "source_location": "L23"
     },
     {
       "id": "ref_eslint_config_next",
       "label": "eslint-config-next",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Frontend Package Configuration",
+      "community_name": "package.json",
       "file_type": "concept",
       "norm_label": "eslint-config-next",
       "source_file": "frontend/package.json",
-      "source_location": "L23"
-    },
-    {
-      "id": "ref_gsap_react",
-      "label": "@gsap/react",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "Frontend Package Configuration",
-      "file_type": "concept",
-      "norm_label": "@gsap/react",
-      "source_file": "frontend/package.json",
-      "source_location": "L12"
+      "source_location": "L24"
     },
     {
       "id": "ref_react",
       "label": "react",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Frontend Package Configuration",
+      "community_name": "package.json",
       "file_type": "concept",
       "norm_label": "react",
       "source_file": "frontend/package.json",
-      "source_location": "L14"
+      "source_location": "L15"
     },
     {
       "id": "ref_react_dom",
       "label": "react-dom",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Frontend Package Configuration",
+      "community_name": "package.json",
       "file_type": "concept",
       "norm_label": "react-dom",
       "source_file": "frontend/package.json",
-      "source_location": "L15"
+      "source_location": "L16"
     },
     {
       "id": "ref_tailwindcss",
       "label": "tailwindcss",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Frontend Package Configuration",
+      "community_name": "package.json",
       "file_type": "concept",
       "norm_label": "tailwindcss",
       "source_file": "frontend/package.json",
-      "source_location": "L24"
+      "source_location": "L25"
     },
     {
       "id": "ref_tailwindcss_postcss",
       "label": "@tailwindcss/postcss",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Frontend Package Configuration",
+      "community_name": "package.json",
       "file_type": "concept",
       "norm_label": "@tailwindcss/postcss",
       "source_file": "frontend/package.json",
-      "source_location": "L18"
+      "source_location": "L19"
     },
     {
       "id": "ref_types_node",
       "label": "@types/node",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Frontend Package Configuration",
+      "community_name": "package.json",
       "file_type": "concept",
       "norm_label": "@types/node",
       "source_file": "frontend/package.json",
-      "source_location": "L19"
+      "source_location": "L20"
     },
     {
       "id": "ref_types_react",
       "label": "@types/react",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Frontend Package Configuration",
+      "community_name": "package.json",
       "file_type": "concept",
       "norm_label": "@types/react",
       "source_file": "frontend/package.json",
-      "source_location": "L20"
+      "source_location": "L21"
     },
     {
       "id": "ref_types_react_dom",
       "label": "@types/react-dom",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Frontend Package Configuration",
+      "community_name": "package.json",
       "file_type": "concept",
       "norm_label": "@types/react-dom",
       "source_file": "frontend/package.json",
-      "source_location": "L21"
+      "source_location": "L22"
     },
     {
       "id": "ref_typescript",
       "label": "typescript",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Frontend Package Configuration",
+      "community_name": "package.json",
       "file_type": "concept",
       "norm_label": "typescript",
       "source_file": "frontend/package.json",
-      "source_location": "L25"
+      "source_location": "L26"
     },
     {
       "id": "frontend_tsconfig",
@@ -618,6 +674,17 @@
       "source_location": "L11"
     },
     {
+      "id": "frontend_package_dependencies_gsap",
+      "label": "gsap",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "dependencies",
+      "file_type": "code",
+      "norm_label": "gsap",
+      "source_file": "frontend/package.json",
+      "source_location": "L13"
+    },
+    {
       "id": "frontend_package_dependencies_gsap_react",
       "label": "@gsap/react",
       "_origin": "ast",
@@ -637,7 +704,7 @@
       "file_type": "code",
       "norm_label": "next",
       "source_file": "frontend/package.json",
-      "source_location": "L13"
+      "source_location": "L14"
     },
     {
       "id": "frontend_package_dependencies_react",
@@ -648,7 +715,7 @@
       "file_type": "code",
       "norm_label": "react",
       "source_file": "frontend/package.json",
-      "source_location": "L14"
+      "source_location": "L15"
     },
     {
       "id": "frontend_package_dependencies_react_dom",
@@ -659,62 +726,7 @@
       "file_type": "code",
       "norm_label": "react-dom",
       "source_file": "frontend/package.json",
-      "source_location": "L15"
-    },
-    {
-      "id": "frontend_package_scripts",
-      "label": "scripts",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "scripts",
-      "file_type": "code",
-      "norm_label": "scripts",
-      "source_file": "frontend/package.json",
-      "source_location": "L5"
-    },
-    {
-      "id": "frontend_package_scripts_build",
-      "label": "build",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "scripts",
-      "file_type": "code",
-      "norm_label": "build",
-      "source_file": "frontend/package.json",
-      "source_location": "L7"
-    },
-    {
-      "id": "frontend_package_scripts_dev",
-      "label": "dev",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "scripts",
-      "file_type": "code",
-      "norm_label": "dev",
-      "source_file": "frontend/package.json",
-      "source_location": "L6"
-    },
-    {
-      "id": "frontend_package_scripts_lint",
-      "label": "lint",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "scripts",
-      "file_type": "code",
-      "norm_label": "lint",
-      "source_file": "frontend/package.json",
-      "source_location": "L9"
-    },
-    {
-      "id": "frontend_package_scripts_start",
-      "label": "start",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "scripts",
-      "file_type": "code",
-      "norm_label": "start",
-      "source_file": "frontend/package.json",
-      "source_location": "L8"
+      "source_location": "L16"
     },
     {
       "id": "opencode_opencode",
@@ -776,7 +788,7 @@
       "label": "app.go",
       "_origin": "ast",
       "community": 2,
-      "community_name": "Backend Application Setup",
+      "community_name": "main.go",
       "file_type": "code",
       "norm_label": "app.go",
       "source_file": "backend/internal/app/app.go",
@@ -787,7 +799,7 @@
       "label": "Application",
       "_origin": "ast",
       "community": 2,
-      "community_name": "Backend Application Setup",
+      "community_name": "main.go",
       "file_type": "code",
       "norm_label": "application",
       "source_file": "backend/internal/app/app.go",
@@ -798,7 +810,7 @@
       "label": "NewApplication()",
       "_origin": "ast",
       "community": 2,
-      "community_name": "Backend Application Setup",
+      "community_name": "main.go",
       "file_type": "code",
       "norm_label": "newapplication()",
       "source_file": "backend/internal/app/app.go",
@@ -809,7 +821,7 @@
       "label": "env.go",
       "_origin": "ast",
       "community": 2,
-      "community_name": "Backend Application Setup",
+      "community_name": "main.go",
       "file_type": "code",
       "norm_label": "env.go",
       "source_file": "backend/internal/env/env.go",
@@ -820,7 +832,7 @@
       "label": "GetEnv()",
       "_origin": "ast",
       "community": 2,
-      "community_name": "Backend Application Setup",
+      "community_name": "main.go",
       "file_type": "code",
       "norm_label": "getenv()",
       "source_file": "backend/internal/env/env.go",
@@ -831,29 +843,51 @@
       "label": "IsProduction()",
       "_origin": "ast",
       "community": 2,
-      "community_name": "Backend Application Setup",
+      "community_name": "main.go",
       "file_type": "code",
       "norm_label": "isproduction()",
       "source_file": "backend/internal/env/env.go",
       "source_location": "L14"
     },
     {
+      "id": "backend_internal_routes_router",
+      "label": "router.go",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "main.go",
+      "file_type": "code",
+      "norm_label": "router.go",
+      "source_file": "backend/internal/routes/router.go",
+      "source_location": "L1"
+    },
+    {
       "id": "backend_internal_routes_router_setuproutes",
       "label": "SetupRoutes()",
       "_origin": "ast",
       "community": 2,
-      "community_name": "Backend Application Setup",
+      "community_name": "main.go",
       "file_type": "code",
       "norm_label": "setuproutes()",
       "source_file": "backend/internal/routes/router.go",
       "source_location": "L8"
     },
     {
+      "id": "backend_main",
+      "label": "main.go",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "main.go",
+      "file_type": "code",
+      "norm_label": "main.go",
+      "source_file": "backend/main.go",
+      "source_location": "L1"
+    },
+    {
       "id": "backend_main_main",
       "label": "main()",
       "_origin": "ast",
       "community": 2,
-      "community_name": "Backend Application Setup",
+      "community_name": "main.go",
       "file_type": "code",
       "norm_label": "main()",
       "source_file": "backend/main.go",
@@ -864,7 +898,7 @@
       "label": "chi.Mux",
       "_origin": "ast",
       "community": 2,
-      "community_name": "Backend Application Setup",
+      "community_name": "main.go",
       "file_type": "code",
       "norm_label": "chi.mux",
       "source_file": "",
@@ -875,7 +909,7 @@
       "label": "github.com/rs/zerolog.Logger",
       "_origin": "ast",
       "community": 2,
-      "community_name": "Backend Application Setup",
+      "community_name": "main.go",
       "file_type": "code",
       "norm_label": "github.com/rs/zerolog.logger",
       "source_file": "",
@@ -893,28 +927,6 @@
       "source_file": "backend/go.mod",
       "source_location": "L1",
       "type": "package"
-    },
-    {
-      "id": "backend_internal_routes_router",
-      "label": "router.go",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "Backend Routing Runtime",
-      "file_type": "code",
-      "norm_label": "router.go",
-      "source_file": "backend/internal/routes/router.go",
-      "source_location": "L1"
-    },
-    {
-      "id": "backend_main",
-      "label": "main.go",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "Backend Routing Runtime",
-      "file_type": "code",
-      "norm_label": "main.go",
-      "source_file": "backend/main.go",
-      "source_location": "L1"
     },
     {
       "id": "frontend_app_layout",
@@ -969,7 +981,7 @@
       "file_type": "code",
       "norm_label": "devdependencies",
       "source_file": "frontend/package.json",
-      "source_location": "L17"
+      "source_location": "L18"
     },
     {
       "id": "frontend_package_devdependencies_eslint",
@@ -980,7 +992,7 @@
       "file_type": "code",
       "norm_label": "eslint",
       "source_file": "frontend/package.json",
-      "source_location": "L22"
+      "source_location": "L23"
     },
     {
       "id": "frontend_package_devdependencies_eslint_config_next",
@@ -991,7 +1003,7 @@
       "file_type": "code",
       "norm_label": "eslint-config-next",
       "source_file": "frontend/package.json",
-      "source_location": "L23"
+      "source_location": "L24"
     },
     {
       "id": "frontend_package_devdependencies_tailwindcss",
@@ -1002,7 +1014,7 @@
       "file_type": "code",
       "norm_label": "tailwindcss",
       "source_file": "frontend/package.json",
-      "source_location": "L24"
+      "source_location": "L25"
     },
     {
       "id": "frontend_package_devdependencies_tailwindcss_postcss",
@@ -1013,7 +1025,7 @@
       "file_type": "code",
       "norm_label": "@tailwindcss/postcss",
       "source_file": "frontend/package.json",
-      "source_location": "L18"
+      "source_location": "L19"
     },
     {
       "id": "frontend_package_devdependencies_types_node",
@@ -1024,7 +1036,7 @@
       "file_type": "code",
       "norm_label": "@types/node",
       "source_file": "frontend/package.json",
-      "source_location": "L19"
+      "source_location": "L20"
     },
     {
       "id": "frontend_package_devdependencies_types_react",
@@ -1035,7 +1047,7 @@
       "file_type": "code",
       "norm_label": "@types/react",
       "source_file": "frontend/package.json",
-      "source_location": "L20"
+      "source_location": "L21"
     },
     {
       "id": "frontend_package_devdependencies_types_react_dom",
@@ -1046,7 +1058,7 @@
       "file_type": "code",
       "norm_label": "@types/react-dom",
       "source_file": "frontend/package.json",
-      "source_location": "L21"
+      "source_location": "L22"
     },
     {
       "id": "frontend_package_devdependencies_typescript",
@@ -1057,7 +1069,7 @@
       "file_type": "code",
       "norm_label": "typescript",
       "source_file": "frontend/package.json",
-      "source_location": "L25"
+      "source_location": "L26"
     },
     {
       "id": "opencode_plugins_graphify",
@@ -1080,6 +1092,17 @@
       "norm_label": "important: keep the reminder string free of backticks and $(...) constructs.",
       "source_file": ".opencode/plugins/graphify.js",
       "source_location": "L4"
+    },
+    {
+      "id": "frontend_app_components_page_animations",
+      "label": "page-animations.tsx",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "how-it-works/page.tsx",
+      "file_type": "code",
+      "norm_label": "page-animations.tsx",
+      "source_file": "frontend/app/components/page-animations.tsx",
+      "source_location": "L1"
     },
     {
       "id": "frontend_app_components_site_footer",
@@ -1123,7 +1146,7 @@
       "file_type": "code",
       "norm_label": "availability",
       "source_file": "frontend/app/how-it-works/page.tsx",
-      "source_location": "L11"
+      "source_location": "L12"
     },
     {
       "id": "frontend_app_how_it_works_page_checks",
@@ -1134,7 +1157,7 @@
       "file_type": "code",
       "norm_label": "checks",
       "source_file": "frontend/app/how-it-works/page.tsx",
-      "source_location": "L18"
+      "source_location": "L19"
     },
     {
       "id": "frontend_app_how_it_works_page_metadata",
@@ -1145,7 +1168,7 @@
       "file_type": "code",
       "norm_label": "metadata",
       "source_file": "frontend/app/how-it-works/page.tsx",
-      "source_location": "L6"
+      "source_location": "L7"
     },
     {
       "id": "frontend_app_page",
@@ -1167,7 +1190,7 @@
       "file_type": "code",
       "norm_label": "days",
       "source_file": "frontend/app/page.tsx",
-      "source_location": "L3"
+      "source_location": "L4"
     },
     {
       "id": "frontend_app_page_shifts",
@@ -1178,7 +1201,7 @@
       "file_type": "code",
       "norm_label": "shifts",
       "source_file": "frontend/app/page.tsx",
-      "source_location": "L18"
+      "source_location": "L19"
     },
     {
       "id": "frontend_app_page_team",
@@ -1189,7 +1212,7 @@
       "file_type": "code",
       "norm_label": "team",
       "source_file": "frontend/app/page.tsx",
-      "source_location": "L11"
+      "source_location": "L12"
     },
     {
       "id": "frontend_app_product_page",
@@ -1211,7 +1234,7 @@
       "file_type": "code",
       "norm_label": "features",
       "source_file": "frontend/app/product/page.tsx",
-      "source_location": "L18"
+      "source_location": "L19"
     },
     {
       "id": "frontend_app_product_page_metadata",
@@ -1222,7 +1245,7 @@
       "file_type": "code",
       "norm_label": "metadata",
       "source_file": "frontend/app/product/page.tsx",
-      "source_location": "L6"
+      "source_location": "L7"
     },
     {
       "id": "frontend_app_product_page_people",
@@ -1233,7 +1256,7 @@
       "file_type": "code",
       "norm_label": "people",
       "source_file": "frontend/app/product/page.tsx",
-      "source_location": "L11"
+      "source_location": "L12"
     },
     {
       "id": "frontend_next_config",
@@ -1258,6 +1281,28 @@
       "source_location": "L3"
     },
     {
+      "id": "ref_gsap",
+      "label": "gsap",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "how-it-works/page.tsx",
+      "file_type": "concept",
+      "norm_label": "gsap",
+      "source_file": "frontend/package.json",
+      "source_location": "L13"
+    },
+    {
+      "id": "ref_gsap_react",
+      "label": "@gsap/react",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "how-it-works/page.tsx",
+      "file_type": "concept",
+      "norm_label": "@gsap/react",
+      "source_file": "frontend/package.json",
+      "source_location": "L12"
+    },
+    {
       "id": "ref_next",
       "label": "next",
       "_origin": "ast",
@@ -1266,7 +1311,7 @@
       "file_type": "concept",
       "norm_label": "next",
       "source_file": "frontend/package.json",
-      "source_location": "L13"
+      "source_location": "L14"
     },
     {
       "id": "frontend_agents_local_nextjs_documentation",
@@ -1644,6 +1689,21 @@
       "source_url": null
     },
     {
+      "id": "frontend_readme_development_server",
+      "label": "Next.js Development Server",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 4,
+      "community_name": "Next.js Project",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "next.js development server",
+      "source_file": "frontend/README.md",
+      "source_location": "lines 3-17",
+      "source_url": null
+    },
+    {
       "id": "frontend_readme_geist",
       "label": "Geist",
       "_origin": "semantic",
@@ -1884,50 +1944,11 @@
       "source_url": null
     },
     {
-      "id": "frontend_readme_development_server",
-      "label": "Next.js Development Server",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 9,
-      "community_name": "how-it-works/page.tsx",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "next.js development server",
-      "source_file": "frontend/README.md",
-      "source_location": "lines 3-17",
-      "source_url": null
-    },
-    {
-      "id": "go_pkg_github_com_rs_zerolog",
-      "label": "go_pkg_github_com_rs_zerolog",
-      "_origin": "semantic",
-      "community": 2,
-      "community_name": "Backend Application Setup",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "go_pkg_github_com_rs_zerolog",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "go_pkg_os",
-      "label": "go_pkg_os",
-      "_origin": "semantic",
-      "community": 2,
-      "community_name": "Backend Application Setup",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "go_pkg_os",
-      "source_file": "",
-      "type": "external"
-    },
-    {
       "id": "go_pkg_flag",
       "label": "go_pkg_flag",
       "_origin": "semantic",
-      "community": 3,
-      "community_name": "Backend Routing Runtime",
+      "community": 2,
+      "community_name": "main.go",
       "external": true,
       "file_type": "concept",
       "norm_label": "go_pkg_flag",
@@ -1938,8 +1959,8 @@
       "id": "go_pkg_fmt",
       "label": "go_pkg_fmt",
       "_origin": "semantic",
-      "community": 3,
-      "community_name": "Backend Routing Runtime",
+      "community": 2,
+      "community_name": "main.go",
       "external": true,
       "file_type": "concept",
       "norm_label": "go_pkg_fmt",
@@ -1950,8 +1971,8 @@
       "id": "go_pkg_github_com_fozzyack_rosterly_m_internal_app",
       "label": "go_pkg_github_com_fozzyack_rosterly_m_internal_app",
       "_origin": "semantic",
-      "community": 3,
-      "community_name": "Backend Routing Runtime",
+      "community": 2,
+      "community_name": "main.go",
       "external": true,
       "file_type": "concept",
       "norm_label": "go_pkg_github_com_fozzyack_rosterly_m_internal_app",
@@ -1962,8 +1983,8 @@
       "id": "go_pkg_github_com_fozzyack_rosterly_m_internal_env",
       "label": "go_pkg_github_com_fozzyack_rosterly_m_internal_env",
       "_origin": "semantic",
-      "community": 3,
-      "community_name": "Backend Routing Runtime",
+      "community": 2,
+      "community_name": "main.go",
       "external": true,
       "file_type": "concept",
       "norm_label": "go_pkg_github_com_fozzyack_rosterly_m_internal_env",
@@ -1974,8 +1995,8 @@
       "id": "go_pkg_github_com_fozzyack_rosterly_m_internal_routes",
       "label": "go_pkg_github_com_fozzyack_rosterly_m_internal_routes",
       "_origin": "semantic",
-      "community": 3,
-      "community_name": "Backend Routing Runtime",
+      "community": 2,
+      "community_name": "main.go",
       "external": true,
       "file_type": "concept",
       "norm_label": "go_pkg_github_com_fozzyack_rosterly_m_internal_routes",
@@ -1986,8 +2007,8 @@
       "id": "go_pkg_github_com_go_chi_chi_v5",
       "label": "go_pkg_github_com_go_chi_chi_v5",
       "_origin": "semantic",
-      "community": 3,
-      "community_name": "Backend Routing Runtime",
+      "community": 2,
+      "community_name": "main.go",
       "external": true,
       "file_type": "concept",
       "norm_label": "go_pkg_github_com_go_chi_chi_v5",
@@ -1998,8 +2019,8 @@
       "id": "go_pkg_github_com_joho_godotenv",
       "label": "go_pkg_github_com_joho_godotenv",
       "_origin": "semantic",
-      "community": 3,
-      "community_name": "Backend Routing Runtime",
+      "community": 2,
+      "community_name": "main.go",
       "external": true,
       "file_type": "concept",
       "norm_label": "go_pkg_github_com_joho_godotenv",
@@ -2007,11 +2028,23 @@
       "type": "external"
     },
     {
+      "id": "go_pkg_github_com_rs_zerolog",
+      "label": "go_pkg_github_com_rs_zerolog",
+      "_origin": "semantic",
+      "community": 2,
+      "community_name": "main.go",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "go_pkg_github_com_rs_zerolog",
+      "source_file": "",
+      "type": "external"
+    },
+    {
       "id": "go_pkg_log",
       "label": "go_pkg_log",
       "_origin": "semantic",
-      "community": 3,
-      "community_name": "Backend Routing Runtime",
+      "community": 2,
+      "community_name": "main.go",
       "external": true,
       "file_type": "concept",
       "norm_label": "go_pkg_log",
@@ -2022,8 +2055,8 @@
       "id": "go_pkg_net_http",
       "label": "go_pkg_net_http",
       "_origin": "semantic",
-      "community": 3,
-      "community_name": "Backend Routing Runtime",
+      "community": 2,
+      "community_name": "main.go",
       "external": true,
       "file_type": "concept",
       "norm_label": "go_pkg_net_http",
@@ -2031,11 +2064,23 @@
       "type": "external"
     },
     {
+      "id": "go_pkg_os",
+      "label": "go_pkg_os",
+      "_origin": "semantic",
+      "community": 2,
+      "community_name": "main.go",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "go_pkg_os",
+      "source_file": "",
+      "type": "external"
+    },
+    {
       "id": "go_pkg_time",
       "label": "go_pkg_time",
       "_origin": "semantic",
-      "community": 3,
-      "community_name": "Backend Routing Runtime",
+      "community": 2,
+      "community_name": "main.go",
       "external": true,
       "file_type": "concept",
       "norm_label": "go_pkg_time",
@@ -2154,7 +2199,7 @@
     },
     {
       "source": "frontend_app_how_it_works_page",
-      "target": "frontend_app_components_site_footer_sitefooter",
+      "target": "frontend_app_components_page_animations_pageanimations",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -2166,7 +2211,7 @@
     },
     {
       "source": "frontend_app_how_it_works_page",
-      "target": "frontend_app_components_site_header_siteheader",
+      "target": "frontend_app_components_site_footer_sitefooter",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -2174,6 +2219,18 @@
       "context": "import",
       "source_file": "frontend/app/how-it-works/page.tsx",
       "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_app_how_it_works_page",
+      "target": "frontend_app_components_site_header_siteheader",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/app/how-it-works/page.tsx",
+      "source_location": "L5",
       "weight": 1.0
     },
     {
@@ -2201,8 +2258,20 @@
       "weight": 1.0
     },
     {
+      "source": "frontend_app_page",
+      "target": "frontend_app_components_page_animations_pageanimations",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/app/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
       "source": "frontend_app_product_page",
-      "target": "frontend_app_components_site_footer_sitefooter",
+      "target": "frontend_app_components_page_animations_pageanimations",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -2214,7 +2283,7 @@
     },
     {
       "source": "frontend_app_product_page",
-      "target": "frontend_app_components_site_header_siteheader",
+      "target": "frontend_app_components_site_footer_sitefooter",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -2222,6 +2291,18 @@
       "context": "import",
       "source_file": "frontend/app/product/page.tsx",
       "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_app_product_page",
+      "target": "frontend_app_components_site_header_siteheader",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/app/product/page.tsx",
+      "source_location": "L5",
       "weight": 1.0
     },
     {
@@ -2238,7 +2319,7 @@
     },
     {
       "source": "frontend_package",
-      "target": "ref_next",
+      "target": "ref_gsap",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -2250,7 +2331,7 @@
     },
     {
       "source": "frontend_package",
-      "target": "ref_react",
+      "target": "ref_next",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -2262,7 +2343,7 @@
     },
     {
       "source": "frontend_package",
-      "target": "ref_react_dom",
+      "target": "ref_react",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -2274,19 +2355,19 @@
     },
     {
       "source": "frontend_package",
-      "target": "ref_tailwindcss_postcss",
+      "target": "ref_react_dom",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/package.json",
-      "source_location": "L18",
+      "source_location": "L16",
       "weight": 1.0
     },
     {
       "source": "frontend_package",
-      "target": "ref_types_node",
+      "target": "ref_tailwindcss_postcss",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -2298,7 +2379,7 @@
     },
     {
       "source": "frontend_package",
-      "target": "ref_types_react",
+      "target": "ref_types_node",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -2310,7 +2391,7 @@
     },
     {
       "source": "frontend_package",
-      "target": "ref_types_react_dom",
+      "target": "ref_types_react",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -2322,7 +2403,7 @@
     },
     {
       "source": "frontend_package",
-      "target": "ref_eslint",
+      "target": "ref_types_react_dom",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -2334,7 +2415,7 @@
     },
     {
       "source": "frontend_package",
-      "target": "ref_eslint_config_next",
+      "target": "ref_eslint",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -2346,7 +2427,7 @@
     },
     {
       "source": "frontend_package",
-      "target": "ref_tailwindcss",
+      "target": "ref_eslint_config_next",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -2358,7 +2439,7 @@
     },
     {
       "source": "frontend_package",
-      "target": "ref_typescript",
+      "target": "ref_tailwindcss",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -2366,6 +2447,18 @@
       "context": "import",
       "source_file": "frontend/package.json",
       "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_package",
+      "target": "ref_typescript",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/package.json",
+      "source_location": "L26",
       "weight": 1.0
     },
     {
@@ -2537,6 +2630,30 @@
       "weight": 1.0
     },
     {
+      "source": "frontend_app_components_page_animations",
+      "target": "ref_gsap_react",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/app/components/page-animations.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_app_components_page_animations",
+      "target": "ref_gsap",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/app/components/page-animations.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
       "source": "frontend_app_components_site_footer",
       "target": "ref_next",
       "relation": "imports_from",
@@ -2587,7 +2704,7 @@
     },
     {
       "source": "frontend_app_how_it_works_page",
-      "target": "frontend_app_components_site_footer",
+      "target": "frontend_app_components_page_animations",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -2599,7 +2716,7 @@
     },
     {
       "source": "frontend_app_how_it_works_page",
-      "target": "frontend_app_components_site_header",
+      "target": "frontend_app_components_site_footer",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -2607,6 +2724,18 @@
       "context": "import",
       "source_file": "frontend/app/how-it-works/page.tsx",
       "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_app_how_it_works_page",
+      "target": "frontend_app_components_site_header",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/app/how-it-works/page.tsx",
+      "source_location": "L5",
       "weight": 1.0
     },
     {
@@ -2647,6 +2776,18 @@
       "weight": 1.0
     },
     {
+      "source": "frontend_app_page",
+      "target": "frontend_app_components_page_animations",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/app/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
       "source": "frontend_app_product_page",
       "target": "ref_next",
       "relation": "imports_from",
@@ -2661,7 +2802,7 @@
     },
     {
       "source": "frontend_app_product_page",
-      "target": "frontend_app_components_site_footer",
+      "target": "frontend_app_components_page_animations",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -2673,7 +2814,7 @@
     },
     {
       "source": "frontend_app_product_page",
-      "target": "frontend_app_components_site_header",
+      "target": "frontend_app_components_site_footer",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -2681,6 +2822,18 @@
       "context": "import",
       "source_file": "frontend/app/product/page.tsx",
       "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_app_product_page",
+      "target": "frontend_app_components_site_header",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/app/product/page.tsx",
+      "source_location": "L5",
       "weight": 1.0
     },
     {
@@ -2847,6 +3000,17 @@
       "weight": 1.0
     },
     {
+      "source": "frontend_app_components_page_animations",
+      "target": "frontend_app_components_page_animations_pageanimations",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/app/components/page-animations.tsx",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
       "source": "frontend_app_components_site_footer",
       "target": "frontend_app_components_site_footer_sitefooter",
       "relation": "contains",
@@ -2898,7 +3062,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/app/how-it-works/page.tsx",
-      "source_location": "L11",
+      "source_location": "L12",
       "weight": 1.0
     },
     {
@@ -2909,7 +3073,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/app/how-it-works/page.tsx",
-      "source_location": "L18",
+      "source_location": "L19",
       "weight": 1.0
     },
     {
@@ -2920,7 +3084,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/app/how-it-works/page.tsx",
-      "source_location": "L25",
+      "source_location": "L26",
       "weight": 1.0
     },
     {
@@ -2931,7 +3095,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/app/how-it-works/page.tsx",
-      "source_location": "L33",
+      "source_location": "L34",
       "weight": 1.0
     },
     {
@@ -2942,7 +3106,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/app/how-it-works/page.tsx",
-      "source_location": "L37",
+      "source_location": "L38",
       "weight": 1.0
     },
     {
@@ -2953,7 +3117,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/app/how-it-works/page.tsx",
-      "source_location": "L6",
+      "source_location": "L7",
       "weight": 1.0
     },
     {
@@ -3008,7 +3172,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/app/page.tsx",
-      "source_location": "L11",
+      "source_location": "L12",
       "weight": 1.0
     },
     {
@@ -3019,18 +3183,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/app/page.tsx",
-      "source_location": "L18",
-      "weight": 1.0
-    },
-    {
-      "source": "frontend_app_page",
-      "target": "frontend_app_page_days",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "frontend/app/page.tsx",
-      "source_location": "L3",
+      "source_location": "L19",
       "weight": 1.0
     },
     {
@@ -3041,7 +3194,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/app/page.tsx",
-      "source_location": "L30",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_app_page",
+      "target": "frontend_app_page_days",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/app/page.tsx",
+      "source_location": "L4",
       "weight": 1.0
     },
     {
@@ -3052,7 +3216,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/app/product/page.tsx",
-      "source_location": "L11",
+      "source_location": "L12",
       "weight": 1.0
     },
     {
@@ -3063,7 +3227,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/app/product/page.tsx",
-      "source_location": "L18",
+      "source_location": "L19",
       "weight": 1.0
     },
     {
@@ -3074,7 +3238,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/app/product/page.tsx",
-      "source_location": "L45",
+      "source_location": "L46",
       "weight": 1.0
     },
     {
@@ -3085,7 +3249,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/app/product/page.tsx",
-      "source_location": "L53",
+      "source_location": "L54",
       "weight": 1.0
     },
     {
@@ -3096,7 +3260,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/app/product/page.tsx",
-      "source_location": "L6",
+      "source_location": "L7",
       "weight": 1.0
     },
     {
@@ -3140,7 +3304,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/package.json",
-      "source_location": "L17",
+      "source_location": "L18",
       "weight": 1.0
     },
     {
@@ -3162,7 +3326,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/package.json",
-      "source_location": "L27",
+      "source_location": "L28",
       "weight": 1.0
     },
     {
@@ -3173,7 +3337,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/package.json",
-      "source_location": "L28",
+      "source_location": "L29",
       "weight": 1.0
     },
     {
@@ -3195,7 +3359,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/package.json",
-      "source_location": "L32",
+      "source_location": "L33",
       "weight": 1.0
     },
     {
@@ -3233,7 +3397,7 @@
     },
     {
       "source": "frontend_package_dependencies",
-      "target": "frontend_package_dependencies_next",
+      "target": "frontend_package_dependencies_gsap",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3244,7 +3408,7 @@
     },
     {
       "source": "frontend_package_dependencies",
-      "target": "frontend_package_dependencies_react",
+      "target": "frontend_package_dependencies_next",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3255,13 +3419,24 @@
     },
     {
       "source": "frontend_package_dependencies",
-      "target": "frontend_package_dependencies_react_dom",
+      "target": "frontend_package_dependencies_react",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/package.json",
       "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_package_dependencies",
+      "target": "frontend_package_dependencies_react_dom",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/package.json",
+      "source_location": "L16",
       "weight": 1.0
     },
     {
@@ -3272,7 +3447,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/package.json",
-      "source_location": "L18",
+      "source_location": "L19",
       "weight": 1.0
     },
     {
@@ -3283,7 +3458,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/package.json",
-      "source_location": "L19",
+      "source_location": "L20",
       "weight": 1.0
     },
     {
@@ -3294,7 +3469,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/package.json",
-      "source_location": "L20",
+      "source_location": "L21",
       "weight": 1.0
     },
     {
@@ -3305,7 +3480,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/package.json",
-      "source_location": "L21",
+      "source_location": "L22",
       "weight": 1.0
     },
     {
@@ -3316,7 +3491,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/package.json",
-      "source_location": "L22",
+      "source_location": "L23",
       "weight": 1.0
     },
     {
@@ -3327,7 +3502,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/package.json",
-      "source_location": "L23",
+      "source_location": "L24",
       "weight": 1.0
     },
     {
@@ -3338,7 +3513,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/package.json",
-      "source_location": "L24",
+      "source_location": "L25",
       "weight": 1.0
     },
     {
@@ -3349,7 +3524,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/package.json",
-      "source_location": "L25",
+      "source_location": "L26",
       "weight": 1.0
     },
     {

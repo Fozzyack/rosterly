@@ -154,6 +154,42 @@
       "source_location": "L34"
     },
     {
+      "id": "frontend_app_login_login_form_loginform",
+      "label": "LoginForm()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "how-it-works/page.tsx",
+      "file_type": "code",
+      "norm_label": "loginform()",
+      "source_file": "frontend/app/login/login-form.tsx",
+      "source_location": "L7"
+    },
+    {
+      "id": "frontend_app_login_login_form_loginform_handlesubmit",
+      "label": "handleSubmit()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "how-it-works/page.tsx",
+      "file_type": "code",
+      "norm_label": "handlesubmit()",
+      "source_file": "frontend/app/login/login-form.tsx",
+      "source_location": "L13"
+    },
+    {
+      "id": "frontend_app_login_page_loginpage",
+      "label": "LoginPage()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "how-it-works/page.tsx",
+      "file_type": "code",
+      "norm_label": "loginpage()",
+      "source_file": "frontend/app/login/page.tsx",
+      "source_location": "L5"
+    },
+    {
       "id": "frontend_app_page_home",
       "label": "Home()",
       "_callable": true,
@@ -188,6 +224,42 @@
       "norm_label": "productpage()",
       "source_file": "frontend/app/product/page.tsx",
       "source_location": "L54"
+    },
+    {
+      "id": "frontend_app_signup_page_signuppage",
+      "label": "SignupPage()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "how-it-works/page.tsx",
+      "file_type": "code",
+      "norm_label": "signuppage()",
+      "source_file": "frontend/app/signup/page.tsx",
+      "source_location": "L5"
+    },
+    {
+      "id": "frontend_app_signup_signup_form_signupform",
+      "label": "SignupForm()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "how-it-works/page.tsx",
+      "file_type": "code",
+      "norm_label": "signupform()",
+      "source_file": "frontend/app/signup/signup-form.tsx",
+      "source_location": "L7"
+    },
+    {
+      "id": "frontend_app_signup_signup_form_signupform_handlesubmit",
+      "label": "handleSubmit()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "how-it-works/page.tsx",
+      "file_type": "code",
+      "norm_label": "handlesubmit()",
+      "source_file": "frontend/app/signup/signup-form.tsx",
+      "source_location": "L13"
     },
     {
       "id": "frontend_eslint_config",
@@ -364,17 +436,6 @@
       "norm_label": "eslint-config-next",
       "source_file": "frontend/package.json",
       "source_location": "L24"
-    },
-    {
-      "id": "ref_react",
-      "label": "react",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "package.json",
-      "file_type": "concept",
-      "norm_label": "react",
-      "source_file": "frontend/package.json",
-      "source_location": "L15"
     },
     {
       "id": "ref_react_dom",
@@ -803,7 +864,7 @@
       "file_type": "code",
       "norm_label": "application",
       "source_file": "backend/internal/app/app.go",
-      "source_location": "L8"
+      "source_location": "L11"
     },
     {
       "id": "backend_internal_app_app_newapplication",
@@ -814,7 +875,62 @@
       "file_type": "code",
       "norm_label": "newapplication()",
       "source_file": "backend/internal/app/app.go",
+      "source_location": "L15"
+    },
+    {
+      "id": "backend_internal_database_database",
+      "label": "database.go",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "main.go",
+      "file_type": "code",
+      "norm_label": "database.go",
+      "source_file": "backend/internal/database/database.go",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_internal_database_database_migratedb",
+      "label": "MigrateDB()",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "main.go",
+      "file_type": "code",
+      "norm_label": "migratedb()",
+      "source_file": "backend/internal/database/database.go",
+      "source_location": "L25"
+    },
+    {
+      "id": "backend_internal_database_database_open",
+      "label": "Open()",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "main.go",
+      "file_type": "code",
+      "norm_label": "open()",
+      "source_file": "backend/internal/database/database.go",
       "source_location": "L12"
+    },
+    {
+      "id": "backend_internal_env_db_env",
+      "label": "db_env.go",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "main.go",
+      "file_type": "code",
+      "norm_label": "db_env.go",
+      "source_file": "backend/internal/env/db_env.go",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_internal_env_db_env_getdatabaseurl",
+      "label": "GetDatabaseURL()",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "main.go",
+      "file_type": "code",
+      "norm_label": "getdatabaseurl()",
+      "source_file": "backend/internal/env/db_env.go",
+      "source_location": "L8"
     },
     {
       "id": "backend_internal_env_env",
@@ -905,6 +1021,17 @@
       "source_location": ""
     },
     {
+      "id": "go_type_database_sql_db",
+      "label": "database/sql.DB",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "main.go",
+      "file_type": "code",
+      "norm_label": "database/sql.db",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
       "id": "go_type_github_com_rs_zerolog_logger",
       "label": "github.com/rs/zerolog.Logger",
       "_origin": "ast",
@@ -912,6 +1039,17 @@
       "community_name": "main.go",
       "file_type": "code",
       "norm_label": "github.com/rs/zerolog.logger",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "go_type_io_fs_fs",
+      "label": "io/fs.FS",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "main.go",
+      "file_type": "code",
+      "norm_label": "io/fs.fs",
       "source_file": "",
       "source_location": ""
     },
@@ -927,6 +1065,17 @@
       "source_file": "backend/go.mod",
       "source_location": "L1",
       "type": "package"
+    },
+    {
+      "id": "backend_migrations_fs",
+      "label": "fs.go",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "fs.go",
+      "file_type": "code",
+      "norm_label": "fs.go",
+      "source_file": "backend/migrations/fs.go",
+      "source_location": "L1"
     },
     {
       "id": "frontend_app_layout",
@@ -1171,6 +1320,28 @@
       "source_location": "L7"
     },
     {
+      "id": "frontend_app_login_login_form",
+      "label": "login-form.tsx",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "how-it-works/page.tsx",
+      "file_type": "code",
+      "norm_label": "login-form.tsx",
+      "source_file": "frontend/app/login/login-form.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "frontend_app_login_page",
+      "label": "login/page.tsx",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "how-it-works/page.tsx",
+      "file_type": "code",
+      "norm_label": "login/page.tsx",
+      "source_file": "frontend/app/login/page.tsx",
+      "source_location": "L1"
+    },
+    {
       "id": "frontend_app_page",
       "label": "app/page.tsx",
       "_origin": "ast",
@@ -1259,6 +1430,28 @@
       "source_location": "L12"
     },
     {
+      "id": "frontend_app_signup_page",
+      "label": "signup/page.tsx",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "how-it-works/page.tsx",
+      "file_type": "code",
+      "norm_label": "signup/page.tsx",
+      "source_file": "frontend/app/signup/page.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "frontend_app_signup_signup_form",
+      "label": "signup-form.tsx",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "how-it-works/page.tsx",
+      "file_type": "code",
+      "norm_label": "signup-form.tsx",
+      "source_file": "frontend/app/signup/signup-form.tsx",
+      "source_location": "L1"
+    },
+    {
       "id": "frontend_next_config",
       "label": "next.config.ts",
       "_origin": "ast",
@@ -1312,6 +1505,17 @@
       "norm_label": "next",
       "source_file": "frontend/package.json",
       "source_location": "L14"
+    },
+    {
+      "id": "ref_react",
+      "label": "react",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "how-it-works/page.tsx",
+      "file_type": "concept",
+      "norm_label": "react",
+      "source_file": "frontend/package.json",
+      "source_location": "L15"
     },
     {
       "id": "frontend_agents_local_nextjs_documentation",
@@ -2122,9 +2326,122 @@
       "norm_label": "ref_path",
       "source_file": "",
       "type": "external"
+    },
+    {
+      "id": "go_pkg_database_sql",
+      "label": "go_pkg_database_sql",
+      "community": 2,
+      "community_name": "main.go",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "go_pkg_database_sql",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "go_pkg_github_com_fozzyack_rosterly_m_internal_database",
+      "label": "go_pkg_github_com_fozzyack_rosterly_m_internal_database",
+      "community": 2,
+      "community_name": "main.go",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "go_pkg_github_com_fozzyack_rosterly_m_internal_database",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "go_pkg_github_com_fozzyack_rosterly_m_migrations",
+      "label": "go_pkg_github_com_fozzyack_rosterly_m_migrations",
+      "community": 2,
+      "community_name": "main.go",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "go_pkg_github_com_fozzyack_rosterly_m_migrations",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "go_pkg_github_com_jackc_pgx_v5_stdlib",
+      "label": "go_pkg_github_com_jackc_pgx_v5_stdlib",
+      "community": 2,
+      "community_name": "main.go",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "go_pkg_github_com_jackc_pgx_v5_stdlib",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "go_pkg_github_com_pressly_goose_v3",
+      "label": "go_pkg_github_com_pressly_goose_v3",
+      "community": 2,
+      "community_name": "main.go",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "go_pkg_github_com_pressly_goose_v3",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "go_pkg_io_fs",
+      "label": "go_pkg_io_fs",
+      "community": 2,
+      "community_name": "main.go",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "go_pkg_io_fs",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "go_pkg_embed",
+      "label": "go_pkg_embed",
+      "community": 3,
+      "community_name": "fs.go",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "go_pkg_embed",
+      "source_file": "",
+      "type": "external"
     }
   ],
   "links": [
+    {
+      "source": "backend_internal_app_app_newapplication",
+      "target": "backend_internal_database_database_open",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "backend/internal/app/app.go",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_internal_app_app_newapplication",
+      "target": "backend_internal_database_database_migratedb",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "backend/internal/app/app.go",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_internal_database_database_open",
+      "target": "backend_internal_env_db_env_getdatabaseurl",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "backend/internal/database/database.go",
+      "source_location": "L13",
+      "weight": 1.0
+    },
     {
       "source": "backend_internal_env_env_isproduction",
       "target": "backend_internal_env_env_getenv",
@@ -2182,7 +2499,7 @@
       "confidence_score": 1.0,
       "context": "field",
       "source_file": "backend/internal/app/app.go",
-      "source_location": "L9",
+      "source_location": "L12",
       "weight": 1.0
     },
     {
@@ -2234,6 +2551,54 @@
       "weight": 1.0
     },
     {
+      "source": "frontend_app_login_page",
+      "target": "frontend_app_login_login_form_loginform",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/app/login/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_app_login_page",
+      "target": "frontend_app_components_page_animations_pageanimations",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/app/login/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_app_login_page",
+      "target": "frontend_app_components_site_header_logomark",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/app/login/page.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_app_login_page",
+      "target": "frontend_app_components_site_header_siteheader",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/app/login/page.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
       "source": "frontend_app_page",
       "target": "frontend_app_components_site_header_logomark",
       "relation": "imports",
@@ -2303,6 +2668,54 @@
       "context": "import",
       "source_file": "frontend/app/product/page.tsx",
       "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_app_signup_page",
+      "target": "frontend_app_signup_signup_form_signupform",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/app/signup/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_app_signup_page",
+      "target": "frontend_app_components_page_animations_pageanimations",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/app/signup/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_app_signup_page",
+      "target": "frontend_app_components_site_header_logomark",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/app/signup/page.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_app_signup_page",
+      "target": "frontend_app_components_site_header_siteheader",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/app/signup/page.tsx",
+      "source_location": "L3",
       "weight": 1.0
     },
     {
@@ -2463,7 +2876,7 @@
     },
     {
       "source": "backend_internal_app_app",
-      "target": "go_pkg_github_com_rs_zerolog",
+      "target": "go_pkg_os",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -2475,13 +2888,121 @@
     },
     {
       "source": "backend_internal_app_app",
-      "target": "go_pkg_os",
+      "target": "go_pkg_github_com_fozzyack_rosterly_m_internal_database",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "backend/internal/app/app.go",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_internal_app_app",
+      "target": "go_pkg_github_com_fozzyack_rosterly_m_migrations",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/internal/app/app.go",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_internal_app_app",
+      "target": "go_pkg_github_com_rs_zerolog",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/internal/app/app.go",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_internal_database_database",
+      "target": "go_pkg_database_sql",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/internal/database/database.go",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_internal_database_database",
+      "target": "go_pkg_io_fs",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/internal/database/database.go",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_internal_database_database",
+      "target": "go_pkg_github_com_fozzyack_rosterly_m_internal_env",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/internal/database/database.go",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_internal_database_database",
+      "target": "go_pkg_github_com_jackc_pgx_v5_stdlib",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/internal/database/database.go",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_internal_database_database",
+      "target": "go_pkg_github_com_pressly_goose_v3",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/internal/database/database.go",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_internal_env_db_env",
+      "target": "go_pkg_fmt",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/internal/env/db_env.go",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_internal_env_db_env",
+      "target": "go_pkg_os",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/internal/env/db_env.go",
       "source_location": "L5",
       "weight": 1.0
     },
@@ -2630,6 +3151,18 @@
       "weight": 1.0
     },
     {
+      "source": "backend_migrations_fs",
+      "target": "go_pkg_embed",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/migrations/fs.go",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
       "source": "frontend_app_components_page_animations",
       "target": "ref_gsap_react",
       "relation": "imports_from",
@@ -2764,6 +3297,66 @@
       "weight": 1.0
     },
     {
+      "source": "frontend_app_login_login_form",
+      "target": "ref_next",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/app/login/login-form.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_app_login_login_form",
+      "target": "ref_react",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/app/login/login-form.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_app_login_page",
+      "target": "frontend_app_login_login_form",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/app/login/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_app_login_page",
+      "target": "frontend_app_components_page_animations",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/app/login/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_app_login_page",
+      "target": "frontend_app_components_site_header",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/app/login/page.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
       "source": "frontend_app_page",
       "target": "frontend_app_components_site_header",
       "relation": "imports_from",
@@ -2837,6 +3430,66 @@
       "weight": 1.0
     },
     {
+      "source": "frontend_app_signup_page",
+      "target": "frontend_app_signup_signup_form",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/app/signup/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_app_signup_page",
+      "target": "frontend_app_components_page_animations",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/app/signup/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_app_signup_page",
+      "target": "frontend_app_components_site_header",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/app/signup/page.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_app_signup_signup_form",
+      "target": "ref_next",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/app/signup/signup-form.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_app_signup_signup_form",
+      "target": "ref_react",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/app/signup/signup-form.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
       "source": "frontend_eslint_config",
       "target": "ref_eslint",
       "relation": "imports_from",
@@ -2898,6 +3551,30 @@
       "weight": 1.0
     },
     {
+      "source": "backend_internal_database_database_migratedb",
+      "target": "go_type_database_sql_db",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "source_file": "backend/internal/database/database.go",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_internal_database_database_migratedb",
+      "target": "go_type_io_fs_fs",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "source_file": "backend/internal/database/database.go",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
       "source": "backend_internal_routes_router_setuproutes",
       "target": "backend_internal_app_app_go_app_application",
       "relation": "references",
@@ -2918,6 +3595,18 @@
       "confidence_score": 1.0,
       "context": "return_type",
       "source_file": "backend/internal/app/app.go",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_internal_database_database_open",
+      "target": "go_type_database_sql_db",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "return_type",
+      "source_file": "backend/internal/database/database.go",
       "source_location": "L12",
       "weight": 1.0
     },
@@ -2935,23 +3624,56 @@
     },
     {
       "source": "backend_internal_app_app",
-      "target": "backend_internal_app_app_newapplication",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "backend/internal/app/app.go",
-      "source_location": "L12",
-      "weight": 1.0
-    },
-    {
-      "source": "backend_internal_app_app",
       "target": "backend_internal_app_app_go_app_application",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/internal/app/app.go",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_internal_app_app",
+      "target": "backend_internal_app_app_newapplication",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/internal/app/app.go",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_internal_database_database",
+      "target": "backend_internal_database_database_open",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/internal/database/database.go",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_internal_database_database",
+      "target": "backend_internal_database_database_migratedb",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/internal/database/database.go",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_internal_env_db_env",
+      "target": "backend_internal_env_db_env_getdatabaseurl",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/internal/env/db_env.go",
       "source_location": "L8",
       "weight": 1.0
     },
@@ -3165,6 +3887,39 @@
       "weight": 1.0
     },
     {
+      "source": "frontend_app_login_login_form",
+      "target": "frontend_app_login_login_form_loginform",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/app/login/login-form.tsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_app_login_login_form_loginform",
+      "target": "frontend_app_login_login_form_loginform_handlesubmit",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/app/login/login-form.tsx",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_app_login_page",
+      "target": "frontend_app_login_page_loginpage",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/app/login/page.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
       "source": "frontend_app_page",
       "target": "frontend_app_page_team",
       "relation": "contains",
@@ -3261,6 +4016,39 @@
       "confidence_score": 1.0,
       "source_file": "frontend/app/product/page.tsx",
       "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_app_signup_page",
+      "target": "frontend_app_signup_page_signuppage",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/app/signup/page.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_app_signup_signup_form",
+      "target": "frontend_app_signup_signup_form_signupform",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/app/signup/signup-form.tsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_app_signup_signup_form_signupform",
+      "target": "frontend_app_signup_signup_form_signupform_handlesubmit",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/app/signup/signup-form.tsx",
+      "source_location": "L13",
       "weight": 1.0
     },
     {
@@ -4238,5 +5026,5 @@
       "source_file": "frontend/README.md"
     }
   ],
-  "built_at_commit": "c285a8406a40c06abb8f13325b64710594e57f9e"
+  "built_at_commit": "4918ad817584e6b021cb70c9186f2d7a3d2ef79a"
 }

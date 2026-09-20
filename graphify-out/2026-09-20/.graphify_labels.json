@@ -1,8 +1,7 @@
 {
-  "0": "Frontend Package Configuration",
+  "0": "package.json",
   "1": "TypeScript Compiler Configuration",
-  "2": "Backend Application Setup",
-  "3": "Backend Routing Runtime",
+  "2": "main.go",
   "4": "Next.js Project",
   "5": "layout.tsx",
   "6": "devDependencies",
@@ -10,7 +9,6 @@
   "8": "graphify.js",
   "9": "how-it-works/page.tsx",
   "10": "dependencies",
-  "11": "scripts",
   "12": "Next.js Agent Rules",
   "13": "Document Symbol",
   "14": "Rosterly",
