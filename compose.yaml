@@ -1,0 +1,42 @@
+services:
+
+  db:
+    image: postgres:17-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: rosterly 
+      POSTGRES_PASSWORD: rostlerly 
+      POSTGRES_DB: rosterly
+    ports:
+      - "5432:5432"
+    volumes:
+      - rosterly_data:/var/lib/postgresql
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: backend
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://rosterly:rostlerly@db/rosterly
+    depends_on:
+      - db
+
+  web:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: web
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+    depends_on:
+      - db
+
+volumes:
+  rosterly_data:
+    driver: local
+
