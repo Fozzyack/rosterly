@@ -27,7 +27,7 @@ func (ps *PostgresStore) GetUserByEmail(ctx context.Context, email string) (*mod
 	defer tx.Rollback()
 
 	query := `
-	SELECT id, name, email, password_hash, created_at, updated_at FROM users 
+	SELECT id, name, email, password_hash, created_at, updated_at FROM users
 	WHERE email = $1
 	`
 
@@ -55,7 +55,7 @@ func (ps *PostgresStore) GetUserById(ctx context.Context, userId string) (*model
 	defer tx.Rollback()
 
 	query := `
-	SELECT id, name, email, password_hash, created_at, updated_at FROM users 
+	SELECT id, name, email, password_hash, created_at, updated_at FROM users
 	WHERE id = $1
 	`
 
