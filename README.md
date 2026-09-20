@@ -1,4 +1,4 @@
-# rosterly
+# Rosterly
 
 Simple, automated roster scheduling for small teams.
 
