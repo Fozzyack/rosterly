@@ -24,7 +24,7 @@ backend/
   migrations/         Embedded SQL migrations applied at startup
 frontend/
   app/                App Router pages, account forms, demo dashboard, shared components, and styles
-  lib/                Shared API URL helper
+  lib/                Shared API URL and server-side session helpers
   public/             Static assets
 compose.yaml          Database, API, and web services
 graphify-out/         Generated codebase knowledge graph
@@ -62,7 +62,7 @@ Install Docker with the Compose plugin. From the repository root:
 | API health | http://localhost:8000/health/ |
 | PostgreSQL | `localhost:5432` |
 
-The backend Dockerfile copies `backend/.env` into the image, so the file must exist before building. Rebuild the backend after changing it. The API listens on port `8000`, despite the Dockerfile's `EXPOSE 8080` declaration.
+The backend Dockerfile copies `backend/.env` into the image, so the file must exist before building. Rebuild the backend after changing it. The API listens on port `8000`, despite the Dockerfile's `EXPOSE 8080` declaration. Compose passes `NEXT_PUBLIC_API_URL=http://localhost:8000` (browser bundle, supplied as a build arg) and `API_URL=http://backend:8000` (server-to-server) to the web service.
 
 Stop the stack with `docker compose down`.
 
@@ -96,13 +96,14 @@ bun install
 bun run dev
 ```
 
-Open http://localhost:3000. API requests default to `http://localhost:8000`. To change that address, set `NEXT_PUBLIC_API_URL` in `frontend/.env.local` and restart the development server:
+Open http://localhost:3000. Both API URLs are required — the helpers in `lib/api.ts` throw when a variable is missing. Create `frontend/.env.local`:
 
 ```dotenv
-NEXT_PUBLIC_API_URL=http://localhost:8001
+NEXT_PUBLIC_API_URL=http://localhost:8000
+API_URL=http://localhost:8000
 ```
 
-For production builds, set this variable before `bun run build`; Next.js embeds public environment variables into the browser bundle. The current Docker build uses the helper's localhost default unless a value is supplied at build time; Compose's runtime variable does not change an already-built bundle.
+`NEXT_PUBLIC_API_URL` is read in the browser (the signup form still posts directly to the API) and is embedded into the browser bundle at build time, so restart or rebuild after changing it. `API_URL` is server-only and is used by the Next.js route handlers when they call the API, so it can point at an internal address such as `http://backend:8000` under Compose.
 
 ## API and current integration status
 
@@ -133,9 +134,10 @@ User creation returns HTTP `201` with the user's name, email, and timestamps. Lo
 Current frontend integration status:
 
 - The signup form posts to `/users/` and redirects to `/login` on success.
-- The login form posts to `/auth/login/`, stores the returned token in browser `localStorage` as `session_token`, and navigates to `/dashboard`. The backend does not yet validate tokens on requests, and the dashboard is not auth-gated.
+- The login form posts to the same-origin `/api/auth/login` route handler, which calls the backend's `/auth/login/`, stores the returned token in an httpOnly `session_token` cookie, and redirects to `/dashboard`. Server-side requests to the backend attach the token as `Authorization: Bearer <token>` through `lib/auth.ts`. Logging out clears the cookie via `/api/auth/logout`. The backend does not yet validate tokens on every request, and the dashboard is not auth-gated.
+- The token never reaches browser JavaScript: the cookie is httpOnly and the backend is called from the Next.js server.
 - The dashboard is a client-side demo workspace with static sample data; edits reset on refresh.
-- The backend has no CORS middleware, and the frontend has no API proxy. Browser JSON requests from port `3000` to `8000` require that integration before signup and login work end to end; direct API requests such as `curl` are unaffected.
+- The signup form still posts directly from the browser to port `8000`, so it needs CORS or a same-origin proxy; the backend has no CORS middleware. Login no longer has this problem because it runs through the Next.js server. Direct API requests such as `curl` are unaffected.
 - Google sign-in and password recovery are not wired into the UI flow.
 
 ## Development checks

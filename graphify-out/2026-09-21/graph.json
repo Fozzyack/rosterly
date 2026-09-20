@@ -43,7 +43,7 @@
       "file_type": "code",
       "norm_label": "requeststatus",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L14"
+      "source_location": "L13"
     },
     {
       "id": "frontend_app_dashboard_dashboard_week",
@@ -56,7 +56,7 @@
       "file_type": "code",
       "norm_label": "week",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L13"
+      "source_location": "L12"
     },
     {
       "id": "frontend_app_dashboard_data_employee",
@@ -163,138 +163,6 @@
       "source_location": "L3"
     },
     {
-      "id": "frontend_app_api_auth_login_route_post",
-      "label": "POST()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "next",
-      "file_type": "code",
-      "norm_label": "post()",
-      "source_file": "frontend/app/api/auth/login/route.ts",
-      "source_location": "L7"
-    },
-    {
-      "id": "frontend_app_api_auth_logout_route_post",
-      "label": "POST()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "next",
-      "file_type": "code",
-      "norm_label": "post()",
-      "source_file": "frontend/app/api/auth/logout/route.ts",
-      "source_location": "L6"
-    },
-    {
-      "id": "frontend_app_layout_rootlayout",
-      "label": "RootLayout()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "next",
-      "file_type": "code",
-      "norm_label": "rootlayout()",
-      "source_file": "frontend/app/layout.tsx",
-      "source_location": "L20"
-    },
-    {
-      "id": "frontend_app_signup_page_signuppage",
-      "label": "SignupPage()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "next",
-      "file_type": "code",
-      "norm_label": "signuppage()",
-      "source_file": "frontend/app/signup/page.tsx",
-      "source_location": "L5"
-    },
-    {
-      "id": "frontend_app_signup_signup_form_signupform",
-      "label": "SignupForm()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "next",
-      "file_type": "code",
-      "norm_label": "signupform()",
-      "source_file": "frontend/app/signup/signup-form.tsx",
-      "source_location": "L9"
-    },
-    {
-      "id": "frontend_app_signup_signup_form_signupform_handlesubmit",
-      "label": "handleSubmit()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "next",
-      "file_type": "code",
-      "norm_label": "handlesubmit()",
-      "source_file": "frontend/app/signup/signup-form.tsx",
-      "source_location": "L15"
-    },
-    {
-      "id": "frontend_lib_api_getapiurl",
-      "label": "getApiUrl()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "next",
-      "file_type": "code",
-      "norm_label": "getapiurl()",
-      "source_file": "frontend/lib/api.ts",
-      "source_location": "L13"
-    },
-    {
-      "id": "frontend_lib_api_getserverapiurl",
-      "label": "getServerApiUrl()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "next",
-      "file_type": "code",
-      "norm_label": "getserverapiurl()",
-      "source_file": "frontend/lib/api.ts",
-      "source_location": "L17"
-    },
-    {
-      "id": "frontend_lib_api_requireapiurl",
-      "label": "requireApiUrl()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "next",
-      "file_type": "code",
-      "norm_label": "requireapiurl()",
-      "source_file": "frontend/lib/api.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "frontend_lib_auth_backendfetch",
-      "label": "backendFetch()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "next",
-      "file_type": "code",
-      "norm_label": "backendfetch()",
-      "source_file": "frontend/lib/auth.ts",
-      "source_location": "L12"
-    },
-    {
-      "id": "frontend_lib_auth_getsessiontoken",
-      "label": "getSessionToken()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "next",
-      "file_type": "code",
-      "norm_label": "getsessiontoken()",
-      "source_file": "frontend/lib/auth.ts",
-      "source_location": "L8"
-    },
-    {
       "id": "frontend_app_dashboard_dashboard_dashboard",
       "label": "Dashboard()",
       "_callable": true,
@@ -304,7 +172,7 @@
       "file_type": "code",
       "norm_label": "dashboard()",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L31"
+      "source_location": "L30"
     },
     {
       "id": "frontend_app_dashboard_dashboard_dashboard_deleteshift",
@@ -316,7 +184,7 @@
       "file_type": "code",
       "norm_label": "deleteshift()",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L102"
+      "source_location": "L94"
     },
     {
       "id": "frontend_app_dashboard_dashboard_dashboard_exportroster",
@@ -328,19 +196,7 @@
       "file_type": "code",
       "norm_label": "exportroster()",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L125"
-    },
-    {
-      "id": "frontend_app_dashboard_dashboard_dashboard_logout",
-      "label": "logOut()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "dashboard.tsx",
-      "file_type": "code",
-      "norm_label": "logout()",
-      "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L77"
+      "source_location": "L117"
     },
     {
       "id": "frontend_app_dashboard_dashboard_dashboard_navigate",
@@ -352,7 +208,7 @@
       "file_type": "code",
       "norm_label": "navigate()",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L72"
+      "source_location": "L70"
     },
     {
       "id": "frontend_app_dashboard_dashboard_dashboard_notify",
@@ -364,7 +220,7 @@
       "file_type": "code",
       "norm_label": "notify()",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L62"
+      "source_location": "L60"
     },
     {
       "id": "frontend_app_dashboard_dashboard_dashboard_reviewrequest",
@@ -376,7 +232,7 @@
       "file_type": "code",
       "norm_label": "reviewrequest()",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L109"
+      "source_location": "L101"
     },
     {
       "id": "frontend_app_dashboard_dashboard_dashboard_saveshift",
@@ -388,7 +244,7 @@
       "file_type": "code",
       "norm_label": "saveshift()",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L83"
+      "source_location": "L75"
     },
     {
       "id": "frontend_app_dashboard_dashboard_dashboard_updateweek",
@@ -400,7 +256,7 @@
       "file_type": "code",
       "norm_label": "updateweek()",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L68"
+      "source_location": "L66"
     },
     {
       "id": "frontend_app_dashboard_dashboard_datelabel",
@@ -412,7 +268,7 @@
       "file_type": "code",
       "norm_label": "datelabel()",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L24"
+      "source_location": "L23"
     },
     {
       "id": "frontend_app_dashboard_dashboard_emptyweek",
@@ -424,7 +280,7 @@
       "file_type": "code",
       "norm_label": "emptyweek()",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L16"
+      "source_location": "L15"
     },
     {
       "id": "frontend_app_dashboard_dashboard_weekdates",
@@ -436,7 +292,7 @@
       "file_type": "code",
       "norm_label": "weekdates()",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L20"
+      "source_location": "L19"
     },
     {
       "id": "frontend_app_dashboard_data_formathours",
@@ -631,6 +487,18 @@
       "source_location": "L34"
     },
     {
+      "id": "frontend_app_layout_rootlayout",
+      "label": "RootLayout()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "how-it-works/page.tsx",
+      "file_type": "code",
+      "norm_label": "rootlayout()",
+      "source_file": "frontend/app/layout.tsx",
+      "source_location": "L20"
+    },
+    {
       "id": "frontend_app_login_login_form_loginform",
       "label": "LoginForm()",
       "_callable": true,
@@ -640,7 +508,7 @@
       "file_type": "code",
       "norm_label": "loginform()",
       "source_file": "frontend/app/login/login-form.tsx",
-      "source_location": "L7"
+      "source_location": "L9"
     },
     {
       "id": "frontend_app_login_login_form_loginform_handlesubmit",
@@ -652,7 +520,7 @@
       "file_type": "code",
       "norm_label": "handlesubmit()",
       "source_file": "frontend/app/login/login-form.tsx",
-      "source_location": "L13"
+      "source_location": "L15"
     },
     {
       "id": "frontend_app_login_page_loginpage",
@@ -701,6 +569,54 @@
       "norm_label": "productpage()",
       "source_file": "frontend/app/product/page.tsx",
       "source_location": "L54"
+    },
+    {
+      "id": "frontend_app_signup_page_signuppage",
+      "label": "SignupPage()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "how-it-works/page.tsx",
+      "file_type": "code",
+      "norm_label": "signuppage()",
+      "source_file": "frontend/app/signup/page.tsx",
+      "source_location": "L5"
+    },
+    {
+      "id": "frontend_app_signup_signup_form_signupform",
+      "label": "SignupForm()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "how-it-works/page.tsx",
+      "file_type": "code",
+      "norm_label": "signupform()",
+      "source_file": "frontend/app/signup/signup-form.tsx",
+      "source_location": "L9"
+    },
+    {
+      "id": "frontend_app_signup_signup_form_signupform_handlesubmit",
+      "label": "handleSubmit()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "how-it-works/page.tsx",
+      "file_type": "code",
+      "norm_label": "handlesubmit()",
+      "source_file": "frontend/app/signup/signup-form.tsx",
+      "source_location": "L15"
+    },
+    {
+      "id": "frontend_lib_api_getapiurl",
+      "label": "getApiUrl()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "how-it-works/page.tsx",
+      "file_type": "code",
+      "norm_label": "getapiurl()",
+      "source_file": "frontend/lib/api.ts",
+      "source_location": "L3"
     },
     {
       "id": "frontend_eslint_config",
@@ -1042,6 +958,28 @@
       "norm_label": "eslint-config-next",
       "source_file": "frontend/package.json",
       "source_location": "L24"
+    },
+    {
+      "id": "ref_gsap",
+      "label": "gsap",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "package.json",
+      "file_type": "concept",
+      "norm_label": "gsap",
+      "source_file": "frontend/package.json",
+      "source_location": "L13"
+    },
+    {
+      "id": "ref_gsap_react",
+      "label": "@gsap/react",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "package.json",
+      "file_type": "concept",
+      "norm_label": "@gsap/react",
+      "source_file": "frontend/package.json",
+      "source_location": "L12"
     },
     {
       "id": "ref_react_dom",
@@ -1418,6 +1356,17 @@
       "source_location": "L27"
     },
     {
+      "id": "backend_internal_database_database",
+      "label": "database.go",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "NewApplication",
+      "file_type": "code",
+      "norm_label": "database.go",
+      "source_file": "backend/internal/database/database.go",
+      "source_location": "L1"
+    },
+    {
       "id": "backend_internal_database_database_migratedb",
       "label": "MigrateDB()",
       "_origin": "ast",
@@ -1427,6 +1376,28 @@
       "norm_label": "migratedb()",
       "source_file": "backend/internal/database/database.go",
       "source_location": "L25"
+    },
+    {
+      "id": "backend_internal_database_database_open",
+      "label": "Open()",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "NewApplication",
+      "file_type": "code",
+      "norm_label": "open()",
+      "source_file": "backend/internal/database/database.go",
+      "source_location": "L12"
+    },
+    {
+      "id": "backend_internal_env_db_env_getdatabaseurl",
+      "label": "GetDatabaseURL()",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "NewApplication",
+      "file_type": "code",
+      "norm_label": "getdatabaseurl()",
+      "source_file": "backend/internal/env/db_env.go",
+      "source_location": "L8"
     },
     {
       "id": "backend_internal_store_session_store_go_store_sessionstore",
@@ -1748,28 +1719,6 @@
       "source_location": "L1"
     },
     {
-      "id": "backend_internal_database_database",
-      "label": "database.go",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "main.go",
-      "file_type": "code",
-      "norm_label": "database.go",
-      "source_file": "backend/internal/database/database.go",
-      "source_location": "L1"
-    },
-    {
-      "id": "backend_internal_database_database_open",
-      "label": "Open()",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "main.go",
-      "file_type": "code",
-      "norm_label": "open()",
-      "source_file": "backend/internal/database/database.go",
-      "source_location": "L12"
-    },
-    {
       "id": "backend_internal_env_db_env",
       "label": "db_env.go",
       "_origin": "ast",
@@ -1779,17 +1728,6 @@
       "norm_label": "db_env.go",
       "source_file": "backend/internal/env/db_env.go",
       "source_location": "L1"
-    },
-    {
-      "id": "backend_internal_env_db_env_getdatabaseurl",
-      "label": "GetDatabaseURL()",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "main.go",
-      "file_type": "code",
-      "norm_label": "getdatabaseurl()",
-      "source_file": "backend/internal/env/db_env.go",
-      "source_location": "L8"
     },
     {
       "id": "backend_internal_env_env",
@@ -1891,171 +1829,6 @@
       "source_file": "backend/go.mod",
       "source_location": "L1",
       "type": "package"
-    },
-    {
-      "id": "frontend_app_api_auth_login_route",
-      "label": "login/route.ts",
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "next",
-      "file_type": "code",
-      "norm_label": "login/route.ts",
-      "source_file": "frontend/app/api/auth/login/route.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "frontend_app_api_auth_logout_route",
-      "label": "logout/route.ts",
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "next",
-      "file_type": "code",
-      "norm_label": "logout/route.ts",
-      "source_file": "frontend/app/api/auth/logout/route.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "frontend_app_layout",
-      "label": "layout.tsx",
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "next",
-      "file_type": "code",
-      "norm_label": "layout.tsx",
-      "source_file": "frontend/app/layout.tsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "frontend_app_layout_geistmono",
-      "label": "geistMono",
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "next",
-      "file_type": "code",
-      "norm_label": "geistmono",
-      "source_file": "frontend/app/layout.tsx",
-      "source_location": "L10"
-    },
-    {
-      "id": "frontend_app_layout_geistsans",
-      "label": "geistSans",
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "next",
-      "file_type": "code",
-      "norm_label": "geistsans",
-      "source_file": "frontend/app/layout.tsx",
-      "source_location": "L5"
-    },
-    {
-      "id": "frontend_app_layout_metadata",
-      "label": "metadata",
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "next",
-      "file_type": "code",
-      "norm_label": "metadata",
-      "source_file": "frontend/app/layout.tsx",
-      "source_location": "L15"
-    },
-    {
-      "id": "frontend_app_signup_page",
-      "label": "signup/page.tsx",
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "next",
-      "file_type": "code",
-      "norm_label": "signup/page.tsx",
-      "source_file": "frontend/app/signup/page.tsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "frontend_app_signup_signup_form",
-      "label": "signup-form.tsx",
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "next",
-      "file_type": "code",
-      "norm_label": "signup-form.tsx",
-      "source_file": "frontend/app/signup/signup-form.tsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "frontend_lib_api",
-      "label": "api.ts",
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "next",
-      "file_type": "code",
-      "norm_label": "api.ts",
-      "source_file": "frontend/lib/api.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "frontend_lib_auth",
-      "label": "auth.ts",
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "next",
-      "file_type": "code",
-      "norm_label": "auth.ts",
-      "source_file": "frontend/lib/auth.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "frontend_lib_auth_session_cookie",
-      "label": "SESSION_COOKIE",
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "next",
-      "file_type": "code",
-      "norm_label": "session_cookie",
-      "source_file": "frontend/lib/auth.ts",
-      "source_location": "L5"
-    },
-    {
-      "id": "frontend_lib_auth_session_max_age",
-      "label": "SESSION_MAX_AGE",
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "next",
-      "file_type": "code",
-      "norm_label": "session_max_age",
-      "source_file": "frontend/lib/auth.ts",
-      "source_location": "L6"
-    },
-    {
-      "id": "frontend_next_config",
-      "label": "next.config.ts",
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "next",
-      "file_type": "code",
-      "norm_label": "next.config.ts",
-      "source_file": "frontend/next.config.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "frontend_next_config_nextconfig",
-      "label": "nextConfig",
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "next",
-      "file_type": "code",
-      "norm_label": "nextconfig",
-      "source_file": "frontend/next.config.ts",
-      "source_location": "L3"
-    },
-    {
-      "id": "ref_next",
-      "label": "next",
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "next",
-      "file_type": "concept",
-      "norm_label": "next",
-      "source_file": "frontend/package.json",
-      "source_location": "L14"
     },
     {
       "id": "api_authsessionstore",
@@ -2718,6 +2491,50 @@
       "source_location": "L7"
     },
     {
+      "id": "frontend_app_layout",
+      "label": "layout.tsx",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "how-it-works/page.tsx",
+      "file_type": "code",
+      "norm_label": "layout.tsx",
+      "source_file": "frontend/app/layout.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "frontend_app_layout_geistmono",
+      "label": "geistMono",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "how-it-works/page.tsx",
+      "file_type": "code",
+      "norm_label": "geistmono",
+      "source_file": "frontend/app/layout.tsx",
+      "source_location": "L10"
+    },
+    {
+      "id": "frontend_app_layout_geistsans",
+      "label": "geistSans",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "how-it-works/page.tsx",
+      "file_type": "code",
+      "norm_label": "geistsans",
+      "source_file": "frontend/app/layout.tsx",
+      "source_location": "L5"
+    },
+    {
+      "id": "frontend_app_layout_metadata",
+      "label": "metadata",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "how-it-works/page.tsx",
+      "file_type": "code",
+      "norm_label": "metadata",
+      "source_file": "frontend/app/layout.tsx",
+      "source_location": "L15"
+    },
+    {
       "id": "frontend_app_login_login_form",
       "label": "login-form.tsx",
       "_origin": "ast",
@@ -2828,26 +2645,70 @@
       "source_location": "L12"
     },
     {
-      "id": "ref_gsap",
-      "label": "gsap",
+      "id": "frontend_app_signup_page",
+      "label": "signup/page.tsx",
       "_origin": "ast",
       "community": 9,
       "community_name": "how-it-works/page.tsx",
-      "file_type": "concept",
-      "norm_label": "gsap",
-      "source_file": "frontend/package.json",
-      "source_location": "L13"
+      "file_type": "code",
+      "norm_label": "signup/page.tsx",
+      "source_file": "frontend/app/signup/page.tsx",
+      "source_location": "L1"
     },
     {
-      "id": "ref_gsap_react",
-      "label": "@gsap/react",
+      "id": "frontend_app_signup_signup_form",
+      "label": "signup-form.tsx",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "how-it-works/page.tsx",
+      "file_type": "code",
+      "norm_label": "signup-form.tsx",
+      "source_file": "frontend/app/signup/signup-form.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "frontend_lib_api",
+      "label": "api.ts",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "how-it-works/page.tsx",
+      "file_type": "code",
+      "norm_label": "api.ts",
+      "source_file": "frontend/lib/api.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "frontend_next_config",
+      "label": "next.config.ts",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "how-it-works/page.tsx",
+      "file_type": "code",
+      "norm_label": "next.config.ts",
+      "source_file": "frontend/next.config.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "frontend_next_config_nextconfig",
+      "label": "nextConfig",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "how-it-works/page.tsx",
+      "file_type": "code",
+      "norm_label": "nextconfig",
+      "source_file": "frontend/next.config.ts",
+      "source_location": "L3"
+    },
+    {
+      "id": "ref_next",
+      "label": "next",
       "_origin": "ast",
       "community": 9,
       "community_name": "how-it-works/page.tsx",
       "file_type": "concept",
-      "norm_label": "@gsap/react",
+      "norm_label": "next",
       "source_file": "frontend/package.json",
-      "source_location": "L12"
+      "source_location": "L14"
     },
     {
       "id": "frontend_agents_local_nextjs_documentation",
@@ -3504,6 +3365,18 @@
       "type": "external"
     },
     {
+      "id": "go_pkg_github_com_fozzyack_rosterly_m_internal_env",
+      "label": "go_pkg_github_com_fozzyack_rosterly_m_internal_env",
+      "_origin": "semantic",
+      "community": 10,
+      "community_name": "NewApplication",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "go_pkg_github_com_fozzyack_rosterly_m_internal_env",
+      "source_file": "",
+      "type": "external"
+    },
+    {
       "id": "go_pkg_github_com_fozzyack_rosterly_m_migrations",
       "label": "go_pkg_github_com_fozzyack_rosterly_m_migrations",
       "_origin": "semantic",
@@ -3512,6 +3385,42 @@
       "external": true,
       "file_type": "concept",
       "norm_label": "go_pkg_github_com_fozzyack_rosterly_m_migrations",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "go_pkg_github_com_jackc_pgx_v5_stdlib",
+      "label": "go_pkg_github_com_jackc_pgx_v5_stdlib",
+      "_origin": "semantic",
+      "community": 10,
+      "community_name": "NewApplication",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "go_pkg_github_com_jackc_pgx_v5_stdlib",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "go_pkg_github_com_pressly_goose_v3",
+      "label": "go_pkg_github_com_pressly_goose_v3",
+      "_origin": "semantic",
+      "community": 10,
+      "community_name": "NewApplication",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "go_pkg_github_com_pressly_goose_v3",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "go_pkg_io_fs",
+      "label": "go_pkg_io_fs",
+      "_origin": "semantic",
+      "community": 10,
+      "community_name": "NewApplication",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "go_pkg_io_fs",
       "source_file": "",
       "type": "external"
     },
@@ -3600,18 +3509,6 @@
       "type": "external"
     },
     {
-      "id": "go_pkg_github_com_fozzyack_rosterly_m_internal_env",
-      "label": "go_pkg_github_com_fozzyack_rosterly_m_internal_env",
-      "_origin": "semantic",
-      "community": 2,
-      "community_name": "main.go",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "go_pkg_github_com_fozzyack_rosterly_m_internal_env",
-      "source_file": "",
-      "type": "external"
-    },
-    {
       "id": "go_pkg_github_com_fozzyack_rosterly_m_internal_routes",
       "label": "go_pkg_github_com_fozzyack_rosterly_m_internal_routes",
       "_origin": "semantic",
@@ -3648,18 +3545,6 @@
       "type": "external"
     },
     {
-      "id": "go_pkg_github_com_jackc_pgx_v5_stdlib",
-      "label": "go_pkg_github_com_jackc_pgx_v5_stdlib",
-      "_origin": "semantic",
-      "community": 2,
-      "community_name": "main.go",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "go_pkg_github_com_jackc_pgx_v5_stdlib",
-      "source_file": "",
-      "type": "external"
-    },
-    {
       "id": "go_pkg_github_com_joho_godotenv",
       "label": "go_pkg_github_com_joho_godotenv",
       "_origin": "semantic",
@@ -3668,30 +3553,6 @@
       "external": true,
       "file_type": "concept",
       "norm_label": "go_pkg_github_com_joho_godotenv",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "go_pkg_github_com_pressly_goose_v3",
-      "label": "go_pkg_github_com_pressly_goose_v3",
-      "_origin": "semantic",
-      "community": 2,
-      "community_name": "main.go",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "go_pkg_github_com_pressly_goose_v3",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "go_pkg_io_fs",
-      "label": "go_pkg_io_fs",
-      "_origin": "semantic",
-      "community": 2,
-      "community_name": "main.go",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "go_pkg_io_fs",
       "source_file": "",
       "type": "external"
     },
@@ -3716,18 +3577,6 @@
       "external": true,
       "file_type": "concept",
       "norm_label": "go_pkg_os",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "frontend_app_globals",
-      "label": "frontend_app_globals",
-      "_origin": "semantic",
-      "community": 23,
-      "community_name": "next",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "frontend_app_globals",
       "source_file": "",
       "type": "external"
     },
@@ -3958,6 +3807,18 @@
       "norm_label": "ref_path",
       "source_file": "",
       "type": "external"
+    },
+    {
+      "id": "frontend_app_globals",
+      "label": "frontend_app_globals",
+      "_origin": "semantic",
+      "community": 9,
+      "community_name": "how-it-works/page.tsx",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "frontend_app_globals",
+      "source_file": "",
+      "type": "external"
     }
   ],
   "links": [
@@ -4154,18 +4015,6 @@
       "weight": 1.0
     },
     {
-      "source": "frontend_app_api_auth_login_route_post",
-      "target": "frontend_lib_api_getserverapiurl",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "frontend/app/api/auth/login/route.ts",
-      "source_location": "L21",
-      "weight": 1.0
-    },
-    {
       "source": "frontend_app_dashboard_dashboard_dashboard",
       "target": "frontend_app_dashboard_data_formathours",
       "relation": "calls",
@@ -4174,7 +4023,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L206",
+      "source_location": "L198",
       "weight": 1.0
     },
     {
@@ -4186,7 +4035,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L49",
+      "source_location": "L47",
       "weight": 1.0
     },
     {
@@ -4198,7 +4047,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L50",
+      "source_location": "L48",
       "weight": 1.0
     },
     {
@@ -4210,7 +4059,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L52",
+      "source_location": "L50",
       "weight": 1.0
     },
     {
@@ -4222,7 +4071,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L60",
+      "source_location": "L58",
       "weight": 1.0
     },
     {
@@ -4234,7 +4083,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L104",
+      "source_location": "L96",
       "weight": 1.0
     },
     {
@@ -4246,7 +4095,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L106",
+      "source_location": "L98",
       "weight": 1.0
     },
     {
@@ -4258,7 +4107,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L126",
+      "source_location": "L118",
       "weight": 1.0
     },
     {
@@ -4270,7 +4119,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L134",
+      "source_location": "L126",
       "weight": 1.0
     },
     {
@@ -4282,7 +4131,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L112",
+      "source_location": "L104",
       "weight": 1.0
     },
     {
@@ -4294,7 +4143,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L122",
+      "source_location": "L114",
       "weight": 1.0
     },
     {
@@ -4306,7 +4155,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L85",
+      "source_location": "L77",
       "weight": 1.0
     },
     {
@@ -4318,7 +4167,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L97",
+      "source_location": "L89",
       "weight": 1.0
     },
     {
@@ -4330,7 +4179,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L99",
+      "source_location": "L91",
       "weight": 1.0
     },
     {
@@ -4355,6 +4204,30 @@
       "context": "call",
       "source_file": "frontend/app/dashboard/roster-table.tsx",
       "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_app_login_login_form_loginform",
+      "target": "frontend_lib_api_getapiurl",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "frontend/app/login/login-form.tsx",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_app_login_login_form_loginform_handlesubmit",
+      "target": "frontend_lib_api_getapiurl",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "frontend/app/login/login-form.tsx",
+      "source_location": "L24",
       "weight": 1.0
     },
     {
@@ -4379,54 +4252,6 @@
       "context": "call",
       "source_file": "frontend/app/signup/signup-form.tsx",
       "source_location": "L24",
-      "weight": 1.0
-    },
-    {
-      "source": "frontend_lib_api_getapiurl",
-      "target": "frontend_lib_api_requireapiurl",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "frontend/lib/api.ts",
-      "source_location": "L14",
-      "weight": 1.0
-    },
-    {
-      "source": "frontend_lib_api_getserverapiurl",
-      "target": "frontend_lib_api_requireapiurl",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "frontend/lib/api.ts",
-      "source_location": "L18",
-      "weight": 1.0
-    },
-    {
-      "source": "frontend_lib_auth_backendfetch",
-      "target": "frontend_lib_auth_getsessiontoken",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "frontend/lib/auth.ts",
-      "source_location": "L16",
-      "weight": 1.0
-    },
-    {
-      "source": "frontend_lib_auth_backendfetch",
-      "target": "frontend_lib_api_getserverapiurl",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "frontend/lib/auth.ts",
-      "source_location": "L27",
       "weight": 1.0
     },
     {
@@ -4462,7 +4287,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L109",
+      "source_location": "L101",
       "weight": 1.0
     },
     {
@@ -4474,7 +4299,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L62",
+      "source_location": "L60",
       "weight": 1.0
     },
     {
@@ -4486,7 +4311,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L72",
+      "source_location": "L70",
       "weight": 1.0
     },
     {
@@ -4718,54 +4543,6 @@
       "weight": 1.0
     },
     {
-      "source": "frontend_app_api_auth_login_route",
-      "target": "frontend_lib_api_getserverapiurl",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "frontend/app/api/auth/login/route.ts",
-      "source_location": "L4",
-      "weight": 1.0
-    },
-    {
-      "source": "frontend_app_api_auth_login_route",
-      "target": "frontend_lib_auth_session_cookie",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "frontend/app/api/auth/login/route.ts",
-      "source_location": "L5",
-      "weight": 1.0
-    },
-    {
-      "source": "frontend_app_api_auth_login_route",
-      "target": "frontend_lib_auth_session_max_age",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "frontend/app/api/auth/login/route.ts",
-      "source_location": "L5",
-      "weight": 1.0
-    },
-    {
-      "source": "frontend_app_api_auth_logout_route",
-      "target": "frontend_lib_auth_session_cookie",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "frontend/app/api/auth/logout/route.ts",
-      "source_location": "L4",
-      "weight": 1.0
-    },
-    {
       "source": "frontend_app_components_site_footer",
       "target": "frontend_app_components_site_header_logomark",
       "relation": "imports",
@@ -4779,54 +4556,6 @@
     },
     {
       "source": "frontend_app_dashboard_dashboard",
-      "target": "frontend_app_dashboard_shift_dialog_days",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L10",
-      "weight": 1.0
-    },
-    {
-      "source": "frontend_app_dashboard_dashboard",
-      "target": "frontend_app_dashboard_shift_dialog_dialog",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L10",
-      "weight": 1.0
-    },
-    {
-      "source": "frontend_app_dashboard_dashboard",
-      "target": "frontend_app_dashboard_shift_dialog_shiftdialog",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L10",
-      "weight": 1.0
-    },
-    {
-      "source": "frontend_app_dashboard_dashboard",
-      "target": "frontend_app_dashboard_shift_dialog_shiftselection",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L10",
-      "weight": 1.0
-    },
-    {
-      "source": "frontend_app_dashboard_dashboard",
       "target": "frontend_app_components_site_header_logomark",
       "relation": "imports",
       "_origin": "ast",
@@ -4834,7 +4563,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L6",
+      "source_location": "L5",
       "weight": 1.0
     },
     {
@@ -4846,7 +4575,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L7",
+      "source_location": "L6",
       "weight": 1.0
     },
     {
@@ -4858,7 +4587,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L7",
+      "source_location": "L6",
       "weight": 1.0
     },
     {
@@ -4870,7 +4599,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L7",
+      "source_location": "L6",
       "weight": 1.0
     },
     {
@@ -4882,7 +4611,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L7",
+      "source_location": "L6",
       "weight": 1.0
     },
     {
@@ -4894,7 +4623,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L7",
+      "source_location": "L6",
       "weight": 1.0
     },
     {
@@ -4906,7 +4635,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L7",
+      "source_location": "L6",
       "weight": 1.0
     },
     {
@@ -4918,7 +4647,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L7",
+      "source_location": "L6",
       "weight": 1.0
     },
     {
@@ -4930,7 +4659,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L7",
+      "source_location": "L6",
       "weight": 1.0
     },
     {
@@ -4942,7 +4671,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L7",
+      "source_location": "L6",
       "weight": 1.0
     },
     {
@@ -4954,7 +4683,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L7",
+      "source_location": "L6",
       "weight": 1.0
     },
     {
@@ -4966,7 +4695,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L7",
+      "source_location": "L6",
       "weight": 1.0
     },
     {
@@ -4978,7 +4707,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L8",
+      "source_location": "L7",
       "weight": 1.0
     },
     {
@@ -4990,12 +4719,60 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L8",
+      "source_location": "L7",
       "weight": 1.0
     },
     {
       "source": "frontend_app_dashboard_dashboard",
       "target": "frontend_app_dashboard_roster_table_rostertable",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/app/dashboard/dashboard.tsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_app_dashboard_dashboard",
+      "target": "frontend_app_dashboard_shift_dialog_days",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/app/dashboard/dashboard.tsx",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_app_dashboard_dashboard",
+      "target": "frontend_app_dashboard_shift_dialog_dialog",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/app/dashboard/dashboard.tsx",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_app_dashboard_dashboard",
+      "target": "frontend_app_dashboard_shift_dialog_shiftdialog",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/app/dashboard/dashboard.tsx",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_app_dashboard_dashboard",
+      "target": "frontend_app_dashboard_shift_dialog_shiftselection",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5210,6 +4987,18 @@
       "weight": 1.0
     },
     {
+      "source": "frontend_app_login_login_form",
+      "target": "frontend_lib_api_getapiurl",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/app/login/login-form.tsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
       "source": "frontend_app_login_page",
       "target": "frontend_app_login_login_form_loginform",
       "relation": "imports",
@@ -5387,18 +5176,6 @@
       "context": "import",
       "source_file": "frontend/app/signup/signup-form.tsx",
       "source_location": "L7",
-      "weight": 1.0
-    },
-    {
-      "source": "frontend_lib_auth",
-      "target": "frontend_lib_api_getserverapiurl",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "frontend/lib/auth.ts",
-      "source_location": "L3",
       "weight": 1.0
     },
     {
@@ -6554,66 +6331,6 @@
       "weight": 1.0
     },
     {
-      "source": "frontend_app_api_auth_login_route",
-      "target": "ref_next",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "frontend/app/api/auth/login/route.ts",
-      "source_location": "L2",
-      "weight": 1.0
-    },
-    {
-      "source": "frontend_app_api_auth_login_route",
-      "target": "frontend_lib_api",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "frontend/app/api/auth/login/route.ts",
-      "source_location": "L4",
-      "weight": 1.0
-    },
-    {
-      "source": "frontend_app_api_auth_login_route",
-      "target": "frontend_lib_auth",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "frontend/app/api/auth/login/route.ts",
-      "source_location": "L5",
-      "weight": 1.0
-    },
-    {
-      "source": "frontend_app_api_auth_logout_route",
-      "target": "ref_next",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "frontend/app/api/auth/logout/route.ts",
-      "source_location": "L2",
-      "weight": 1.0
-    },
-    {
-      "source": "frontend_app_api_auth_logout_route",
-      "target": "frontend_lib_auth",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "frontend/app/api/auth/logout/route.ts",
-      "source_location": "L4",
-      "weight": 1.0
-    },
-    {
       "source": "frontend_app_components_page_animations",
       "target": "ref_gsap_react",
       "relation": "imports_from",
@@ -6675,7 +6392,7 @@
     },
     {
       "source": "frontend_app_dashboard_dashboard",
-      "target": "frontend_app_dashboard_shift_dialog",
+      "target": "frontend_app_dashboard_dashboard_module",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6687,18 +6404,6 @@
     },
     {
       "source": "frontend_app_dashboard_dashboard",
-      "target": "frontend_app_dashboard_dashboard_module",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L11",
-      "weight": 1.0
-    },
-    {
-      "source": "frontend_app_dashboard_dashboard",
       "target": "ref_next",
       "relation": "imports_from",
       "_origin": "ast",
@@ -6706,7 +6411,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L4",
+      "source_location": "L3",
       "weight": 1.0
     },
     {
@@ -6718,7 +6423,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L5",
+      "source_location": "L4",
       "weight": 1.0
     },
     {
@@ -6730,7 +6435,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L6",
+      "source_location": "L5",
       "weight": 1.0
     },
     {
@@ -6742,7 +6447,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L7",
+      "source_location": "L6",
       "weight": 1.0
     },
     {
@@ -6754,12 +6459,24 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L8",
+      "source_location": "L7",
       "weight": 1.0
     },
     {
       "source": "frontend_app_dashboard_dashboard",
       "target": "frontend_app_dashboard_roster_table",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/app/dashboard/dashboard.tsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_app_dashboard_dashboard",
+      "target": "frontend_app_dashboard_shift_dialog",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6978,6 +6695,18 @@
       "weight": 1.0
     },
     {
+      "source": "frontend_app_login_login_form",
+      "target": "frontend_lib_api",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "frontend/app/login/login-form.tsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
       "source": "frontend_app_login_page",
       "target": "frontend_app_login_login_form",
       "relation": "imports_from",
@@ -7179,30 +6908,6 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "frontend/eslint.config.mjs",
-      "source_location": "L3",
-      "weight": 1.0
-    },
-    {
-      "source": "frontend_lib_auth",
-      "target": "ref_next",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "frontend/lib/auth.ts",
-      "source_location": "L1",
-      "weight": 1.0
-    },
-    {
-      "source": "frontend_lib_auth",
-      "target": "frontend_lib_api",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "frontend/lib/auth.ts",
       "source_location": "L3",
       "weight": 1.0
     },
@@ -8320,28 +8025,6 @@
       "weight": 1.0
     },
     {
-      "source": "frontend_app_api_auth_login_route",
-      "target": "frontend_app_api_auth_login_route_post",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "frontend/app/api/auth/login/route.ts",
-      "source_location": "L7",
-      "weight": 1.0
-    },
-    {
-      "source": "frontend_app_api_auth_logout_route",
-      "target": "frontend_app_api_auth_logout_route_post",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "frontend/app/api/auth/logout/route.ts",
-      "source_location": "L6",
-      "weight": 1.0
-    },
-    {
       "source": "frontend_app_components_page_animations",
       "target": "frontend_app_components_page_animations_pageanimations",
       "relation": "contains",
@@ -8404,7 +8087,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L13",
+      "source_location": "L12",
       "weight": 1.0
     },
     {
@@ -8415,7 +8098,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L14",
+      "source_location": "L13",
       "weight": 1.0
     },
     {
@@ -8426,7 +8109,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L16",
+      "source_location": "L15",
       "weight": 1.0
     },
     {
@@ -8437,7 +8120,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L20",
+      "source_location": "L19",
       "weight": 1.0
     },
     {
@@ -8448,7 +8131,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L24",
+      "source_location": "L23",
       "weight": 1.0
     },
     {
@@ -8459,18 +8142,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L31",
-      "weight": 1.0
-    },
-    {
-      "source": "frontend_app_dashboard_dashboard_dashboard",
-      "target": "frontend_app_dashboard_dashboard_dashboard_deleteshift",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L102",
+      "source_location": "L30",
       "weight": 1.0
     },
     {
@@ -8481,7 +8153,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L125",
+      "source_location": "L117",
       "weight": 1.0
     },
     {
@@ -8492,18 +8164,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L68",
-      "weight": 1.0
-    },
-    {
-      "source": "frontend_app_dashboard_dashboard_dashboard",
-      "target": "frontend_app_dashboard_dashboard_dashboard_logout",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L77",
+      "source_location": "L66",
       "weight": 1.0
     },
     {
@@ -8514,7 +8175,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/app/dashboard/dashboard.tsx",
-      "source_location": "L83",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "frontend_app_dashboard_dashboard_dashboard",
+      "target": "frontend_app_dashboard_dashboard_dashboard_deleteshift",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/app/dashboard/dashboard.tsx",
+      "source_location": "L94",
       "weight": 1.0
     },
     {
@@ -8877,7 +8549,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/app/login/login-form.tsx",
-      "source_location": "L7",
+      "source_location": "L9",
       "weight": 1.0
     },
     {
@@ -8888,7 +8560,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/app/login/login-form.tsx",
-      "source_location": "L13",
+      "source_location": "L15",
       "weight": 1.0
     },
     {
@@ -9047,79 +8719,13 @@
     },
     {
       "source": "frontend_lib_api",
-      "target": "frontend_lib_api_requireapiurl",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "frontend/lib/api.ts",
-      "source_location": "L1",
-      "weight": 1.0
-    },
-    {
-      "source": "frontend_lib_api",
       "target": "frontend_lib_api_getapiurl",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/lib/api.ts",
-      "source_location": "L13",
-      "weight": 1.0
-    },
-    {
-      "source": "frontend_lib_api",
-      "target": "frontend_lib_api_getserverapiurl",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "frontend/lib/api.ts",
-      "source_location": "L17",
-      "weight": 1.0
-    },
-    {
-      "source": "frontend_lib_auth",
-      "target": "frontend_lib_auth_backendfetch",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "frontend/lib/auth.ts",
-      "source_location": "L12",
-      "weight": 1.0
-    },
-    {
-      "source": "frontend_lib_auth",
-      "target": "frontend_lib_auth_session_cookie",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "frontend/lib/auth.ts",
-      "source_location": "L5",
-      "weight": 1.0
-    },
-    {
-      "source": "frontend_lib_auth",
-      "target": "frontend_lib_auth_session_max_age",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "frontend/lib/auth.ts",
-      "source_location": "L6",
-      "weight": 1.0
-    },
-    {
-      "source": "frontend_lib_auth",
-      "target": "frontend_lib_auth_getsessiontoken",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "frontend/lib/auth.ts",
-      "source_location": "L8",
+      "source_location": "L3",
       "weight": 1.0
     },
     {

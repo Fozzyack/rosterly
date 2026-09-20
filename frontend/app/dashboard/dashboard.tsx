@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { LogoMark } from "../components/site-header";
 import { EMPLOYEES, LEAVE_REQUESTS, OPEN_SHIFTS, ROLE_COLORS, formatHours, shiftHours, type Employee, type LeaveRequest, type OpenShift, type Role, type Shift } from "./data";
@@ -28,6 +29,7 @@ const secondaryButton = "inline-flex items-center justify-center gap-2 rounded-f
 const primaryButton = "inline-flex items-center justify-center gap-2 rounded-full bg-[#17211e] px-5 py-3 text-xs font-semibold text-white transition-colors hover:bg-[#334b3d] disabled:cursor-default disabled:opacity-50";
 
 export function Dashboard() {
+  const router = useRouter();
   const [weeks, setWeeks] = useState<Record<number, Week>>({ 0: { employees: EMPLOYEES, openShifts: OPEN_SHIFTS, published: false } });
   const [weekOffset, setWeekOffset] = useState(0);
   const [query, setQuery] = useState("");
@@ -70,6 +72,12 @@ export function Dashboard() {
   function navigate(id: string) {
     setActiveNav(id);
     setMobileNav(false);
+  }
+
+  async function logOut() {
+    await fetch("/api/auth/logout", { method: "POST" });
+    router.push("/login");
+    router.refresh();
   }
 
   function saveShift(employeeId: string, shift: Shift): string | undefined {
@@ -160,7 +168,7 @@ export function Dashboard() {
           </div>
           <Link href="/how-it-works" className="mt-6 flex items-center gap-2.5 px-2 text-xs text-[#b4c1b4] hover:text-white"><Icon name="help" className="size-4" />A little help?</Link>
         </div>
-        <div className="flex items-center gap-3 border-t border-white/10 px-6 py-5"><span className="grid size-9 place-items-center rounded-full bg-[#dfe6d5] text-xs font-semibold text-[#23301f]">AS</span><div><p className="text-xs font-medium">Alex Smith</p><p className="mt-1 text-[10px] text-[#96a591]">Workspace manager</p></div><span className="ml-auto size-1.5 rounded-full bg-[#d9ff57]" /></div>
+        <div className="flex items-center gap-3 border-t border-white/10 px-6 py-5"><span className="grid size-9 place-items-center rounded-full bg-[#dfe6d5] text-xs font-semibold text-[#23301f]">AS</span><div><p className="text-xs font-medium">Alex Smith</p><p className="mt-1 text-[10px] text-[#96a591]">Workspace manager</p></div><button type="button" onClick={logOut} className="ml-auto text-[10px] font-semibold text-[#b4c1b4] transition-colors hover:text-white">Log out</button></div>
       </aside>
 
       <div className="lg:pl-[222px]">

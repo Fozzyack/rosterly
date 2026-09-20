@@ -1,29 +1,32 @@
 # rosterly
 
+Simple roster scheduling for small teams. Early development: marketing site, signup/login forms, and a Go API exist; the dashboard is demo data and no roster edits are persisted yet.
+
 ## Structure
 
-- `backend/` is a Go 1.27 HTTP API. Its module path is `github.com/Fozzyack/rosterly/m` (the trailing `/m` is intentional); `backend/main.go` is the entrypoint and defaults to port `8000` (`-port` overrides it).
-- `frontend/` is a Next.js `16.3.5` / React 19 app using Bun `1.3.3`; App Router code lives in `frontend/app/` and uses `NEXT_PUBLIC_API_URL` for API calls.
-- `compose.yaml` runs PostgreSQL 17, the backend, and the frontend on ports `5432`, `8000`, and `3000`.
-- `backend/migrations/*.sql` are embedded and applied automatically by Goose during backend startup; there is no separate migration command.
+- `backend/` is a Go module whose path is `github.com/Fozzyack/rosterly/m` (trailing `/m` is intentional). Entrypoint `backend/main.go` defaults to port `8000` (`-port` overrides).
+- Backend layout: `internal/api` handlers, `internal/store` pgx stores, `internal/models`, `internal/auth`, `internal/routes` (Chi), `internal/app` (opens the DB and runs migrations).
+- `frontend/` is Next.js `16.3.5` / React `19.2.8` (Bun `1.3.3`). App Router code is in `frontend/app/`; the shared API base URL helper is `frontend/lib/api.ts`.
+- `backend/migrations/*.sql` are embedded via `migrations/fs.go` and applied by Goose at backend startup; there is no separate migration command.
 
 ## Commands
 
-- Backend, from `backend/`: `go run .`, `go build ./...`, `go vet ./...`, `go test ./...`.
-- Frontend, from `frontend/`: `bun install`, `bun run dev`, `bun run lint`, `bunx tsc --noEmit`, `bun run build`; there is no frontend test script.
-- Full stack, from the repository root: `docker compose up --build`.
+- Backend, from `backend/`: `go run .`, `go build ./...`, `go vet ./...`, `go test ./...`. Tests are unit-only with in-memory store mocks, so they do not need Postgres (`go run .` does).
+- Frontend, from `frontend/`: `bun install`, `bun run dev`, `bun run lint`, `bunx tsc --noEmit`, `bun run build`; there is no test script.
+- Full stack, from the repository root: `docker compose up --build` (the README documents a `db` readiness pre-step).
 
-## Setup Constraints
+## Gotchas
 
-- Local backend startup requires `backend/.env`; start from `backend/.env.example` and provide `DATABASE_URL` (and optionally `ENV`). The backend exits if `.env` cannot be loaded or the database is unavailable.
-- The backend Dockerfile copies `backend/.env` during image build, so create that ignored file before running Compose as well.
-- Compose and `.env.example` use the database password `rostlerly` (not `rosterly`).
-- `backend/Dockerfile` declares `EXPOSE 8080`, but the server and Compose use `8000`; trust the server and Compose values.
-- Read `frontend/AGENTS.md` before changing Next.js code. Keep its generated marker block and consult the version-specific docs under `frontend/node_modules/next/dist/docs/`.
+- Every Chi route is registered with a trailing slash (`/health/`, `/auth/login/`, `/users/`); requests without it 404.
+- The backend has no CORS middleware and never validates session tokens. Browser requests from `:3000` to `:8000` fail until CORS or a same-origin proxy is added, and the dashboard is not auth-gated.
+- `backend/.env` is gitignored and required: `go run .` exits without it, and `backend/Dockerfile` copies it into the image at build time (so it must exist before a Compose build).
+- `.env.example` uses password `rostlerly`; Compose uses `rosterly`. Use `rosterly` for the Compose/local database.
+- `backend/Dockerfile` declares `EXPOSE 8080`, but the server, Compose, and README use `8000`.
+- `NEXT_PUBLIC_API_URL` is baked into the browser bundle at build time (default `http://localhost:8000`); setting it only at container runtime does nothing.
 
 ## Workflow
 
-- There is no CI, Makefile, task runner, or pre-commit configuration; use the commands above for focused verification.
+- No CI, Makefile, or pre-commit; use the focused commands above. `README.md` is the detailed setup/status reference — keep it in sync when behavior changes.
+- Read `frontend/AGENTS.md` before changing Next.js code; keep its generated marker block and consult `frontend/node_modules/next/dist/docs/` for this version's behavior.
 - Do not hand-edit generated `graphify-out/`, `.next/`, or `node_modules/` content.
-- When `/graphify` is requested, use the installed graphify skill first. For codebase questions, run `graphify query "..."` when `graphify-out/graph.json` exists; use `graphify path` or `graphify explain` for focused lookups. After code changes, run `graphify update .`.
-- Dirty `graphify-out/` files are expected; do not skip graph queries or updates because they are dirty. Use `graphify-out/wiki/index.md` for broad navigation when present.
+- For codebase questions prefer `graphify query "..."` (graph at `graphify-out/graph.json`; use `graphify-out/wiki/index.md` when present) over grepping, and use `graphify path` / `graphify explain` for focused lookups. After code changes run `graphify update .`; dirty `graphify-out/` files are expected.

@@ -4,8 +4,6 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-import { getApiUrl } from "@/lib/api";
-
 export function LoginForm() {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
@@ -20,28 +18,30 @@ export function LoginForm() {
     const form = new FormData(event.currentTarget);
 
     try {
-      const response = await fetch(
-        `${getApiUrl()}/auth/login/`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            email: form.get("email"),
-            password: form.get("password"),
-          }),
-        },
-      );
+      const response = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: form.get("email"),
+          password: form.get("password"),
+        }),
+      });
 
       if (!response.ok) {
-        throw new Error("Request failed");
+        const data = (await response.json().catch(() => null)) as
+          | { error?: string }
+          | null;
+        throw new Error(data?.error ?? "Request failed");
       }
 
-      const data = (await response.json()) as { token: string };
-      localStorage.setItem("session_token", data.token);
-
       router.push("/dashboard");
-    } catch {
-      setError("Couldn't sign you in. Check your email and password, then try again.");
+      router.refresh();
+    } catch (error) {
+      setError(
+        error instanceof Error
+          ? error.message
+          : "Couldn't sign you in. Check your email and password, then try again.",
+      );
     } finally {
       setPending(false);
     }
