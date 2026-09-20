@@ -5,10 +5,11 @@ import (
 	"github.com/go-chi/chi/v5"
 )
 
-func SetupRoutes(app *app.Application) *chi.Mux{
+func SetupRoutes(app *app.Application) *chi.Mux {
 
 	r := chi.NewRouter()
 
+	r.Get("/health", app.HealthHandler.GetHealth)
 
 	return r
 

@@ -3,6 +3,7 @@ package app
 import (
 	"os"
 
+	"github.com/Fozzyack/rosterly/m/internal/api"
 	"github.com/Fozzyack/rosterly/m/internal/database"
 	"github.com/Fozzyack/rosterly/m/internal/store"
 	"github.com/Fozzyack/rosterly/m/migrations"
@@ -16,6 +17,9 @@ type Application struct {
 
 	// Stores
 	UserStore store.UserStore
+
+	// Handlers
+	HealthHandler *api.HealthHandler
 }
 
 func NewApplication() (*Application, error) {
@@ -34,11 +38,15 @@ func NewApplication() (*Application, error) {
 
 	userStore := store.NewUserStore(db)
 
+	healthHandler := api.NewHealthHandler(&logger)
+
 	app := &Application{
 
 		Logger: &logger,
 
 		UserStore: userStore,
+
+		HealthHandler: healthHandler,
 	}
 
 	return app, nil
