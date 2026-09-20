@@ -1,8 +1,11 @@
 package app
 
 import (
-	"github.com/rs/zerolog"
 	"os"
+
+	"github.com/Fozzyack/rosterly/m/internal/database"
+	"github.com/Fozzyack/rosterly/m/migrations"
+	"github.com/rs/zerolog"
 )
 
 type Application struct {
@@ -12,6 +15,16 @@ type Application struct {
 func NewApplication() (*Application, error) {
 
 	logger := zerolog.New(zerolog.ConsoleWriter{Out: os.Stdout}).With().Timestamp().Logger()
+
+	db, err := database.Open()
+	if err != nil {
+		return nil, err
+	}
+
+	err = database.MigrateDB(db, migrations.FS)
+	if err != nil {
+		return nil, err
+	}
 
 	app := &Application{
 		Logger: &logger,

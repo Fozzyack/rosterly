@@ -13,6 +13,7 @@ RUN CGO_ENABLED=0 go build -o server .
 FROM alpine:latest
 
 WORKDIR /app
+COPY .env .
 COPY --from=builder /app/server .
 
 EXPOSE 8080
