@@ -1,17 +1,17 @@
 # Graph Report - rosterly  (2026-09-20)
 
 ## Corpus Check
-- 44 files · ~9,928 words
+- 44 files · ~9,883 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 10 file(s) not represented in the graph (top: (none) 6, .example 1, .ico 1)
 
 ## Summary
-- 266 nodes · 385 edges · 24 communities (16 shown, 8 thin omitted)
+- 268 nodes · 387 edges · 24 communities (16 shown, 8 thin omitted)
 - Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 11 edges (avg confidence: 0.87)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `85d031ac`
+- Built from commit: `8e05efdf`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -111,8 +111,8 @@ Cohesion: 0.09
 Nodes (22): PageAnimations(), SiteFooter(), LogoMark(), SiteHeader(), SiteHeaderProps, availability, checks, metadata (+14 more)
 
 ### Community 10 - "user_handler_test.go"
-Cohesion: 0.11
-Nodes (28): HealthHandler, NewHealthHandler(), UserHandler, NewUserHandler(), Application, NewApplication(), SessionStore, NewSessionStore() (+20 more)
+Cohesion: 0.10
+Nodes (30): HealthHandler, NewHealthHandler(), UserHandler, NewUserHandler(), Application, NewApplication(), SessionStore, NewSessionStore() (+22 more)
 
 ### Community 11 - ".LoginUser"
 Cohesion: 0.20
@@ -140,16 +140,16 @@ Nodes (12): loginSessionStore, loginUserStore, Session, NewUserRequest, User, Po
 
 ## Knowledge Gaps
 - **94 isolated node(s):** `$schema`, `plugin`, `github.com/Fozzyack/rosterly/m`, `LoginRequest`, `SiteHeaderProps` (+89 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 133 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 135 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **8 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `next` connect `how-it-works/page.tsx` to `package.json`, `layout.tsx`?**
-  _High betweenness centrality (0.061) - this node is a cross-community bridge._
+  _High betweenness centrality (0.060) - this node is a cross-community bridge._
 - **Why does `Next.js Development Server` connect `Next.js Project` to `how-it-works/page.tsx`?**
-  _High betweenness centrality (0.038) - this node is a cross-community bridge._
+  _High betweenness centrality (0.037) - this node is a cross-community bridge._
 - **What connects `$schema`, `plugin`, `github.com/Fozzyack/rosterly/m` to the rest of the system?**
   _94 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `package.json` be split into smaller, more focused modules?**
