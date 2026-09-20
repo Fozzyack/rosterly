@@ -14,8 +14,8 @@ func SetupRoutes(app *app.Application) *chi.Mux {
 	r.Use(middleware.RequestID)
 	r.Use(middleware.Recoverer)
 
-	r.Get("/health", app.HealthHandler.GetHealth)
-	r.Post("/users", app.UserHandler.CreateUser)
+	r.Get("/health/", app.HealthHandler.GetHealth)
+	r.Post("/users/", app.UserHandler.CreateUser)
 
 	return r
 
