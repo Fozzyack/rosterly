@@ -9,7 +9,7 @@ import (
 
 type UserStore interface {
 	CreateUser(ctx context.Context, newUserRequest models.NewUserRequest, passwordHash string) (*models.User, error)
-	GetUser(ctx context.Context, userId string) (*models.User, error)
+	GetUserById(ctx context.Context, userId string) (*models.User, error)
 }
 
 func NewUserStore(db *sql.DB) UserStore {
@@ -49,7 +49,7 @@ func (ps *PostgresStore) CreateUser(ctx context.Context, newUserRequest models.N
 
 }
 
-func (ps *PostgresStore) GetUser(ctx context.Context, userId string) (*models.User, error) {
+func (ps *PostgresStore) GetUserById(ctx context.Context, userId string) (*models.User, error) {
 
 	tx, err := ps.db.BeginTx(ctx, nil)
 	if err != nil {
