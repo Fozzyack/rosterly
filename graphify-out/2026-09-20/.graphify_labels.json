@@ -2,13 +2,15 @@
   "0": "package.json",
   "1": "TypeScript Compiler Configuration",
   "2": "main.go",
+  "3": "fs.go",
   "4": "Next.js Project",
   "5": "layout.tsx",
   "6": "devDependencies",
   "7": "Graphify Knowledge Graph",
   "8": "graphify.js",
   "9": "how-it-works/page.tsx",
-  "10": "dependencies",
+  "10": "app.go",
+  "11": ".CreateUser",
   "12": "Next.js Agent Rules",
   "13": "Document Symbol",
   "14": "Rosterly",
@@ -19,5 +21,7 @@
   "19": "Next.js Logo",
   "20": "Vercel Logo",
   "21": "Browser Window Icon",
-  "22": "github.com/Fozzyack/rosterly/m"
+  "22": "github.com/Fozzyack/rosterly/m",
+  "23": "database.go",
+  "24": "user_model.go"
 }

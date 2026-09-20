@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
+import { getApiUrl } from "@/lib/api";
+
 export function LoginForm() {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
@@ -19,7 +21,7 @@ export function LoginForm() {
 
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000"}/login`,
+        `${getApiUrl()}/login`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

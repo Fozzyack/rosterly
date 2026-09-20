@@ -21,24 +21,63 @@ func NewUserHandler(logger *zerolog.Logger, userStore store.UserStore) *UserHand
 	}
 }
 
+func (uh *UserHandler) LoginUser(w http.ResponseWriter, r *http.Request) {
+	var loginRequest models.LoginRequest
+	if err := decodeJSON(r, &loginRequest); err != nil {
+		uh.logger.Error().Err(err).Msg("Failed to Login User")
+		sendError(w, "Failed to Login User", http.StatusBadRequest)
+		return
+	}
+
+	user, err := uh.userStore.GetUserByEmail(r.Context(), loginRequest.Email)
+	if err != nil {
+		uh.logger.Error().Err(err).Msg("Failed to Login User")
+		sendError(w, "Failed to Login User", http.StatusInternalServerError)
+		return
+	}
+
+	if !auth.CheckPasswordHash(loginRequest.Password, user.PasswordHash) {
+		uh.logger.Error().Err(err).Msg("Failed to Login User")
+		sendError(w, "Failed to Login User", http.StatusInternalServerError)
+		return
+	}
+
+	sendJSON(w, models.UserResponse{
+		Name:      user.Name,
+		Email:     user.Email,
+		CreatedAt: user.CreatedAt,
+		UpdatedAt: user.UpdatedAt,
+	})
+
+}
+
 func (uh *UserHandler) CreateUser(w http.ResponseWriter, r *http.Request) {
 	var newUserRequest models.NewUserRequest
 	if err := decodeJSON(r, &newUserRequest); err != nil {
-		sendError(w, err.Error(), http.StatusBadRequest)
+		uh.logger.Error().Err(err).Msg("Failed to Create User")
+		sendError(w, "Failed to Create User", http.StatusBadRequest)
 		return
 	}
 
 	passwordHash, err := auth.HashPassword(newUserRequest.Password)
 	if err != nil {
+		uh.logger.Error().Err(err).Msg("Failed to Create User")
 		sendError(w, "Failed to Create User", http.StatusInternalServerError)
 		return
 	}
 
 	newUser, err := uh.userStore.CreateUser(r.Context(), newUserRequest, passwordHash)
 	if err != nil {
+		uh.logger.Error().Err(err).Msg("Failed to Create User")
 		sendError(w, "Failed to Create User", http.StatusInternalServerError)
 		return
 	}
 
-	sendJSON(w, newUser)
+	w.WriteHeader(http.StatusCreated)
+	sendJSON(w, models.UserResponse{
+		Name:      newUser.Name,
+		Email:     newUser.Email,
+		CreatedAt: newUser.CreatedAt,
+		UpdatedAt: newUser.UpdatedAt,
+	})
 }

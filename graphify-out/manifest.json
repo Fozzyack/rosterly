@@ -12,15 +12,15 @@
     "semantic_hash": "3ea725724bc8ebe483c9f13d6aa1124f"
   },
   "backend/go.mod": {
-    "mtime": 1789909172.712636,
-    "seen": 1789909326.608421,
-    "ast_hash": "673743ad6118c4caa34bcec937481a2a",
+    "mtime": 1789913835.9881787,
+    "seen": 1789917009.1163495,
+    "ast_hash": "8b0afe1fabf58c08a2540a444c0f235c",
     "semantic_hash": ""
   },
   "backend/internal/app/app.go": {
-    "mtime": 1789908729.8672755,
-    "seen": 1789909326.608423,
-    "ast_hash": "064ab3e7242caee2b51bd899028fb78b",
+    "mtime": 1789914145.874317,
+    "seen": 1789917009.1163552,
+    "ast_hash": "1a8bbe6df0485153911ec1d84c1c39af",
     "semantic_hash": ""
   },
   "backend/internal/env/env.go": {
@@ -30,10 +30,10 @@
     "semantic_hash": "d7fb747db9e5bc62695aa99610cb3ff2"
   },
   "backend/internal/routes/router.go": {
-    "mtime": 1789903520.225858,
-    "seen": 1789906572.0363955,
-    "ast_hash": "dad0edf125eb476940665f838f60ab67",
-    "semantic_hash": "dad0edf125eb476940665f838f60ab67"
+    "mtime": 1789914767.1699357,
+    "seen": 1789917009.1164644,
+    "ast_hash": "b4349b4821f30c1196cfab13f7c2d460",
+    "semantic_hash": ""
   },
   "backend/main.go": {
     "mtime": 1789904054.1817427,
@@ -84,9 +84,9 @@
     "semantic_hash": "02fc19ad21338c2ab820a70136310db4"
   },
   "AGENTS.md": {
-    "mtime": 1789909746.372509,
-    "seen": 1789909753.054771,
-    "ast_hash": "d1c6ac846f05d0f9124b7f2a4b688f41",
+    "mtime": 1789909910.8044739,
+    "seen": 1789917009.1168425,
+    "ast_hash": "2218562d6a7df0ebe16cd9baeaeb39f4",
     "semantic_hash": ""
   },
   "README.md": {
@@ -96,10 +96,10 @@
     "semantic_hash": "eac0df213eac3988616a324d7b718e2c"
   },
   "compose.yaml": {
-    "mtime": 1789908818.7687109,
-    "seen": 1789909326.6084418,
-    "ast_hash": "683852f79390bf4ae91eb861399a963f",
-    "semantic_hash": "683852f79390bf4ae91eb861399a963f"
+    "mtime": 1789915792.6352012,
+    "seen": 1789917009.1168585,
+    "ast_hash": "5b724e877b6919929206868c96f853f3",
+    "semantic_hash": ""
   },
   "frontend/AGENTS.md": {
     "mtime": 1789897373.3991847,
@@ -192,15 +192,15 @@
     "semantic_hash": ""
   },
   "backend/migrations/fs.go": {
-    "mtime": 1789908288.2420275,
-    "seen": 1789909326.6084282,
-    "ast_hash": "b70369da27e1c26258cd7fb99d9b0484",
+    "mtime": 1789909842.506947,
+    "seen": 1789917009.1164846,
+    "ast_hash": "bc7f980450a0345da9bcc55aca2c3dba",
     "semantic_hash": ""
   },
   "frontend/app/login/login-form.tsx": {
-    "mtime": 1789909010.2486703,
-    "seen": 1789909326.6084332,
-    "ast_hash": "7d8d90173ae882a3e284a87a94627e59",
+    "mtime": 1789917154.550909,
+    "seen": 1789917163.9716718,
+    "ast_hash": "ffb232226d18cd3c217281e9a8a65e60",
     "semantic_hash": ""
   },
   "frontend/app/login/page.tsx": {
@@ -216,9 +216,57 @@
     "semantic_hash": ""
   },
   "frontend/app/signup/signup-form.tsx": {
-    "mtime": 1789908985.4886754,
-    "seen": 1789909326.6084366,
-    "ast_hash": "3fbc031d2f34206d0a2b23eee2aa871f",
+    "mtime": 1789917142.8469114,
+    "seen": 1789917163.9717526,
+    "ast_hash": "fe69e3035ce887177de2603326865dc4",
+    "semantic_hash": ""
+  },
+  "backend/internal/api/health_handler.go": {
+    "mtime": 1789913765.4727118,
+    "seen": 1789917009.1163523,
+    "ast_hash": "ec8ddf32dda774ef76a3b85a65aa197d",
+    "semantic_hash": ""
+  },
+  "backend/internal/api/user_handler.go": {
+    "mtime": 1789916979.03529,
+    "seen": 1789917009.1163535,
+    "ast_hash": "50e307cf21314818211d597266a22af6",
+    "semantic_hash": ""
+  },
+  "backend/internal/api/utils.go": {
+    "mtime": 1789916524.6883664,
+    "seen": 1789917009.116354,
+    "ast_hash": "47d69527f8965a10ed982a9545db502d",
+    "semantic_hash": ""
+  },
+  "backend/internal/auth/auth.go": {
+    "mtime": 1789913192.563332,
+    "seen": 1789917009.1163561,
+    "ast_hash": "b273a70b0f7f565bb10dd2cb9d651be2",
+    "semantic_hash": ""
+  },
+  "backend/internal/models/user_model.go": {
+    "mtime": 1789916845.254465,
+    "seen": 1789917009.1164632,
+    "ast_hash": "96d392c9aed41ce978031d3aa3ff7063",
+    "semantic_hash": ""
+  },
+  "backend/internal/store/store.go": {
+    "mtime": 1789910914.8426492,
+    "seen": 1789917009.116465,
+    "ast_hash": "0db3e6b03710088de9367a1ff722206a",
+    "semantic_hash": ""
+  },
+  "backend/internal/store/user_store.go": {
+    "mtime": 1789916782.7515788,
+    "seen": 1789917009.1164665,
+    "ast_hash": "e3f6413ce863b3d75a8da23897930c9e",
+    "semantic_hash": ""
+  },
+  "frontend/lib/api.ts": {
+    "mtime": 1789917127.7509146,
+    "seen": 1789917163.9717708,
+    "ast_hash": "2d6f5426d0ae24e0f6c6a542d4d3aff8",
     "semantic_hash": ""
   }
 }
