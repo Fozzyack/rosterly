@@ -61,12 +61,12 @@ export default function Home() {
           </a>
           <a
             className="flex w-full items-center justify-center gap-2 rounded-full border border-[#c8cbc2] bg-white/60 px-6 py-3.5 text-sm font-semibold transition-colors hover:bg-white sm:w-auto"
-            href="#demo"
+            href="/dashboard"
           >
             <span className="grid size-5 place-items-center rounded-full bg-[#d9ff57]">
               <svg className="ml-0.5 size-2.5" viewBox="0 0 10 12" fill="currentColor" aria-hidden="true"><path d="M9 6 1 11V1l8 5Z" /></svg>
             </span>
-            Watch 60-sec demo
+            Explore the demo
           </a>
         </div>
 

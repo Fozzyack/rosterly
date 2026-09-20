@@ -1,17 +1,17 @@
 # Graph Report - rosterly  (2026-09-20)
 
 ## Corpus Check
-- 44 files · ~9,883 words
+- 50 files · ~14,732 words
 - Verdict: corpus is large enough that graph structure adds value.
-- Unclassified: 10 file(s) not represented in the graph (top: (none) 6, .example 1, .ico 1)
+- Unclassified: 11 file(s) not represented in the graph (top: (none) 6, .css 2, .example 1)
 
 ## Summary
-- 268 nodes · 387 edges · 24 communities (16 shown, 8 thin omitted)
-- Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 11 edges (avg confidence: 0.87)
+- 310 nodes · 488 edges · 24 communities (16 shown, 8 thin omitted)
+- Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 11 edges (avg confidence: 0.87)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `8e05efdf`
+- Built from commit: `8c1e1291`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -21,7 +21,7 @@
 - main.go
 - fs.go
 - Next.js Project
-- layout.tsx
+- dashboard.tsx
 - devDependencies
 - Graphify Knowledge Graph
 - graphify.js
@@ -43,15 +43,15 @@
 
 ## God Nodes (most connected - your core abstractions)
 1. `compilerOptions` - 16 edges
-2. `NewApplication()` - 9 edges
-3. `next` - 9 edges
-4. `UserHandler` - 8 edges
-5. `Application` - 8 edges
-6. `Next.js Project` - 8 edges
-7. `NewUserHandler()` - 7 edges
-8. `User` - 7 edges
-9. `getApiUrl()` - 7 edges
-10. `Graphify Knowledge Graph` - 7 edges
+2. `Dashboard()` - 14 edges
+3. `next` - 11 edges
+4. `NewApplication()` - 9 edges
+5. `UserHandler` - 8 edges
+6. `Application` - 8 edges
+7. `Next.js Project` - 8 edges
+8. `NewUserHandler()` - 7 edges
+9. `User` - 7 edges
+10. `shiftHours()` - 7 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Rosterly Docker Compose Stack` --conceptually_related_to--> `Rosterly`  [INFERRED]
@@ -83,16 +83,16 @@ Cohesion: 0.11
 Nodes (18): compilerOptions, allowJs, esModuleInterop, incremental, isolatedModules, jsx, lib, module (+10 more)
 
 ### Community 2 - "main.go"
-Cohesion: 0.08
-Nodes (25): MigrateDB(), Open(), GetDatabaseURL(), GetEnv(), IsProduction(), SetupRoutes(), PostgresStore, NewPostgresStore() (+17 more)
+Cohesion: 0.13
+Nodes (14): GetEnv(), IsProduction(), SetupRoutes(), main(), chi.Mux, go_pkg_flag, go_pkg_fmt, go_pkg_github_com_fozzyack_rosterly_m_internal_app (+6 more)
 
 ### Community 4 - "Next.js Project"
 Cohesion: 0.14
 Nodes (16): Backend Service, DATABASE_URL, NEXT_PUBLIC_API_URL, PostgreSQL Database Service, Rosterly Data Volume, Web Service, create-next-app, Next.js Development Server (+8 more)
 
-### Community 5 - "layout.tsx"
-Cohesion: 0.33
-Nodes (4): frontend_app_globals, geistMono, geistSans, metadata
+### Community 5 - "dashboard.tsx"
+Cohesion: 0.11
+Nodes (34): Dashboard(), deleteShift(), exportRoster(), notify(), reviewRequest(), saveShift(), updateWeek(), dateLabel() (+26 more)
 
 ### Community 6 - "devDependencies"
 Cohesion: 0.22
@@ -107,12 +107,12 @@ Cohesion: 0.40
 Nodes (3): IMPORTANT: keep the reminder string free of backticks and $(...) constructs., ref_fs, ref_path
 
 ### Community 9 - "how-it-works/page.tsx"
-Cohesion: 0.09
-Nodes (22): PageAnimations(), SiteFooter(), LogoMark(), SiteHeader(), SiteHeaderProps, availability, checks, metadata (+14 more)
+Cohesion: 0.08
+Nodes (25): PageAnimations(), SiteFooter(), LogoMark(), SiteHeader(), SiteHeaderProps, frontend_app_globals, availability, checks (+17 more)
 
 ### Community 10 - "user_handler_test.go"
-Cohesion: 0.10
-Nodes (30): HealthHandler, NewHealthHandler(), UserHandler, NewUserHandler(), Application, NewApplication(), SessionStore, NewSessionStore() (+22 more)
+Cohesion: 0.08
+Nodes (40): HealthHandler, NewHealthHandler(), UserHandler, NewUserHandler(), Application, NewApplication(), MigrateDB(), Open() (+32 more)
 
 ### Community 11 - ".LoginUser"
 Cohesion: 0.20
@@ -135,28 +135,28 @@ Cohesion: 0.67
 Nodes (3): generate-agent-files.js, Generated Agent Rules Block, next dev
 
 ### Community 24 - "context.Context"
-Cohesion: 0.19
-Nodes (12): loginSessionStore, loginUserStore, Session, NewUserRequest, User, PostgresStore, hashSessionToken(), PostgresStore (+4 more)
+Cohesion: 0.17
+Nodes (13): loginSessionStore, loginUserStore, Session, NewUserRequest, User, PostgresStore, hashSessionToken(), PostgresStore (+5 more)
 
 ## Knowledge Gaps
-- **94 isolated node(s):** `$schema`, `plugin`, `github.com/Fozzyack/rosterly/m`, `LoginRequest`, `SiteHeaderProps` (+89 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 135 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **98 isolated node(s):** `$schema`, `plugin`, `github.com/Fozzyack/rosterly/m`, `LoginRequest`, `SiteHeaderProps` (+93 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 143 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **8 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `next` connect `how-it-works/page.tsx` to `package.json`, `layout.tsx`?**
-  _High betweenness centrality (0.060) - this node is a cross-community bridge._
+- **Why does `next` connect `how-it-works/page.tsx` to `package.json`, `dashboard.tsx`?**
+  _High betweenness centrality (0.079) - this node is a cross-community bridge._
 - **Why does `Next.js Development Server` connect `Next.js Project` to `how-it-works/page.tsx`?**
-  _High betweenness centrality (0.037) - this node is a cross-community bridge._
+  _High betweenness centrality (0.041) - this node is a cross-community bridge._
 - **What connects `$schema`, `plugin`, `github.com/Fozzyack/rosterly/m` to the rest of the system?**
-  _94 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _98 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `package.json` be split into smaller, more focused modules?**
   _Cohesion score 0.06666666666666667 - nodes in this community are weakly interconnected._
 - **Should `TypeScript Compiler Configuration` be split into smaller, more focused modules?**
   _Cohesion score 0.10526315789473684 - nodes in this community are weakly interconnected._
 - **Should `main.go` be split into smaller, more focused modules?**
-  _Cohesion score 0.07956989247311828 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.13071895424836602 - nodes in this community are weakly interconnected._
 - **Should `Next.js Project` be split into smaller, more focused modules?**
   _Cohesion score 0.14166666666666666 - nodes in this community are weakly interconnected._

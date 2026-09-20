@@ -39,7 +39,7 @@ export function LoginForm() {
       const data = (await response.json()) as { token: string };
       localStorage.setItem("session_token", data.token);
 
-      router.push("/");
+      router.push("/dashboard");
     } catch {
       setError("Couldn't sign you in. Check your email and password, then try again.");
     } finally {

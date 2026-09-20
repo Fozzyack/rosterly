@@ -34,12 +34,15 @@ export type OpenShift = {
 
 export type LeaveRequest = {
   id: string;
+  employeeId: string;
   employee: string;
   initials: string;
   color: string;
   kind: "Time off" | "Shift swap";
   detail: string;
   date: string;
+  weekOffset: number;
+  days?: number[];
 };
 
 export const ROLE_COLORS: Record<Role, { chip: string; dot: string }> = {
@@ -125,30 +128,38 @@ export const OPEN_SHIFTS: OpenShift[] = [
 export const LEAVE_REQUESTS: LeaveRequest[] = [
   {
     id: "req-1",
+    employeeId: "sam-lee",
     employee: "Sam Lee",
     initials: "SL",
     color: "bg-[#dbe7fe]",
     kind: "Shift swap",
     detail: "Wants to swap Friday 7:00 – 15:00",
     date: "Fri 18 Sep",
+    weekOffset: 0,
   },
   {
     id: "req-2",
+    employeeId: "jane-doe",
     employee: "Jane Doe",
     initials: "JD",
     color: "bg-[#e9dcfd]",
     kind: "Time off",
     detail: "Requested 2 days off next week",
     date: "Thu 24 – Fri 25 Sep",
+    weekOffset: 1,
+    days: [3, 4],
   },
   {
     id: "req-3",
+    employeeId: "wendy-smith",
     employee: "Wendy Smith",
     initials: "WS",
     color: "bg-[#d6f3e6]",
     kind: "Time off",
-    detail: "Requested morning off for appointment",
+    detail: "Requested the day off for an appointment",
     date: "Wed 23 Sep",
+    weekOffset: 1,
+    days: [2],
   },
 ];
 

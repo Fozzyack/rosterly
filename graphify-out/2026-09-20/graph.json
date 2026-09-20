@@ -901,17 +901,6 @@
       "source_location": "L1"
     },
     {
-      "id": "backend_internal_api_utils",
-      "label": "utils.go",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "user_handler_test.go",
-      "file_type": "code",
-      "norm_label": "utils.go",
-      "source_file": "backend/internal/api/utils.go",
-      "source_location": "L1"
-    },
-    {
       "id": "backend_internal_app_app",
       "label": "app.go",
       "_origin": "ast",
@@ -1074,7 +1063,18 @@
       "file_type": "code",
       "norm_label": "testloginusersession()",
       "source_file": "backend/internal/api/user_handler_test.go",
-      "source_location": "L37"
+      "source_location": "L39"
+    },
+    {
+      "id": "backend_internal_api_utils",
+      "label": "utils.go",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": ".LoginUser",
+      "file_type": "code",
+      "norm_label": "utils.go",
+      "source_file": "backend/internal/api/utils.go",
+      "source_location": "L1"
     },
     {
       "id": "backend_internal_api_utils_decodejson",
@@ -1461,7 +1461,7 @@
       "file_type": "code",
       "norm_label": "loginsessionstore",
       "source_file": "backend/internal/api/user_handler_test.go",
-      "source_location": "L28"
+      "source_location": "L30"
     },
     {
       "id": "api_loginsessionstore_createsession",
@@ -1472,7 +1472,7 @@
       "file_type": "code",
       "norm_label": ".createsession()",
       "source_file": "backend/internal/api/user_handler_test.go",
-      "source_location": "L33"
+      "source_location": "L35"
     },
     {
       "id": "api_loginuserstore",
@@ -1483,7 +1483,7 @@
       "file_type": "code",
       "norm_label": "loginuserstore",
       "source_file": "backend/internal/api/user_handler_test.go",
-      "source_location": "L19"
+      "source_location": "L21"
     },
     {
       "id": "api_loginuserstore_getuserbyemail",
@@ -1494,7 +1494,7 @@
       "file_type": "code",
       "norm_label": ".getuserbyemail()",
       "source_file": "backend/internal/api/user_handler_test.go",
-      "source_location": "L24"
+      "source_location": "L26"
     },
     {
       "id": "backend_internal_models_session_model_go_models_session",
@@ -2755,6 +2755,18 @@
       "type": "external"
     },
     {
+      "id": "go_pkg_crypto_sha256",
+      "label": "go_pkg_crypto_sha256",
+      "_origin": "semantic",
+      "community": 10,
+      "community_name": "user_handler_test.go",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "go_pkg_crypto_sha256",
+      "source_file": "",
+      "type": "external"
+    },
+    {
       "id": "go_pkg_database_sql",
       "label": "go_pkg_database_sql",
       "_origin": "semantic",
@@ -2775,6 +2787,18 @@
       "external": true,
       "file_type": "concept",
       "norm_label": "go_pkg_encoding_json",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "go_pkg_errors",
+      "label": "go_pkg_errors",
+      "_origin": "semantic",
+      "community": 10,
+      "community_name": "user_handler_test.go",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "go_pkg_errors",
       "source_file": "",
       "type": "external"
     },
@@ -2871,6 +2895,42 @@
       "external": true,
       "file_type": "concept",
       "norm_label": "go_pkg_net_http",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "go_pkg_net_http_httptest",
+      "label": "go_pkg_net_http_httptest",
+      "_origin": "semantic",
+      "community": 10,
+      "community_name": "user_handler_test.go",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "go_pkg_net_http_httptest",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "go_pkg_strings",
+      "label": "go_pkg_strings",
+      "_origin": "semantic",
+      "community": 10,
+      "community_name": "user_handler_test.go",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "go_pkg_strings",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "go_pkg_testing",
+      "label": "go_pkg_testing",
+      "_origin": "semantic",
+      "community": 10,
+      "community_name": "user_handler_test.go",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "go_pkg_testing",
       "source_file": "",
       "type": "external"
     },
@@ -3127,57 +3187,24 @@
       "type": "external"
     },
     {
-      "id": "go_pkg_crypto_sha256",
-      "label": "go_pkg_crypto_sha256",
+      "id": "go_pkg_github_com_stretchr_testify_assert",
+      "label": "go_pkg_github_com_stretchr_testify_assert",
       "community": 10,
       "community_name": "user_handler_test.go",
       "external": true,
       "file_type": "concept",
-      "norm_label": "go_pkg_crypto_sha256",
+      "norm_label": "go_pkg_github_com_stretchr_testify_assert",
       "source_file": "",
       "type": "external"
     },
     {
-      "id": "go_pkg_errors",
-      "label": "go_pkg_errors",
+      "id": "go_pkg_github_com_stretchr_testify_require",
+      "label": "go_pkg_github_com_stretchr_testify_require",
       "community": 10,
       "community_name": "user_handler_test.go",
       "external": true,
       "file_type": "concept",
-      "norm_label": "go_pkg_errors",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "go_pkg_net_http_httptest",
-      "label": "go_pkg_net_http_httptest",
-      "community": 10,
-      "community_name": "user_handler_test.go",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "go_pkg_net_http_httptest",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "go_pkg_strings",
-      "label": "go_pkg_strings",
-      "community": 10,
-      "community_name": "user_handler_test.go",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "go_pkg_strings",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "go_pkg_testing",
-      "label": "go_pkg_testing",
-      "community": 10,
-      "community_name": "user_handler_test.go",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "go_pkg_testing",
+      "norm_label": "go_pkg_github_com_stretchr_testify_require",
       "source_file": "",
       "type": "external"
     }
@@ -3228,7 +3255,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "backend/internal/api/user_handler_test.go",
-      "source_location": "L38",
+      "source_location": "L40",
       "weight": 1.0
     },
     {
@@ -3444,7 +3471,7 @@
       "confidence_score": 1.0,
       "context": "field",
       "source_file": "backend/internal/api/user_handler_test.go",
-      "source_location": "L30",
+      "source_location": "L32",
       "weight": 1.0
     },
     {
@@ -3456,7 +3483,7 @@
       "confidence_score": 1.0,
       "context": "field",
       "source_file": "backend/internal/api/user_handler_test.go",
-      "source_location": "L30",
+      "source_location": "L32",
       "weight": 1.0
     },
     {
@@ -3468,7 +3495,7 @@
       "confidence_score": 1.0,
       "context": "field",
       "source_file": "backend/internal/api/user_handler_test.go",
-      "source_location": "L30",
+      "source_location": "L32",
       "weight": 1.0
     },
     {
@@ -3480,7 +3507,7 @@
       "confidence_score": 1.0,
       "context": "field",
       "source_file": "backend/internal/api/user_handler_test.go",
-      "source_location": "L21",
+      "source_location": "L23",
       "weight": 1.0
     },
     {
@@ -4201,6 +4228,30 @@
       "context": "import",
       "source_file": "backend/internal/api/user_handler_test.go",
       "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_internal_api_user_handler_test",
+      "target": "go_pkg_github_com_stretchr_testify_assert",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/internal/api/user_handler_test.go",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_internal_api_user_handler_test",
+      "target": "go_pkg_github_com_stretchr_testify_require",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/internal/api/user_handler_test.go",
+      "source_location": "L18",
       "weight": 1.0
     },
     {
@@ -5248,7 +5299,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "backend/internal/api/user_handler_test.go",
-      "source_location": "L33",
+      "source_location": "L35",
       "weight": 1.0
     },
     {
@@ -5260,7 +5311,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "backend/internal/api/user_handler_test.go",
-      "source_location": "L33",
+      "source_location": "L35",
       "weight": 1.0
     },
     {
@@ -5272,7 +5323,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "backend/internal/api/user_handler_test.go",
-      "source_location": "L24",
+      "source_location": "L26",
       "weight": 1.0
     },
     {
@@ -5380,7 +5431,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "backend/internal/api/user_handler_test.go",
-      "source_location": "L37",
+      "source_location": "L39",
       "weight": 1.0
     },
     {
@@ -5584,7 +5635,7 @@
       "confidence_score": 1.0,
       "context": "return_type",
       "source_file": "backend/internal/api/user_handler_test.go",
-      "source_location": "L33",
+      "source_location": "L35",
       "weight": 1.0
     },
     {
@@ -5596,7 +5647,7 @@
       "confidence_score": 1.0,
       "context": "return_type",
       "source_file": "backend/internal/api/user_handler_test.go",
-      "source_location": "L24",
+      "source_location": "L26",
       "weight": 1.0
     },
     {
@@ -5807,7 +5858,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/internal/api/user_handler_test.go",
-      "source_location": "L19",
+      "source_location": "L21",
       "weight": 1.0
     },
     {
@@ -5818,7 +5869,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/internal/api/user_handler_test.go",
-      "source_location": "L28",
+      "source_location": "L30",
       "weight": 1.0
     },
     {
@@ -5829,7 +5880,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/internal/api/user_handler_test.go",
-      "source_location": "L37",
+      "source_location": "L39",
       "weight": 1.0
     },
     {
@@ -7028,7 +7079,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/internal/api/user_handler_test.go",
-      "source_location": "L29",
+      "source_location": "L31",
       "weight": 1.0
     },
     {
@@ -7039,7 +7090,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/internal/api/user_handler_test.go",
-      "source_location": "L20",
+      "source_location": "L22",
       "weight": 1.0
     },
     {
@@ -7050,7 +7101,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/internal/api/user_handler_test.go",
-      "source_location": "L33",
+      "source_location": "L35",
       "weight": 1.0
     },
     {
@@ -7061,7 +7112,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/internal/api/user_handler_test.go",
-      "source_location": "L24",
+      "source_location": "L26",
       "weight": 1.0
     },
     {
@@ -7256,7 +7307,7 @@
       "confidence_score": 0.85,
       "context": "call",
       "source_file": "backend/internal/api/user_handler_test.go",
-      "source_location": "L80",
+      "source_location": "L72",
       "weight": 1.0
     },
     {
@@ -7673,5 +7724,5 @@
       "source_file": "frontend/README.md"
     }
   ],
-  "built_at_commit": "85d031ac73f5c3ed01dc47a75b6ab354f621a0fe"
+  "built_at_commit": "8e05efdf9cca033a18cd8239ad98edb2ebaee262"
 }

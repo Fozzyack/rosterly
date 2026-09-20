@@ -1,6 +1,6 @@
 # Rosterly frontend
 
-The Rosterly marketing website and account forms, built with Next.js 16.3.5 App Router, React 19.2.8, TypeScript, Tailwind CSS 4, and GSAP.
+The Rosterly marketing website, account forms, and demo scheduling dashboard, built with Next.js 16.3.5 App Router, React 19.2.8, TypeScript, Tailwind CSS 4, and GSAP.
 
 For database, backend, and Docker Compose setup, see the [repository README](../README.md).
 
@@ -24,8 +24,9 @@ Open [http://localhost:3000](http://localhost:3000). Pages update as you edit th
 | `/how-it-works` | Scheduling workflow overview |
 | `/signup` | Name, email, and password signup form |
 | `/login` | Email and password login form |
+| `/dashboard` | Demo scheduling dashboard: weekly roster, open shifts, leave requests, and week insights |
 
-The roster and team previews use static demo data. The app does not yet provide a working scheduling dashboard.
+The roster previews and dashboard use static demo data. Dashboard edits are client-side only and reset on refresh; no scheduling data is persisted to the API yet.
 
 ## API configuration
 
@@ -44,16 +45,17 @@ Next.js embeds this public variable during `bun run build`. Changing it only whe
 ### Account flow status
 
 - **Signup:** sends `{ name, email, password }` to `POST /users/`, then navigates to `/login` on success.
-- **Login:** sends `{ email, password }` to `POST /login`, then navigates to `/` on success. The backend has a login handler, but `/login` is not registered yet.
+- **Login:** sends `{ email, password }` to `POST /auth/login/`, stores the returned session token in `localStorage` as `session_token`, then navigates to `/dashboard`. The backend creates a 24-hour session per login but does not yet validate tokens on requests; the dashboard is not auth-gated.
 - Both forms include pending and error states and password visibility controls. Signup requires an eight-character password and acceptance of the terms in the browser.
 - Browser requests to the separate API origin currently need CORS support or a same-origin proxy; neither is configured yet.
-- Google sign-in, password recovery, and session handling are unfinished.
+- Google sign-in, password recovery, and server-side session validation are unfinished.
 
 ## Project layout
 
 ```text
 app/
   components/         Shared header, footer, and page animations
+  dashboard/          Demo scheduling dashboard (client component, roster table, dialogs, sample data)
   how-it-works/       Workflow overview page
   login/              Login page and client-side form
   product/            Product overview page

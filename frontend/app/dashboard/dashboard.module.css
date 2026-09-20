@@ -1,0 +1,38 @@
+.shell :where(button, a, select, input, [tabindex]):focus-visible {
+  outline: 2px solid #69843a;
+  outline-offset: 4px;
+}
+
+.shell button:not(:disabled), .shell select {
+  cursor: pointer;
+}
+
+.enter {
+  animation: arrive 550ms ease-out both;
+}
+
+.stats {
+  animation: arrive 650ms 70ms ease-out both;
+}
+
+.roster {
+  animation: arrive 700ms 130ms ease-out both;
+}
+
+.texture {
+  background-image: radial-gradient(#a6b69a 0.7px, transparent 0.7px);
+  background-size: 9px 9px;
+}
+
+@keyframes arrive {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .enter, .stats, .roster { animation: none; }
+  .shell *, .shell *::before, .shell *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}

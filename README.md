@@ -2,7 +2,7 @@
 
 Simple, automated roster scheduling for small teams.
 
-Rosterly is in early development. The repository currently contains a marketing website, signup and login forms, and a Go API with PostgreSQL-backed user creation. The scheduling views on the website use demo data; roster management and automated scheduling are not implemented yet.
+Rosterly is in early development. The repository currently contains a marketing website, signup and login forms, a demo scheduling dashboard, and a Go API with PostgreSQL-backed user creation, password login, and session storage. The dashboard and scheduling views use demo data; automated scheduling and persistence of roster edits are not implemented yet.
 
 ## Stack
 
@@ -19,7 +19,7 @@ backend/
   internal/           API handlers, routing, models, stores, auth, and configuration
   migrations/         Embedded SQL migrations applied at startup
 frontend/
-  app/                App Router pages, forms, shared components, and styles
+  app/                App Router pages, account forms, demo dashboard, shared components, and styles
   lib/                Shared API URL helper
   public/             Static assets
 compose.yaml          Database, API, and web services
@@ -107,6 +107,7 @@ The router currently registers these endpoints (including trailing slashes):
 | Method | Path | Purpose |
 | --- | --- | --- |
 | `GET` | `/health/` | Health response |
+| `POST` | `/auth/login/` | Authenticate with email and password; creates a 24-hour session and returns its token |
 | `POST` | `/users/` | Create a user with a bcrypt password hash |
 
 Example requests:
@@ -117,16 +118,21 @@ curl http://localhost:8000/health/
 curl -i http://localhost:8000/users/ \
   -H 'Content-Type: application/json' \
   -d '{"name":"Alex Carter","email":"alex@example.com","password":"example-password"}'
+
+curl -i http://localhost:8000/auth/login/ \
+  -H 'Content-Type: application/json' \
+  -d '{"email":"alex@example.com","password":"example-password"}'
 ```
 
-User creation returns HTTP `201` with the user's name, email, and timestamps.
+User creation returns HTTP `201` with the user's name, email, and timestamps. Login returns a session token that expires after 24 hours; sessions are persisted in the `sessions` table.
 
-Authentication is still being connected:
+Current frontend integration status:
 
 - The signup form posts to `/users/` and redirects to `/login` on success.
-- The login form posts to `/login`, but the backend login handler is not registered in the router yet.
-- The backend has no CORS middleware, and the frontend has no API proxy. Browser JSON requests from port `3000` to `8000` require that integration before signup works end to end; direct API requests such as `curl` are unaffected.
-- Session issuance, Google sign-in, and password recovery are not wired into the UI flow.
+- The login form posts to `/auth/login/`, stores the returned token in browser `localStorage` as `session_token`, and navigates to `/dashboard`. The backend does not yet validate tokens on requests, and the dashboard is not auth-gated.
+- The dashboard is a client-side demo workspace with static sample data; edits reset on refresh.
+- The backend has no CORS middleware, and the frontend has no API proxy. Browser JSON requests from port `3000` to `8000` require that integration before signup and login work end to end; direct API requests such as `curl` are unaffected.
+- Google sign-in and password recovery are not wired into the UI flow.
 
 ## Development checks
 
