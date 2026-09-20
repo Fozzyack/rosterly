@@ -20,6 +20,7 @@ type Application struct {
 
 	// Handlers
 	HealthHandler *api.HealthHandler
+	UserHandler   *api.UserHandler
 }
 
 func NewApplication() (*Application, error) {
@@ -39,6 +40,7 @@ func NewApplication() (*Application, error) {
 	userStore := store.NewUserStore(db)
 
 	healthHandler := api.NewHealthHandler(&logger)
+	userHandler := api.NewUserHandler(&logger, userStore)
 
 	app := &Application{
 
@@ -47,6 +49,7 @@ func NewApplication() (*Application, error) {
 		UserStore: userStore,
 
 		HealthHandler: healthHandler,
+		UserHandler:   userHandler,
 	}
 
 	return app, nil
