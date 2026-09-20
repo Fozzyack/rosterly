@@ -42,12 +42,14 @@ func (uh *UserHandler) LoginUser(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	sendJSON(w, models.UserResponse{
-		Name:      user.Name,
-		Email:     user.Email,
-		CreatedAt: user.CreatedAt,
-		UpdatedAt: user.UpdatedAt,
-	})
+	token, err := auth.GenerateToken()
+	if err != nil {
+		uh.logger.Error().Err(err).Msg("Failed to Login User")
+		sendError(w, "Failed to Login User", http.StatusInternalServerError)
+		return
+	}
+
+	sendJSON(w, map[string]string{"token": token})
 
 }
 
