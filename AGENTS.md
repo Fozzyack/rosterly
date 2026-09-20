@@ -16,6 +16,7 @@
 ## Setup Constraints
 
 - Local backend startup requires `backend/.env`; start from `backend/.env.example` and provide `DATABASE_URL` (and optionally `ENV`). The backend exits if `.env` cannot be loaded or the database is unavailable.
+- The backend Dockerfile copies `backend/.env` during image build, so create that ignored file before running Compose as well.
 - Compose and `.env.example` use the database password `rostlerly` (not `rosterly`).
 - `backend/Dockerfile` declares `EXPOSE 8080`, but the server and Compose use `8000`; trust the server and Compose values.
 - Read `frontend/AGENTS.md` before changing Next.js code. Keep its generated marker block and consult the version-specific docs under `frontend/node_modules/next/dist/docs/`.
