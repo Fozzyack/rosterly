@@ -1,3 +1,5 @@
+import { LogoMark, SiteHeader } from "./components/site-header";
+
 const days = [
   { day: "MON", date: "14" },
   { day: "TUE", date: "15" },
@@ -14,57 +16,21 @@ const team = [
 ];
 
 const shifts = [
-  { person: "Jamie", time: "8:00 – 4:00", col: "1", row: "1", tone: "bg-[#d8efe2] border-[#abd5bb]" },
-  { person: "Alex", time: "9:00 – 5:00", col: "2", row: "1", tone: "bg-[#f8d9b7] border-[#e8b87e]" },
-  { person: "Mia", time: "8:30 – 2:30", col: "3", row: "1", tone: "bg-[#d8e7fa] border-[#adc8ea]" },
-  { person: "Theo", time: "10:00 – 6:00", col: "4", row: "1", tone: "bg-[#eadcf5] border-[#ccb5e0]" },
-  { person: "Jamie", time: "8:00 – 4:00", col: "5", row: "1", tone: "bg-[#d8efe2] border-[#abd5bb]" },
-  { person: "Mia", time: "11:00 – 5:00", col: "1", row: "2", tone: "bg-[#d8e7fa] border-[#adc8ea]" },
-  { person: "Theo", time: "12:00 – 6:00", col: "2", row: "2", tone: "bg-[#eadcf5] border-[#ccb5e0]" },
-  { person: "Alex", time: "9:00 – 3:00", col: "4", row: "2", tone: "bg-[#f8d9b7] border-[#e8b87e]" },
-  { person: "Mia", time: "10:00 – 4:00", col: "5", row: "2", tone: "bg-[#d8e7fa] border-[#adc8ea]" },
+  { person: "Jamie", time: "8:00 - 4:00", col: "1", row: "1", tone: "bg-[#d8efe2] border-[#abd5bb]" },
+  { person: "Alex", time: "9:00 - 5:00", col: "2", row: "1", tone: "bg-[#f8d9b7] border-[#e8b87e]" },
+  { person: "Mia", time: "8:30 - 2:30", col: "3", row: "1", tone: "bg-[#d8e7fa] border-[#adc8ea]" },
+  { person: "Theo", time: "10:00 - 6:00", col: "4", row: "1", tone: "bg-[#eadcf5] border-[#ccb5e0]" },
+  { person: "Jamie", time: "8:00 - 4:00", col: "5", row: "1", tone: "bg-[#d8efe2] border-[#abd5bb]" },
+  { person: "Mia", time: "11:00 - 5:00", col: "1", row: "2", tone: "bg-[#d8e7fa] border-[#adc8ea]" },
+  { person: "Theo", time: "12:00 - 6:00", col: "2", row: "2", tone: "bg-[#eadcf5] border-[#ccb5e0]" },
+  { person: "Alex", time: "9:00 - 3:00", col: "4", row: "2", tone: "bg-[#f8d9b7] border-[#e8b87e]" },
+  { person: "Mia", time: "10:00 - 4:00", col: "5", row: "2", tone: "bg-[#d8e7fa] border-[#adc8ea]" },
 ];
-
-function Mark({ small = false }: { small?: boolean }) {
-  return (
-    <span
-      className={`relative grid shrink-0 place-items-center rounded-full bg-[#d9ff57] text-[#17211e] ${small ? "size-7" : "size-9"}`}
-      aria-hidden="true"
-    >
-      <svg viewBox="0 0 24 24" fill="none" className={small ? "size-4" : "size-5"}>
-        <path d="M7 7.5h10M7 12h6M7 16.5h8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        <path d="m15.5 10.5 1.5 1.5 3-3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    </span>
-  );
-}
 
 export default function Home() {
   return (
     <main className="min-h-screen overflow-hidden bg-[#f5f3ea] font-sans text-[#17211e] selection:bg-[#d9ff57] selection:text-[#17211e]">
-      <nav className="mx-auto flex h-20 w-full max-w-[1240px] items-center justify-between px-5 sm:px-8" aria-label="Main navigation">
-        <a href="#" className="flex items-center gap-2.5" aria-label="Rosterly home">
-          <Mark />
-          <span className="text-xl font-semibold tracking-[-0.04em]">rosterly</span>
-        </a>
-
-        <div className="hidden items-center gap-8 text-sm font-medium text-[#43504c] md:flex">
-          <a className="transition-colors hover:text-[#17211e]" href="#product">Product</a>
-          <a className="transition-colors hover:text-[#17211e]" href="#how-it-works">How it works</a>
-          <a className="transition-colors hover:text-[#17211e]" href="#pricing">Pricing</a>
-          <a className="transition-colors hover:text-[#17211e]" href="#resources">Resources</a>
-        </div>
-
-        <div className="flex items-center gap-3">
-          <a className="hidden px-3 py-2 text-sm font-semibold sm:block" href="#login">Log in</a>
-          <a
-            className="rounded-full bg-[#17211e] px-5 py-2.5 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
-            href="#signup"
-          >
-            Start for free
-          </a>
-        </div>
-      </nav>
+      <SiteHeader />
 
       <section className="relative mx-auto flex max-w-[1240px] flex-col items-center px-5 pb-10 pt-14 text-center sm:px-8 sm:pt-20 lg:pt-24">
         <h1 className="relative max-w-4xl text-balance text-[clamp(3.25rem,8vw,7.4rem)] font-semibold leading-[0.88] tracking-[-0.075em]">
@@ -103,9 +69,9 @@ export default function Home() {
         </div>
 
         <div className="relative mt-5 flex items-center gap-4 text-xs font-medium text-[#6d7773]">
-          <span className="flex items-center gap-1.5"><span className="text-[#6ba96f]">✓</span> No credit card</span>
+          <span className="flex items-center gap-1.5"><span className="text-[#6ba96f]">&#10003;</span> No credit card</span>
           <span className="size-1 rounded-full bg-[#b9bcb4]" />
-          <span className="flex items-center gap-1.5"><span className="text-[#6ba96f]">✓</span> Free for 14 days</span>
+          <span className="flex items-center gap-1.5"><span className="text-[#6ba96f]">&#10003;</span> Free for 14 days</span>
         </div>
 
         <div
@@ -117,10 +83,10 @@ export default function Home() {
           <div className="absolute -left-5 top-24 hidden w-44 -rotate-3 rounded-2xl border border-[#d9d8ce] bg-white p-3.5 text-left shadow-xl lg:block">
             <div className="mb-3 flex items-center justify-between">
               <span className="text-[10px] font-bold uppercase tracking-[0.12em] text-[#78817d]">Smart check</span>
-              <span className="grid size-5 place-items-center rounded-full bg-[#d9ff57] text-xs">✓</span>
+              <span className="grid size-5 place-items-center rounded-full bg-[#d9ff57] text-xs">&#10003;</span>
             </div>
             <p className="text-sm font-semibold leading-tight">Every shift is covered</p>
-            <p className="mt-1 text-[10px] leading-4 text-[#7b8480]">0 conflicts · 164 hours</p>
+            <p className="mt-1 text-[10px] leading-4 text-[#7b8480]">0 conflicts &middot; 164 hours</p>
           </div>
 
           <div className="absolute -right-5 bottom-20 z-10 hidden w-48 rotate-2 rounded-2xl bg-[#d9ff57] p-4 text-left shadow-xl lg:block">
@@ -135,7 +101,7 @@ export default function Home() {
           <div className="overflow-hidden rounded-[19px] bg-[#f9f9f6] text-left sm:rounded-[24px]">
             <div className="flex h-12 items-center justify-between border-b border-[#e6e6df] px-4 sm:h-16 sm:px-6">
               <div className="flex items-center gap-2 sm:gap-3">
-                <Mark small />
+                <LogoMark small />
                 <span className="hidden text-sm font-semibold sm:block">rosterly</span>
                 <span className="hidden h-4 w-px bg-[#d9d9d2] sm:block" />
                 <span className="text-xs font-medium text-[#707a76] sm:text-sm">North Street Studio</span>
@@ -180,12 +146,12 @@ export default function Home() {
                 <div className="flex items-end justify-between gap-3">
                   <div>
                     <p className="text-[9px] font-bold uppercase tracking-[0.12em] text-[#86908b] sm:text-[10px]">Weekly roster</p>
-                    <h2 className="mt-1 text-lg font-semibold tracking-[-0.03em] sm:text-2xl">September 14 – 18</h2>
+                    <h2 className="mt-1 text-lg font-semibold tracking-[-0.03em] sm:text-2xl">September 14 &ndash; 18</h2>
                   </div>
                   <div className="hidden items-center gap-1 rounded-lg border border-[#dfdfd8] bg-white p-1 text-[10px] font-semibold md:flex">
-                    <button className="rounded-md px-2 py-1.5 text-[#707a76]" type="button">‹</button>
+                    <button className="rounded-md px-2 py-1.5 text-[#707a76]" type="button">&lsaquo;</button>
                     <button className="rounded-md bg-[#f0f0eb] px-3 py-1.5" type="button">Today</button>
-                    <button className="rounded-md px-2 py-1.5 text-[#707a76]" type="button">›</button>
+                    <button className="rounded-md px-2 py-1.5 text-[#707a76]" type="button">&rsaquo;</button>
                   </div>
                 </div>
 
@@ -226,7 +192,7 @@ export default function Home() {
                     </span>
                     <div><p className="text-[9px] font-semibold sm:text-xs">Ready to publish</p><p className="hidden text-[9px] text-[#7c8581] sm:block">All rules and availability checked</p></div>
                   </div>
-                  <p className="text-[9px] font-semibold text-[#66706c] sm:text-xs">164 hrs · $4,920</p>
+                  <p className="text-[9px] font-semibold text-[#66706c] sm:text-xs">164 hrs &middot; $4,920</p>
                 </div>
               </div>
             </div>
