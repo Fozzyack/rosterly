@@ -6,7 +6,7 @@ import (
 )
 
 type Application struct {
-	logger *zerolog.Logger
+	Logger *zerolog.Logger
 }
 
 func NewApplication() (*Application, error) {
@@ -14,7 +14,7 @@ func NewApplication() (*Application, error) {
 	logger := zerolog.New(zerolog.ConsoleWriter{Out: os.Stdout}).With().Timestamp().Logger()
 
 	app := &Application{
-		logger: &logger,
+		Logger: &logger,
 	}
 
 	return app, nil
