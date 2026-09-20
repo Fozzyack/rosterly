@@ -1,1 +1,23 @@
-{"0": "Frontend Package Configuration", "1": "TypeScript Compiler Configuration", "2": "Backend Application Setup", "3": "Backend Routing Runtime", "4": "Next.js Starter Resources", "5": "Frontend Layout Configuration", "6": "Frontend Development Dependencies", "7": "Graphify Knowledge Navigation", "8": "Graphify OpenCode Plugins", "9": "Service Database Integration", "10": "Frontend Runtime Dependencies", "11": "Frontend Build Scripts", "12": "Next.js Agent Guidance", "13": "Document File Icon", "14": "Rosterly Deployment Overview", "15": "Agent Rule Generation", "16": "OpenCode Plugin Configuration", "17": "PostCSS Configuration", "18": "Globe Asset", "19": "Next.js Brand Asset", "20": "Vercel Brand Asset", "21": "Browser Window Asset", "22": "Go Module Identity"}
+{
+  "0": "package.json",
+  "1": "TypeScript Compiler Configuration",
+  "2": "main.go",
+  "4": "Next.js Project",
+  "5": "layout.tsx",
+  "6": "devDependencies",
+  "7": "Graphify Knowledge Graph",
+  "8": "graphify.js",
+  "9": "how-it-works/page.tsx",
+  "10": "dependencies",
+  "12": "Next.js Agent Rules",
+  "13": "Document Symbol",
+  "14": "Rosterly",
+  "15": "Generated Agent Rules Block",
+  "16": "opencode.json",
+  "17": "postcss.config.mjs",
+  "18": "Globe Icon",
+  "19": "Next.js Logo",
+  "20": "Vercel Logo",
+  "21": "Browser Window Icon",
+  "22": "github.com/Fozzyack/rosterly/m"
+}
