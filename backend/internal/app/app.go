@@ -16,7 +16,8 @@ type Application struct {
 	Logger *zerolog.Logger
 
 	// Stores
-	UserStore store.UserStore
+	UserStore    store.UserStore
+	SessionStore store.SessionStore
 
 	// Handlers
 	HealthHandler *api.HealthHandler
@@ -38,15 +39,17 @@ func NewApplication() (*Application, error) {
 	}
 
 	userStore := store.NewUserStore(db)
+	sessionStore := store.NewSessionStore(db)
 
 	healthHandler := api.NewHealthHandler(&logger)
-	userHandler := api.NewUserHandler(&logger, userStore)
+	userHandler := api.NewUserHandler(&logger, userStore, sessionStore)
 
 	app := &Application{
 
 		Logger: &logger,
 
-		UserStore: userStore,
+		UserStore:    userStore,
+		SessionStore: sessionStore,
 
 		HealthHandler: healthHandler,
 		UserHandler:   userHandler,

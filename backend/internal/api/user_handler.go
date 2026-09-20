@@ -2,6 +2,7 @@ package api
 
 import (
 	"net/http"
+	"time"
 
 	"github.com/Fozzyack/rosterly/m/internal/auth"
 	"github.com/Fozzyack/rosterly/m/internal/models"
@@ -10,14 +11,16 @@ import (
 )
 
 type UserHandler struct {
-	logger    *zerolog.Logger
-	userStore store.UserStore
+	logger       *zerolog.Logger
+	userStore    store.UserStore
+	sessionStore store.SessionStore
 }
 
-func NewUserHandler(logger *zerolog.Logger, userStore store.UserStore) *UserHandler {
+func NewUserHandler(logger *zerolog.Logger, userStore store.UserStore, sessionStore store.SessionStore) *UserHandler {
 	return &UserHandler{
-		logger:    logger,
-		userStore: userStore,
+		logger:       logger,
+		userStore:    userStore,
+		sessionStore: sessionStore,
 	}
 }
 
@@ -45,6 +48,13 @@ func (uh *UserHandler) LoginUser(w http.ResponseWriter, r *http.Request) {
 	token, err := auth.GenerateToken()
 	if err != nil {
 		uh.logger.Error().Err(err).Msg("Failed to Login User")
+		sendError(w, "Failed to Login User", http.StatusInternalServerError)
+		return
+	}
+
+	_, err = uh.sessionStore.CreateSession(r.Context(), token, user.ID, time.Now().Add(24*time.Hour))
+	if err != nil {
+		uh.logger.Error().Err(err).Msg("Failed to Create Session")
 		sendError(w, "Failed to Login User", http.StatusInternalServerError)
 		return
 	}

@@ -9,8 +9,8 @@
   "7": "Graphify Knowledge Graph",
   "8": "graphify.js",
   "9": "how-it-works/page.tsx",
-  "10": "app.go",
-  "11": ".CreateUser",
+  "10": "user_handler_test.go",
+  "11": ".LoginUser",
   "12": "Next.js Agent Rules",
   "13": "Document Symbol",
   "14": "Rosterly",
@@ -22,6 +22,5 @@
   "20": "Vercel Logo",
   "21": "Browser Window Icon",
   "22": "github.com/Fozzyack/rosterly/m",
-  "23": "database.go",
-  "24": "user_model.go"
+  "24": "context.Context"
 }

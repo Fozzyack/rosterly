@@ -198,9 +198,9 @@
     "semantic_hash": ""
   },
   "frontend/app/login/login-form.tsx": {
-    "mtime": 1789909010.2486703,
-    "seen": 1789909326.6084332,
-    "ast_hash": "7d8d90173ae882a3e284a87a94627e59",
+    "mtime": 1789917154.550909,
+    "seen": 1789917163.9716718,
+    "ast_hash": "ffb232226d18cd3c217281e9a8a65e60",
     "semantic_hash": ""
   },
   "frontend/app/login/page.tsx": {
@@ -216,9 +216,9 @@
     "semantic_hash": ""
   },
   "frontend/app/signup/signup-form.tsx": {
-    "mtime": 1789916728.9470012,
-    "seen": 1789917009.116761,
-    "ast_hash": "ca33ee9bda5059d084654d2a605a4f2c",
+    "mtime": 1789917142.8469114,
+    "seen": 1789917163.9717526,
+    "ast_hash": "fe69e3035ce887177de2603326865dc4",
     "semantic_hash": ""
   },
   "backend/internal/api/health_handler.go": {
@@ -261,6 +261,12 @@
     "mtime": 1789916782.7515788,
     "seen": 1789917009.1164665,
     "ast_hash": "e3f6413ce863b3d75a8da23897930c9e",
+    "semantic_hash": ""
+  },
+  "frontend/lib/api.ts": {
+    "mtime": 1789917127.7509146,
+    "seen": 1789917163.9717708,
+    "ast_hash": "2d6f5426d0ae24e0f6c6a542d4d3aff8",
     "semantic_hash": ""
   }
 }

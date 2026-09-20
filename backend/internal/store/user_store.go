@@ -24,14 +24,16 @@ func (ps *PostgresStore) GetUserByEmail(ctx context.Context, email string) (*mod
 	if err != nil {
 		return nil, err
 	}
+	defer tx.Rollback()
 
 	query := `
-	SELECT name, email, password_hash, created_at, updated_at FROM users 
+	SELECT id, name, email, password_hash, created_at, updated_at FROM users 
 	WHERE email = $1
 	`
 
 	newUser := &models.User{}
 	err = tx.QueryRowContext(ctx, query, email).Scan(
+		&newUser.ID,
 		&newUser.Name,
 		&newUser.Email,
 		&newUser.PasswordHash,
@@ -50,14 +52,16 @@ func (ps *PostgresStore) GetUserById(ctx context.Context, userId string) (*model
 	if err != nil {
 		return nil, err
 	}
+	defer tx.Rollback()
 
 	query := `
-	SELECT name, email, password_hash, created_at, updated_at FROM users 
+	SELECT id, name, email, password_hash, created_at, updated_at FROM users 
 	WHERE id = $1
 	`
 
 	newUser := &models.User{}
 	err = tx.QueryRowContext(ctx, query, userId).Scan(
+		&newUser.ID,
 		&newUser.Name,
 		&newUser.Email,
 		&newUser.PasswordHash,
@@ -83,11 +87,12 @@ func (ps *PostgresStore) CreateUser(ctx context.Context, newUserRequest models.N
 	query := `
 	INSERT into users (name, email, password_hash)
 	VALUES ($1, $2, $3)
-	RETURNING name, email, password_hash, created_at, updated_at
+	RETURNING id, name, email, password_hash, created_at, updated_at
 	`
 
 	newUser := &models.User{}
 	err = tx.QueryRowContext(ctx, query, newUserRequest.Name, newUserRequest.Email, passwordHash).Scan(
+		&newUser.ID,
 		&newUser.Name,
 		&newUser.Email,
 		&newUser.PasswordHash,
