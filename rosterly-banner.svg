@@ -5,7 +5,7 @@
   <circle cx="1088" cy="-8" r="132" fill="#D9FF57"/>
   <circle cx="1148" cy="274" r="92" fill="#D8EFE2"/>
 
-  <g transform="translate(72 18)">
+  <g transform="translate(72 42)">
     <circle cx="25" cy="25" r="25" fill="#D9FF57"/>
     <path d="M15 20.5H35M15 25H27M15 29.5H31" stroke="#17211E" stroke-width="3" stroke-linecap="round"/>
     <path d="M32 23.5L35 26.5L41 20.5" stroke="#17211E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
@@ -35,5 +35,7 @@
     <rect x="24" y="166" width="130" height="8" rx="4" fill="#E9F4ED"/>
     <rect x="342" y="166" width="74" height="8" rx="4" fill="#D9FF57"/>
   </g>
+
+  <text x="1090" y="286" text-anchor="end" fill="#55715E" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" font-style="italic">Your week, sorted.</text>
 
 </svg>
