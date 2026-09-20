@@ -1,0 +1,41 @@
+<svg width="1200" height="320" viewBox="0 0 1200 320" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Rosterly - Your week, sorted.</title>
+  <desc id="desc">A warm cream banner with the Rosterly title, lime accents, and a weekly roster preview.</desc>
+  <rect width="1200" height="320" rx="28" fill="#F5F3EA"/>
+  <circle cx="1088" cy="-8" r="132" fill="#D9FF57"/>
+  <circle cx="1148" cy="274" r="92" fill="#D8EFE2"/>
+
+  <g transform="translate(72 70)">
+    <circle cx="25" cy="25" r="25" fill="#D9FF57"/>
+    <path d="M15 20.5H35M15 25H27M15 29.5H31" stroke="#17211E" stroke-width="3" stroke-linecap="round"/>
+    <path d="M32 23.5L35 26.5L41 20.5" stroke="#17211E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="66" y="34" fill="#17211E" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" letter-spacing="-1.5">rosterly</text>
+  </g>
+
+  <text x="74" y="161" fill="#17211E" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="700" letter-spacing="-5">Your week,</text>
+  <text x="74" y="232" fill="#55715E" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="700" font-style="italic" letter-spacing="-5">sorted.</text>
+  <path d="M77 247C165 236 264 236 371 242" stroke="#B8DD3E" stroke-width="7" stroke-linecap="round"/>
+  <text x="78" y="278" fill="#5A6662" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" letter-spacing="2.2">AUTOMATED ROSTERS FOR SMALL TEAMS</text>
+
+  <g transform="translate(655 58) rotate(3 220 100)">
+    <rect width="440" height="196" rx="20" fill="#18221F"/>
+    <rect x="10" y="10" width="420" height="176" rx="14" fill="#F9F9F6"/>
+    <path d="M10 48H430" stroke="#E6E6DF"/>
+    <circle cx="31" cy="29" r="10" fill="#D9FF57"/>
+    <path d="M26 28H36M26 32H32" stroke="#17211E" stroke-width="1.6" stroke-linecap="round"/>
+    <text x="51" y="34" fill="#17211E" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700">Weekly roster</text>
+    <rect x="24" y="66" width="392" height="92" rx="10" fill="white" stroke="#E0E1DA"/>
+    <path d="M102 66V158M180 66V158M258 66V158M336 66V158M24 112H416" stroke="#ECECE6"/>
+    <rect x="32" y="75" width="61" height="28" rx="6" fill="#D8EFE2" stroke="#ABD5BB"/>
+    <rect x="110" y="120" width="61" height="28" rx="6" fill="#F8D9B7" stroke="#E8B87E"/>
+    <rect x="188" y="75" width="61" height="28" rx="6" fill="#D8E7FA" stroke="#ADC8EA"/>
+    <rect x="266" y="120" width="61" height="28" rx="6" fill="#EADCF5" stroke="#CCB5E0"/>
+    <rect x="344" y="75" width="61" height="28" rx="6" fill="#D8EFE2" stroke="#ABD5BB"/>
+    <circle cx="395" cy="73" r="6" fill="#6BA96F" stroke="white" stroke-width="2"/>
+    <rect x="24" y="166" width="130" height="8" rx="4" fill="#E9F4ED"/>
+    <rect x="342" y="166" width="74" height="8" rx="4" fill="#D9FF57"/>
+  </g>
+
+  <rect x="965" y="260" width="154" height="38" rx="19" fill="#17211E"/>
+  <text x="1042" y="284" text-anchor="middle" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700">BUILD LESS. PLAN BETTER.</text>
+</svg>

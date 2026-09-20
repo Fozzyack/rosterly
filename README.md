@@ -1,4 +1,8 @@
-# Rosterly
+<p align="center">
+  <img src="rosterly-banner.svg" alt="Rosterly - Your week, sorted." width="1200">
+</p>
+
+> Rosterly was based on a hackathon project built during the 2026 WADSIH Hackathon.
 
 Simple, automated roster scheduling for small teams.
 
