@@ -14,6 +14,8 @@ import (
 	"github.com/Fozzyack/rosterly/m/internal/models"
 	"github.com/Fozzyack/rosterly/m/internal/store"
 	"github.com/rs/zerolog"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 type loginUserStore struct {
@@ -36,12 +38,10 @@ func (s *loginSessionStore) CreateSession(ctx context.Context, token, userID str
 
 func TestLoginUserSession(t *testing.T) {
 	passwordHash, err := auth.HashPassword("password")
-	if err != nil {
-		t.Fatal(err)
-	}
+	require.NoError(t, err)
 	user := &models.User{ID: "9dd329e2-79df-4ad0-9e0d-99fc81aa6dd1", PasswordHash: passwordHash}
 
-	for _, tt := range []struct {
+	testCases := []struct {
 		name        string
 		password    string
 		storeErr    error
@@ -51,28 +51,20 @@ func TestLoginUserSession(t *testing.T) {
 		{name: "persist before returning token", password: "password", wantSession: true, wantStatus: http.StatusOK},
 		{name: "persistence failure withholds token", password: "password", storeErr: errors.New("database unavailable"), wantSession: true, wantStatus: http.StatusInternalServerError},
 		{name: "invalid password creates no session", password: "wrong", wantStatus: http.StatusInternalServerError},
-	} {
+	}
+
+	for _, tt := range testCases {
 		t.Run(tt.name, func(t *testing.T) {
 			var savedToken string
 			started := time.Now()
 			r := httptest.NewRequest(http.MethodPost, "/login", strings.NewReader(`{"email":"user@example.com","password":"`+tt.password+`"}`))
 			w := httptest.NewRecorder()
 			sessions := &loginSessionStore{create: func(ctx context.Context, token, userID string, expiresAt time.Time) (*models.Session, error) {
-				if ctx != r.Context() {
-					t.Error("session creation did not use request context")
-				}
-				if userID != user.ID {
-					t.Errorf("user ID = %q, want %q", userID, user.ID)
-				}
-				if len(token) != 64 {
-					t.Errorf("unexpected token length: %d", len(token))
-				}
-				if expiresAt.Before(started.Add(24*time.Hour)) || expiresAt.After(time.Now().Add(24*time.Hour)) {
-					t.Errorf("unexpected expiration: %v", expiresAt)
-				}
-				if w.Body.Len() != 0 {
-					t.Error("response written before session persistence")
-				}
+				assert.Equal(t, r.Context(), ctx, "session creation should use request context")
+				assert.Equal(t, user.ID, userID)
+				assert.Len(t, token, 64)
+				assert.WithinRange(t, expiresAt, started.Add(24*time.Hour), time.Now().Add(24*time.Hour))
+				assert.Zero(t, w.Body.Len(), "response must not be written before session persistence")
 				savedToken = token
 				return &models.Session{}, tt.storeErr
 			}}
@@ -80,22 +72,14 @@ func TestLoginUserSession(t *testing.T) {
 			handler := NewUserHandler(&logger, &loginUserStore{user: user}, sessions)
 			handler.LoginUser(w, r)
 
-			if w.Code != tt.wantStatus {
-				t.Errorf("status = %d, want %d", w.Code, tt.wantStatus)
-			}
-			if (savedToken != "") != tt.wantSession {
-				t.Errorf("session created = %t, want %t", savedToken != "", tt.wantSession)
-			}
+			assert.Equal(t, tt.wantStatus, w.Code)
+			assert.Equal(t, tt.wantSession, savedToken != "", "session creation")
 			var response map[string]string
-			if err := json.Unmarshal(w.Body.Bytes(), &response); err != nil {
-				t.Fatal(err)
-			}
+			require.NoError(t, json.Unmarshal(w.Body.Bytes(), &response))
 			if tt.wantStatus == http.StatusOK {
-				if response["token"] != savedToken {
-					t.Error("returned token differs from persisted token")
-				}
-			} else if _, ok := response["token"]; ok {
-				t.Error("failed login returned a token")
+				assert.Equal(t, savedToken, response["token"], "returned token should match persisted token")
+			} else {
+				assert.NotContains(t, response, "token", "failed login must not return a token")
 			}
 		})
 	}
