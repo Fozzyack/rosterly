@@ -5,7 +5,7 @@
   "3": "main.go",
   "4": "layout.tsx",
   "5": "devDependencies",
-  "6": "graphify.js",
+  "6": "backend/.opencode/plugins/graphify.js",
   "7": "page.tsx",
   "8": "dependencies",
   "9": "scripts",

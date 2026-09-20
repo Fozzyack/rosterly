@@ -11,6 +11,18 @@
     "ast_hash": "3ea725724bc8ebe483c9f13d6aa1124f",
     "semantic_hash": ""
   },
+  "backend/.opencode/opencode.json": {
+    "mtime": 1789905522.977902,
+    "seen": 1789906229.5550203,
+    "ast_hash": "abcc8b9dcd80bca5f9dde6d9f0c3ae79",
+    "semantic_hash": ""
+  },
+  "backend/.opencode/plugins/graphify.js": {
+    "mtime": 1789905522.9778023,
+    "seen": 1789906229.555021,
+    "ast_hash": "3ea725724bc8ebe483c9f13d6aa1124f",
+    "semantic_hash": ""
+  },
   "backend/go.mod": {
     "mtime": 1789903495.1218634,
     "seen": 1789906229.5550215,
@@ -48,9 +60,9 @@
     "semantic_hash": ""
   },
   "frontend/app/page.tsx": {
-    "mtime": 1789906285.937261,
-    "seen": 1789906294.3937802,
-    "ast_hash": "efc39f9e8988b78661e2496449257168",
+    "mtime": 1789906217.9532752,
+    "seen": 1789906229.5550244,
+    "ast_hash": "67271db7360a658c93bbebbc6d909bf1",
     "semantic_hash": ""
   },
   "frontend/eslint.config.mjs": {
