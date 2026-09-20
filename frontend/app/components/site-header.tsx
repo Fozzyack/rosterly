@@ -42,7 +42,7 @@ export function SiteHeader({ current, inverse = false }: SiteHeaderProps) {
           <Link className="hidden px-3 py-2 text-sm font-semibold sm:block" href="/login">Log in</Link>
           <Link
             className={`rounded-full px-5 py-2.5 text-sm font-semibold transition-transform hover:-translate-y-0.5 ${inverse ? "bg-[#d9ff57] text-[#17211e]" : "bg-[#17211e] text-white"}`}
-            href="/#signup"
+            href="/signup"
           >
             Start for free
           </Link>

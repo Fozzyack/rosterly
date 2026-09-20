@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-export function LoginForm() {
+export function SignupForm() {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [pending, setPending] = useState(false);
@@ -19,11 +19,12 @@ export function LoginForm() {
 
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000"}/login`,
+        `${process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000"}/signup`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
+            name: form.get("name"),
             email: form.get("email"),
             password: form.get("password"),
           }),
@@ -34,9 +35,9 @@ export function LoginForm() {
         throw new Error("Request failed");
       }
 
-      router.push("/");
+      router.push("/login");
     } catch {
-      setError("Couldn't sign you in. Check your email and password, then try again.");
+      setError("Couldn't create your account. Check your details, then try again.");
     } finally {
       setPending(false);
     }
@@ -44,6 +45,21 @@ export function LoginForm() {
 
   return (
     <form className="mt-8 space-y-4 text-left" onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor="name" className="mb-1.5 block text-xs font-semibold uppercase tracking-[0.08em] text-[#6d7773]">
+          Full name
+        </label>
+        <input
+          id="name"
+          name="name"
+          type="text"
+          required
+          autoComplete="name"
+          placeholder="Alex Carter"
+          className="w-full rounded-xl border border-[#c8cbc2] bg-white px-4 py-3 text-sm font-medium text-[#17211e] outline-none transition-colors placeholder:text-[#a4aba7] focus:border-[#17211e] focus:ring-2 focus:ring-[#d9ff57]"
+        />
+      </div>
+
       <div>
         <label htmlFor="email" className="mb-1.5 block text-xs font-semibold uppercase tracking-[0.08em] text-[#6d7773]">
           Email
@@ -60,22 +76,18 @@ export function LoginForm() {
       </div>
 
       <div>
-        <div className="mb-1.5 flex items-center justify-between">
-          <label htmlFor="password" className="text-xs font-semibold uppercase tracking-[0.08em] text-[#6d7773]">
-            Password
-          </label>
-          <a href="#forgot" className="text-xs font-semibold text-[#43504c] underline-offset-2 hover:text-[#17211e] hover:underline">
-            Forgot password?
-          </a>
-        </div>
+        <label htmlFor="password" className="mb-1.5 block text-xs font-semibold uppercase tracking-[0.08em] text-[#6d7773]">
+          Password
+        </label>
         <div className="relative">
           <input
             id="password"
             name="password"
             type={showPassword ? "text" : "password"}
             required
-            autoComplete="current-password"
-            placeholder="Your password"
+            minLength={8}
+            autoComplete="new-password"
+            placeholder="At least 8 characters"
             className="w-full rounded-xl border border-[#c8cbc2] bg-white px-4 py-3 pr-11 text-sm font-medium text-[#17211e] outline-none transition-colors placeholder:text-[#a4aba7] focus:border-[#17211e] focus:ring-2 focus:ring-[#d9ff57]"
           />
           <button
@@ -99,6 +111,22 @@ export function LoginForm() {
         </div>
       </div>
 
+      <label className="flex cursor-pointer items-start gap-2.5 text-xs leading-5 text-[#5a6662]">
+        <input
+          type="checkbox"
+          name="terms"
+          required
+          className="mt-0.5 size-4 shrink-0 rounded border-[#c8cbc2] accent-[#17211e]"
+        />
+        <span>
+          I agree to the{" "}
+          <span className="font-semibold text-[#17211e] underline decoration-[#b8dd3e] decoration-2 underline-offset-2">Terms</span>
+          {" "}and{" "}
+          <span className="font-semibold text-[#17211e] underline decoration-[#b8dd3e] decoration-2 underline-offset-2">Privacy Policy</span>
+          .
+        </span>
+      </label>
+
       {error ? (
         <p role="alert" className="rounded-xl border border-[#e8b87e] bg-[#f8d9b7]/60 px-4 py-2.5 text-xs font-semibold text-[#7a4a12]">
           {error}
@@ -110,7 +138,7 @@ export function LoginForm() {
         disabled={pending}
         className="flex w-full items-center justify-center gap-2 rounded-full bg-[#17211e] px-6 py-3.5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(23,33,30,0.16)] transition-transform hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0"
       >
-        {pending ? "Signing in..." : "Log in"}
+        {pending ? "Creating your account..." : "Create account"}
       </button>
 
       <div className="flex items-center gap-3 pt-1 text-[10px] font-bold uppercase tracking-[0.12em] text-[#969d99]">
@@ -133,9 +161,9 @@ export function LoginForm() {
       </button>
 
       <p className="pt-1 text-center text-xs text-[#6d7773]">
-        Don&apos;t have an account?{" "}
-        <Link href="/signup" className="font-semibold text-[#17211e] underline decoration-[#b8dd3e] decoration-2 underline-offset-2 hover:decoration-[#d9ff57]">
-          Start for free
+        Already have an account?{" "}
+        <Link href="/login" className="font-semibold text-[#17211e] underline decoration-[#b8dd3e] decoration-2 underline-offset-2 hover:decoration-[#d9ff57]">
+          Log in
         </Link>
       </p>
     </form>
