@@ -11,6 +11,11 @@ services:
       - "5432:5432"
     volumes:
       - rosterly_data:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
   backend:
     build:
@@ -19,8 +24,11 @@ services:
     container_name: backend
     ports:
       - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql://rosterly:rosterly@db:5432/rosterly?sslmode=disable
     depends_on:
-      - db
+      db:
+        condition: service_healthy
 
   web:
     build:
@@ -35,9 +43,9 @@ services:
       - NEXT_PUBLIC_API_URL=http://localhost:8000
       - API_URL=http://backend:8000
     depends_on:
-      - db
+      db:
+        condition: service_healthy
 
 volumes:
   rosterly_data:
     driver: local
-

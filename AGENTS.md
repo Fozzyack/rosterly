@@ -13,7 +13,7 @@ Simple roster scheduling for small teams. Early development: marketing site, sig
 
 - Backend, from `backend/`: `go run .`, `go build ./...`, `go vet ./...`, `go test ./...`. Tests are unit-only with in-memory store mocks, so they do not need Postgres (`go run .` does).
 - Frontend, from `frontend/`: `bun install`, `bun run dev`, `bun run lint`, `bunx tsc --noEmit`, `bun run build`; there is no test script.
-- Full stack, from the repository root: `docker compose up --build` (the README documents a `db` readiness pre-step).
+- Full stack, from the repository root: `docker compose up --build` (Compose waits for the database healthcheck before starting dependent services).
 
 ## Gotchas
 

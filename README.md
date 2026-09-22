@@ -47,15 +47,13 @@ Install Docker with the Compose plugin. From the repository root:
 
    **The example currently uses the password `rostlerly`, while `compose.yaml` uses `rosterly`.** The URL above matches Compose. An existing database may have different credentials from its initial creation.
 
-3. Start the database, wait until it accepts connections, then build and start the stack:
+3. Build and start the stack:
 
    ```bash
-   docker compose up -d db
-   docker compose exec db pg_isready -U rosterly -d rosterly
    docker compose up --build
    ```
 
-   If the readiness check fails, repeat it once PostgreSQL has finished starting. Compose currently has no database healthcheck or readiness condition, and the API runs migrations immediately on startup.
+   Compose waits for PostgreSQL to pass its `pg_isready` healthcheck before starting the backend and web services. The API applies migrations at startup.
 
 | Service | Address |
 | --- | --- |
@@ -63,7 +61,7 @@ Install Docker with the Compose plugin. From the repository root:
 | API health | http://localhost:8000/health/ |
 | PostgreSQL | `localhost:5432` |
 
-The backend Dockerfile copies `backend/.env` into the image, so the file must exist before building. Rebuild the backend after changing it. The API listens on port `8000`, despite the Dockerfile's `EXPOSE 8080` declaration. Compose passes `NEXT_PUBLIC_API_URL=http://localhost:8000` (browser bundle, supplied as a build arg) and `API_URL=http://backend:8000` (server-to-server) to the web service.
+The backend Dockerfile copies `backend/.env` into the image, so the file must exist before building. Compose overrides its `DATABASE_URL` with the database service address, so a host-local `.env` URL cannot be used inside the backend container. The API listens on port `8000`, despite the Dockerfile's `EXPOSE 8080` declaration. Compose passes `NEXT_PUBLIC_API_URL=http://localhost:8000` (browser bundle, supplied as a build arg) and `API_URL=http://backend:8000` (server-to-server) to the web service.
 
 Stop the stack with `docker compose down`.
 
