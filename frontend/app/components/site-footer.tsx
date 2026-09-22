@@ -12,7 +12,8 @@ export function SiteFooter() {
         <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium text-[#68736f]">
           <Link className="hover:text-[#17211e]" href="/product">Product</Link>
           <Link className="hover:text-[#17211e]" href="/how-it-works">How it works</Link>
-          <Link className="hover:text-[#17211e]" href="/#pricing">Pricing</Link>
+          <Link className="hover:text-[#17211e]" href="/pricing">Pricing</Link>
+          <Link className="hover:text-[#17211e]" href="/resources">Resources</Link>
           <Link className="hover:text-[#17211e]" href="/login">Log in</Link>
         </div>
         <p className="text-xs text-[#89918e]">Built for small teams with big weeks.</p>

@@ -22,6 +22,8 @@ Open [http://localhost:3000](http://localhost:3000). Pages update as you edit th
 | `/` | Landing page with a demo roster preview |
 | `/product` | Product overview and feature previews |
 | `/how-it-works` | Scheduling workflow overview |
+| `/pricing` | Plans, feature comparison, and pricing FAQ |
+| `/resources` | Guides, templates, quick links, and newsletter signup |
 | `/signup` | Name, email, and password signup form |
 | `/login` | Email and password login form |
 | `/dashboard` | Demo scheduling dashboard: weekly roster, open shifts, leave requests, and week insights |
@@ -66,7 +68,9 @@ app/
   dashboard/          Demo scheduling dashboard (client component, roster table, dialogs, sample data)
   how-it-works/       Workflow overview page
   login/              Login page and client-side form
+  pricing/            Pricing plans and comparison page
   product/            Product overview page
+  resources/          Guides, templates, and help resources page
   signup/             Signup page and client-side form
   globals.css         Global styles and Tailwind imports
   layout.tsx          Root layout and font configuration

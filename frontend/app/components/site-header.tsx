@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 type SiteHeaderProps = {
-  current?: "product" | "how-it-works";
+  current?: "product" | "how-it-works" | "pricing" | "resources";
   inverse?: boolean;
 };
 
@@ -34,8 +34,8 @@ export function SiteHeader({ current, inverse = false }: SiteHeaderProps) {
         <div className="hidden items-center gap-8 text-sm font-medium md:flex">
           <Link className={`transition-colors ${current === "product" ? text : muted}`} href="/product">Product</Link>
           <Link className={`transition-colors ${current === "how-it-works" ? text : muted}`} href="/how-it-works">How it works</Link>
-          <Link className={`transition-colors ${muted}`} href="/#pricing">Pricing</Link>
-          <Link className={`transition-colors ${muted}`} href="/#resources">Resources</Link>
+          <Link className={`transition-colors ${current === "pricing" ? text : muted}`} href="/pricing">Pricing</Link>
+          <Link className={`transition-colors ${current === "resources" ? text : muted}`} href="/resources">Resources</Link>
         </div>
 
         <div className="flex items-center gap-3">
