@@ -19,6 +19,7 @@ Rosterly is in early development. The repository currently contains a marketing 
 
 ```text
 backend/
+  cmd/seed-user/      Idempotent test-user seed command
   main.go             HTTP server entrypoint
   internal/           API handlers, routing, models, stores, auth, and configuration
   migrations/         Embedded SQL migrations applied at startup
@@ -86,6 +87,14 @@ go run .
 ```
 
 The server defaults to port `8000`; use `go run . -port 8001` to override it. Startup requires a readable `.env` file and an available database. Goose automatically applies the embedded migrations in `backend/migrations/`, including the users and sessions tables.
+
+Seed a local test user with the same database configuration:
+
+```bash
+go run ./cmd/seed-user
+```
+
+This creates `Test User` (`test@example.com`, password `test-password`) if the email does not already exist. Override any value with `-name`, `-email`, or `-password`.
 
 ### Frontend
 
