@@ -114,9 +114,9 @@
     "semantic_hash": "5c27369b226fcf2be8a6cfe52224e767"
   },
   "frontend/README.md": {
-    "mtime": 1790067287.1750388,
-    "seen": 1790067304.2560928,
-    "ast_hash": "cee88d415849787b172368afe3324b5f",
+    "mtime": 1789928861.0323763,
+    "seen": 1789928889.7667196,
+    "ast_hash": "0edf8dd94fae41486858b93738b52033",
     "semantic_hash": ""
   },
   "frontend/public/file.svg": {
@@ -150,15 +150,15 @@
     "semantic_hash": "a2760511c65806022ad20adf74370ff3"
   },
   "frontend/app/components/site-footer.tsx": {
-    "mtime": 1790067257.9110355,
-    "seen": 1790067304.2555346,
-    "ast_hash": "1c6eb78d1b80216014bfb4bc5eeee7f6",
+    "mtime": 1789907546.3249862,
+    "seen": 1789909326.6084306,
+    "ast_hash": "0172c70aefc1bdc3e5ce59a9ccaf0211",
     "semantic_hash": ""
   },
   "frontend/app/components/site-header.tsx": {
-    "mtime": 1790067257.0310354,
-    "seen": 1790067304.2555356,
-    "ast_hash": "8258ed4f0228f212b8d6e396f7a2b156",
+    "mtime": 1789909009.8326705,
+    "seen": 1789909326.608431,
+    "ast_hash": "27c973ddb31c2ed160577ea9e4164c39",
     "semantic_hash": ""
   },
   "frontend/app/how-it-works/page.tsx": {
@@ -366,15 +366,9 @@
     "semantic_hash": ""
   },
   "frontend/app/pricing/page.tsx": {
-    "mtime": 1790067242.0470333,
-    "seen": 1790067304.2558513,
-    "ast_hash": "429197487ac9ef293e87a281d0564f18",
-    "semantic_hash": ""
-  },
-  "frontend/app/resources/page.tsx": {
-    "mtime": 1790067254.511035,
-    "seen": 1790067304.2558734,
-    "ast_hash": "1618359f77fd0c04552625b5eb26f0b0",
+    "mtime": 1790067228.3550317,
+    "seen": 1790067232.5370097,
+    "ast_hash": "67d9eb693f5a12f9072a12d71b39be56",
     "semantic_hash": ""
   }
 }
