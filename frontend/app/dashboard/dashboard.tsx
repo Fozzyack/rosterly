@@ -22,6 +22,18 @@ function emptyRoster(weekStart: string): Roster {
   return { week_start: weekStart, published: false, shifts: [] };
 }
 
+function DashboardSkeleton() {
+  return <div aria-busy="true" aria-label="Loading dashboard" className={`${styles.shell} min-h-screen bg-[#f5f3ea] font-sans text-[#17211e]`}>
+    <aside className="fixed inset-y-0 left-0 hidden w-[222px] flex-col bg-[#1c2a23] p-6 lg:flex"><div className={`${styles.skeleton} h-8 w-31 rounded-lg`} /><div className={`${styles.skeleton} mt-10 h-18 rounded-xl`} /><div className={`${styles.skeleton} mt-8 h-12 rounded-xl`} /></aside>
+    <div className="lg:pl-[222px]"><header className="flex min-h-[76px] items-center justify-between border-b border-[#dfdfd4] px-5 sm:px-8 xl:px-10"><div className={`${styles.skeleton} h-3 w-28 rounded`} /><div className={`${styles.skeleton} h-7 w-28 rounded-full`} /></header>
+      <main className="mx-auto max-w-[1600px] px-5 pb-6 pt-8 sm:px-8 xl:px-10"><section><div className="flex flex-wrap items-center justify-between gap-5"><div className="space-y-3"><div className={`${styles.skeleton} h-3 w-38 rounded`} /><div className={`${styles.skeleton} h-10 w-48 rounded-lg`} /><div className={`${styles.skeleton} h-3 w-60 rounded`} /></div><div className="flex gap-2.5"><div className={`${styles.skeleton} h-10 w-20 rounded-full`} /><div className={`${styles.skeleton} h-10 w-30 rounded-full`} /></div></div>
+        <div className="mt-7 grid grid-cols-2 gap-3 xl:grid-cols-4">{Array.from({ length: 4 }, (_, index) => <div key={index} className="rounded-2xl border border-[#e1e2d8] bg-white/80 p-5"><div className={`${styles.skeleton} h-3 w-20 rounded`} /><div className={`${styles.skeleton} mt-5 h-9 w-16 rounded-lg`} /></div>)}</div></section>
+        <section className="mt-7 overflow-hidden rounded-[20px] border border-[#dfe1d4] bg-[#fdfefa]"><div className="flex items-center justify-between px-5 py-6 sm:px-6"><div className="space-y-2"><div className={`${styles.skeleton} h-5 w-36 rounded`} /><div className={`${styles.skeleton} h-3 w-28 rounded`} /></div><div className={`${styles.skeleton} h-10 w-26 rounded-full`} /></div><div className="overflow-x-auto border-t border-[#e5e6de] px-5 py-5 sm:px-6"><div className="grid min-w-[680px] grid-cols-[150px_repeat(7,minmax(72px,1fr))] gap-px overflow-hidden rounded-xl bg-[#e5e6de]">{Array.from({ length: 32 }, (_, index) => <div key={index} className="min-h-15 bg-white p-3"><div className={`${styles.skeleton} h-3 ${index % 8 === 0 ? "w-20" : "w-full"} rounded`} /></div>)}</div></div></section>
+        <section className="mt-5 grid gap-5 xl:grid-cols-2">{Array.from({ length: 2 }, (_, index) => <div key={index} className="rounded-[20px] border border-[#dfe1d4] bg-[#fdfefa] p-6"><div className={`${styles.skeleton} h-5 w-24 rounded`} /><div className="mt-5 space-y-3">{Array.from({ length: 3 }, (_, row) => <div key={row} className={`${styles.skeleton} h-16 rounded-xl`} />)}</div></div>)}</section></main></div>
+    <span className="sr-only">Loading your workspace and roster.</span>
+  </div>;
+}
+
 export function Dashboard() {
   const router = useRouter();
   const [weekOffset, setWeekOffset] = useState(0);
@@ -242,6 +254,8 @@ export function Dashboard() {
   const memberNames = new Map(members.map((member) => [member.id, member.name]));
   const pendingTimeOff = timeOff.filter((request) => request.status === "pending");
   const timeOffDate = (value: string) => new Date(`${value}T00:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "short", timeZone: "UTC" });
+
+  if (loading) return <DashboardSkeleton />;
 
   return <div className={`${styles.shell} min-h-screen bg-[#f5f3ea] font-sans text-[#17211e]`}>
     <aside className="fixed inset-y-0 left-0 z-30 hidden w-[222px] flex-col bg-[#1c2a23] text-[#eef1e9] lg:flex"><Link href="/" className="flex items-center gap-2.5 px-7 py-8"><LogoMark /><span className="text-[25px] font-semibold tracking-[-0.06em]">rosterly<span className="text-[#d9ff57]">.</span></span></Link><div className="mx-4 rounded-xl border border-white/10 bg-white/[0.04] p-3"><p className="text-xs font-medium">{workspace?.name ?? "Your workspace"}</p><p className="mt-1 text-[10px] text-[#a0ad9f]">A little team, a lot of heart</p></div><nav className="mt-8 space-y-1 px-4"><a href="#roster" className="flex items-center gap-3 rounded-xl bg-[#d9ff57] px-3 py-3 text-[13px] font-medium text-[#23301f]"><Icon name="calendar" />Weekly roster</a><button type="button" onClick={() => setDialog("team")} className="flex w-full items-center gap-3 rounded-xl px-3 py-3 text-[13px] font-medium text-[#b4c1b4] hover:bg-white/5 hover:text-white"><Icon name="team" />My team</button></nav><button type="button" onClick={logOut} className="mx-6 mb-6 mt-auto text-left text-xs font-semibold text-[#b4c1b4] hover:text-white">Log out</button></aside>

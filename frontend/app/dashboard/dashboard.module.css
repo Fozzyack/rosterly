@@ -24,13 +24,24 @@
   background-size: 9px 9px;
 }
 
+.skeleton {
+  background: linear-gradient(100deg, #e4e7dc 25%, #f2f4ec 42%, #e4e7dc 60%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
 @keyframes arrive {
   from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes shimmer {
+  from { background-position: 100% 0; }
+  to { background-position: -100% 0; }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .enter, .stats, .roster { animation: none; }
+  .enter, .stats, .roster, .skeleton { animation: none; }
   .shell *, .shell *::before, .shell *::after {
     scroll-behavior: auto !important;
     transition: none !important;
