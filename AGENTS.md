@@ -27,6 +27,7 @@ Simple roster scheduling for small teams. Early development: marketing site, sig
 ## Workflow
 
 - No CI, Makefile, or pre-commit; use the focused commands above. `README.md` is the detailed setup/status reference — keep it in sync when behavior changes.
+- Commit completed changes incrementally. Before each commit, inspect `git status`, the relevant diff, and recent commit history; stage only the intended files.
 - Read `frontend/AGENTS.md` before changing Next.js code; keep its generated marker block and consult `frontend/node_modules/next/dist/docs/` for this version's behavior.
 - Do not hand-edit generated `graphify-out/`, `.next/`, or `node_modules/` content.
 - For codebase questions prefer `graphify query "..."` (graph at `graphify-out/graph.json`; use `graphify-out/wiki/index.md` when present) over grepping, and use `graphify path` / `graphify explain` for focused lookups. After code changes run `graphify update .`; dirty `graphify-out/` files are expected.
