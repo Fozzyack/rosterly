@@ -4,14 +4,15 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState, type FormEvent } from "react";
 
-import { createTeamMember, createTimeOff, getRoster, getTimeOff, getWorkspace, publishRoster, reviewTimeOff, saveRoster } from "@/lib/roster-client";
+import { createRosterDraft, createTeamMember, createTimeOff, getRoster, getSchedulingProfile, getTimeOff, getWorkspace, publishRoster, reviewTimeOff, saveRoster, saveSchedulingProfile } from "@/lib/roster-client";
 import { dateKey, formatHours, mondayFor, rosterEmployees, rosterShifts, shiftHours, weekDates, type Employee, type Role, type Shift } from "@/lib/roster";
-import type { Roster, TimeOffRequest, Workspace } from "@/types/roster";
+import type { OpenShift, Roster, RosterDraft, SchedulingProfile, TeamMember, TimeOffRequest, Workspace } from "@/types/roster";
 import { LogoMark } from "../components/site-header";
 import { ROLE_COLORS } from "./data";
 import styles from "./dashboard.module.css";
 import { Icon } from "./icons";
 import { RosterTable } from "./roster-table";
+import { DraftRosterDialog, SchedulingProfileDialog } from "./scheduling-dialog";
 import { DAYS, Dialog, ShiftDialog, type ShiftSelection } from "./shift-dialog";
 
 const secondaryButton = "inline-flex items-center justify-center gap-2 rounded-full border border-[#d9dcd0] bg-white/80 px-4 py-2.5 text-xs font-semibold transition-colors hover:bg-[#f0f3e8]";
@@ -30,11 +31,18 @@ export function Dashboard() {
   const [query, setQuery] = useState("");
   const [role, setRole] = useState<Role | "All roles">("All roles");
   const [selection, setSelection] = useState<ShiftSelection | null>(null);
-  const [dialog, setDialog] = useState<"team" | "publish" | "timeOff" | null>(null);
+  const [dialog, setDialog] = useState<"team" | "profile" | "draft" | "publish" | "timeOff" | null>(null);
   const [timeOff, setTimeOff] = useState<TimeOffRequest[]>([]);
   const [notice, setNotice] = useState("");
   const [error, setError] = useState("");
   const [saving, setSaving] = useState(false);
+  const [profileMember, setProfileMember] = useState<TeamMember>();
+  const [profile, setProfile] = useState<SchedulingProfile>();
+  const [profileLoading, setProfileLoading] = useState(false);
+  const [profileSaving, setProfileSaving] = useState(false);
+  const [profileError, setProfileError] = useState("");
+  const [draft, setDraft] = useState<RosterDraft>();
+  const [drafting, setDrafting] = useState(false);
   const noticeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const weekStart = dateKey(mondayFor(weekOffset));
   const dates = weekDates(weekStart);
@@ -49,6 +57,7 @@ export function Dashboard() {
         setMembers(rosterEmployees(workspaceData.members, rosterData));
         setRoster(rosterData);
         setTimeOff(timeOffData);
+        setDraft(undefined);
       })
       .catch((cause: unknown) => { if (!cancelled) setError(cause instanceof Error ? cause.message : "Could not load the roster."); })
       .finally(() => undefined);
@@ -111,6 +120,57 @@ export function Dashboard() {
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : "Could not add the team member.");
     } finally { setSaving(false); }
+  }
+
+  async function openProfile(member: TeamMember) {
+    setProfileMember(member);
+    setProfile(undefined);
+    setProfileError("");
+    setProfileLoading(true);
+    setDialog("profile");
+    try { setProfile(await getSchedulingProfile(member.id)); }
+    catch (cause) { setProfileError(cause instanceof Error ? cause.message : "Could not load the scheduling profile."); }
+    finally { setProfileLoading(false); }
+  }
+
+  async function saveProfile(nextProfile: Pick<SchedulingProfile, "roles" | "availability">) {
+    if (!profileMember) return;
+    setProfileSaving(true);
+    setProfileError("");
+    try {
+      await saveSchedulingProfile(profileMember.id, nextProfile);
+      setDialog("team");
+      notify(`Scheduling profile saved for ${profileMember.name}.`);
+    } catch (cause) { setProfileError(cause instanceof Error ? cause.message : "Could not save the scheduling profile."); }
+    finally { setProfileSaving(false); }
+  }
+
+  async function generateDraft(openShifts: OpenShift[]) {
+    if (currentRoster.published) return "Published rosters cannot be changed.";
+    setDrafting(true);
+    setError("");
+    try { setDraft(await createRosterDraft(weekStart, openShifts)); }
+    catch (cause) { return cause instanceof Error ? cause.message : "Could not generate a roster draft."; }
+    finally { setDrafting(false); }
+  }
+
+  async function applyDraft(): Promise<string | undefined> {
+    if (!draft || draft.week_start !== weekStart || currentRoster.published) return "This draft can no longer be applied.";
+    setSaving(true);
+    setError("");
+    try {
+      const saved = await saveRoster(weekStart, [...draft.manual_shifts, ...draft.generated_shifts]);
+      setRoster(saved);
+      setMembers(rosterEmployees(members, saved));
+      setDraft(undefined);
+      setDialog(null);
+      notify("Draft applied and roster saved. Review it before publishing.");
+    } catch (cause) {
+      const message = cause instanceof Error ? cause.message : "Could not apply the roster draft.";
+      setError(message);
+      return message;
+    }
+    finally { setSaving(false); }
   }
 
   async function refreshTimeOff() {
@@ -189,13 +249,15 @@ export function Dashboard() {
       <main className="mx-auto max-w-[1600px] px-5 pb-6 pt-8 sm:px-8 xl:px-10"><section className={styles.enter}><div className="flex flex-wrap items-center justify-between gap-5"><div><p className="mb-3 text-[10px] font-medium uppercase tracking-[0.14em] text-[#7d8775]">A fresh perspective on your week</p><h1 className="text-[clamp(1.9rem,3.1vw,2.8rem)] font-semibold tracking-[-0.06em]">Your roster<span className="text-[#8ca368]">.</span></h1><p className="mt-2 text-[13px] text-[#74806d]">A happy team starts with a well-planned week.</p></div><div className="flex gap-2.5"><button type="button" onClick={exportRoster} disabled={loading} className={secondaryButton}><Icon name="export" className="size-4" />Export</button><button type="button" onClick={() => setDialog("publish")} disabled={loading || saving || currentRoster.published || !shifts.length} className="inline-flex items-center gap-2 rounded-full bg-[#d9ff57] px-5 py-3 text-xs font-semibold disabled:opacity-60"><Icon name="check" className="size-4" />{currentRoster.published ? "Roster published" : "Publish roster"}</button></div></div>
         <div className={`${styles.stats} mt-7 grid grid-cols-2 gap-3 xl:grid-cols-4`}><div className="rounded-2xl border border-[#dfe2d4] bg-[#eef1e4] p-5"><p className="text-xs text-[#65735a]">Scheduled hours</p><p className="mt-4 text-[34px] font-semibold tracking-[-0.06em]">{formatHours(hours)}</p></div><div className="rounded-2xl border border-[#e1e2d8] bg-white/80 p-5"><p className="text-xs text-[#73806b]">Team scheduled</p><p className="mt-4 text-[34px] font-semibold tracking-[-0.06em]">{scheduledTeam.length}<span className="text-base font-normal text-[#9ba38f]"> / {members.length}</span></p></div><div className="rounded-2xl border border-[#e1e2d8] bg-white/80 p-5"><p className="text-xs text-[#73806b]">Roster status</p><p className="mt-4 text-lg font-semibold">{currentRoster.published ? "Published" : "Draft"}</p></div><div className="rounded-2xl border border-[#e1e2d8] bg-white/80 p-5"><p className="text-xs text-[#73806b]">Shifts this week</p><p className="mt-4 text-[34px] font-semibold tracking-[-0.06em]">{shifts.length}</p></div></div></section>
         {error && <div role="alert" className="mt-5 flex items-center justify-between gap-3 rounded-xl border border-[#edc6b5] bg-[#fff1e9] p-4 text-sm text-[#914b2d]"><span>{error}</span><button type="button" onClick={() => setError("")} aria-label="Dismiss error"><Icon name="close" /></button></div>}
-          <section id="roster" className={`${styles.roster} mt-7 overflow-hidden rounded-[20px] border border-[#dfe1d4] bg-[#fdfefa]`}><div className="flex flex-wrap items-center justify-between gap-4 px-5 pb-5 pt-6 sm:px-6"><div><h2 className="text-lg font-semibold">Your weekly roster</h2><p className="mt-1 text-[11px] text-[#849078]">{dateRange}</p></div><button type="button" onClick={() => setSelection({})} disabled={loading || !members.length} className={primaryButton}><Icon name="plus" className="size-4" />Add shift</button></div><div className="flex flex-wrap items-center justify-between gap-3 px-5 pb-5 sm:px-6"><div className="flex items-center rounded-lg border border-[#e0e3d7] bg-white p-0.5"><button type="button" disabled={saving} onClick={() => setWeekOffset((value) => value - 1)} className="grid size-8 place-items-center"><Icon name="chevron" className="size-3.5 rotate-180" /></button><p className="min-w-[156px] text-center text-[11px] font-medium">{dateRange}</p><button type="button" disabled={saving} onClick={() => setWeekOffset((value) => value + 1)} className="grid size-8 place-items-center"><Icon name="chevron" className="size-3.5" /></button></div><button type="button" disabled={saving} onClick={() => setWeekOffset(0)} className={secondaryButton}>Current week</button><label className="flex items-center gap-2 rounded-lg border border-[#e0e3d7] bg-white px-3 py-2.5"><Icon name="search" className="size-3.5" /><input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Find a teammate" className="w-32 bg-transparent text-[10px] outline-none" /></label></div>
+        <section id="roster" className={`${styles.roster} mt-7 overflow-hidden rounded-[20px] border border-[#dfe1d4] bg-[#fdfefa]`}><div className="flex flex-wrap items-center justify-between gap-4 px-5 pb-5 pt-6 sm:px-6"><div><h2 className="text-lg font-semibold">Your weekly roster</h2><p className="mt-1 text-[11px] text-[#849078]">{dateRange}</p></div><div className="flex gap-2"><button type="button" onClick={() => setDialog("draft")} disabled={loading || !members.length || currentRoster.published} className={secondaryButton}>Build draft</button><button type="button" onClick={() => setSelection({})} disabled={loading || !members.length} className={primaryButton}><Icon name="plus" className="size-4" />Add shift</button></div></div><div className="flex flex-wrap items-center justify-between gap-3 px-5 pb-5 sm:px-6"><div className="flex items-center rounded-lg border border-[#e0e3d7] bg-white p-0.5"><button type="button" disabled={saving} onClick={() => setWeekOffset((value) => value - 1)} className="grid size-8 place-items-center"><Icon name="chevron" className="size-3.5 rotate-180" /></button><p className="min-w-[156px] text-center text-[11px] font-medium">{dateRange}</p><button type="button" disabled={saving} onClick={() => setWeekOffset((value) => value + 1)} className="grid size-8 place-items-center"><Icon name="chevron" className="size-3.5" /></button></div><button type="button" disabled={saving} onClick={() => setWeekOffset(0)} className={secondaryButton}>Current week</button><label className="flex items-center gap-2 rounded-lg border border-[#e0e3d7] bg-white px-3 py-2.5"><Icon name="search" className="size-3.5" /><input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Find a teammate" className="w-32 bg-transparent text-[10px] outline-none" /></label></div>
           {loading ? <p className="p-10 text-center text-sm text-[#707a70]">Loading your roster…</p> : !members.length ? <div className="p-10 text-center"><p className="text-base font-semibold">Start with your team.</p><p className="mt-2 text-sm text-[#707a70]">Add a team member before scheduling your first shift.</p><button type="button" onClick={() => setDialog("team")} className={`${primaryButton} mt-5`}>Add team member</button></div> : <><div className="flex justify-end px-5 pb-3"><select value={role} onChange={(event) => setRole(event.target.value)} className="rounded-lg border border-[#e0e3d7] bg-white px-3 py-2 text-[10px]"><option>All roles</option>{Object.keys(ROLE_COLORS).map((item) => <option key={item}>{item}</option>)}</select></div><RosterTable employees={filteredMembers} dates={dates} onSelect={setSelection} /></>}<div className="flex flex-wrap gap-4 border-t border-[#e5e6de] px-5 py-4">{Object.entries(ROLE_COLORS).map(([name, color]) => <span key={name} className="flex items-center gap-1.5 text-[9px] text-[#7b8771]"><span className={`size-1.5 rounded-full ${color.dot}`} />{name}</span>)}</div></section>
         <section className="mt-5 grid gap-5 xl:grid-cols-2"><div className="rounded-[20px] border border-[#dfe1d4] bg-[#fdfefa] p-6"><div className="flex items-center justify-between gap-3"><div><h2 className="text-base font-semibold">Time off</h2><p className="mt-1 text-[11px] text-[#74806d]">{pendingTimeOff.length ? `${pendingTimeOff.length} awaiting review` : "No requests awaiting review"}</p></div><button type="button" disabled={!members.length} onClick={() => setDialog("timeOff")} className={secondaryButton}><Icon name="plus" className="size-3.5" />Request</button></div><div className="mt-4 space-y-3">{timeOff.slice(0, 3).map((request) => <div key={request.id} className="rounded-xl border border-[#e2e5d8] bg-white p-3"><div className="flex items-start justify-between gap-3"><div><p className="text-xs font-semibold">{memberNames.get(request.team_member_id) ?? "Former team member"}</p><p className="mt-1 text-[10px] text-[#7c886f]">{timeOffDate(request.start_date)}{request.end_date !== request.start_date && ` – ${timeOffDate(request.end_date)}`}{request.reason && ` · ${request.reason}`}</p></div><span className={`text-[10px] font-medium ${request.status === "approved" ? "text-[#658247]" : request.status === "rejected" ? "text-[#a26f50]" : "text-[#8e805a]"}`}>{request.status}</span></div>{request.status === "pending" && <div className="mt-3 flex gap-2"><button type="button" disabled={saving} onClick={() => review(request.id, "rejected")} className="text-[10px] font-medium text-[#a64e38] hover:underline">Reject</button><button type="button" disabled={saving} onClick={() => review(request.id, "approved")} className="text-[10px] font-medium text-[#658247] hover:underline">Approve</button></div>}</div>)}{!timeOff.length && <p className="py-3 text-sm text-[#74806d]">No time-off requests yet.</p>}</div></div><div className="rounded-[20px] border border-[#d9dfc9] bg-[#edf1e2] p-6"><h2 className="text-base font-semibold">The shape of your week</h2><div className="mt-5 flex h-24 items-end gap-3">{dailyHours.map((value, day) => <div key={DAYS[day]} className="flex flex-1 flex-col items-center gap-1"><div className="w-full max-w-9 rounded-t bg-[#839f5b]" style={{ height: `${Math.max(3, value / maxDailyHours * 67)}px` }} /><span className="text-[9px] text-[#7e8b6d]">{DAYS[day]}</span></div>)}</div></div></section>
         <footer className="mt-6 text-center text-[9px] text-[#949d88]">Rosterly © 2026 · Changes are saved to your workspace</footer></main></div>
     {notice && <div role="status" className="fixed bottom-5 left-1/2 z-50 w-[calc(100%-2rem)] max-w-lg -translate-x-1/2 rounded-2xl bg-[#233628] px-5 py-4 text-sm text-white">{notice}</div>}
     {selection && <ShiftDialog selection={selection} employees={members} dates={dates} onClose={() => setSelection(null)} onSave={saveShift} onDelete={deleteShift} />}
-    {dialog === "team" && <Dialog title="Good people. Great team." onClose={() => setDialog(null)}><p className="-mt-3 mb-5 text-sm text-[#7c886f]">Add the people who make your week happen.</p><div className="space-y-2">{members.map((person) => <div key={person.id} className="flex items-center gap-3 rounded-xl border border-[#e2e5d8] bg-white p-3"><span className={`grid size-10 place-items-center rounded-full text-xs font-semibold ${person.color}`}>{person.initials}</span><div><p className="text-sm font-semibold">{person.name}</p><p className="text-xs text-[#7c886f]">{person.email || "No email added"}</p></div></div>)}</div><form onSubmit={addMember} className="mt-5 space-y-3 border-t border-[#e3e4db] pt-5"><input name="name" required placeholder="Team member name" className="w-full rounded-xl border border-[#d6d9cf] bg-white px-3 py-3 text-sm" /><input name="email" type="email" placeholder="Email address (optional)" className="w-full rounded-xl border border-[#d6d9cf] bg-white px-3 py-3 text-sm" /><button disabled={saving} className={`${primaryButton} w-full`}>Add team member</button></form></Dialog>}
+    {dialog === "team" && <Dialog title="Good people. Great team." onClose={() => setDialog(null)}><p className="-mt-3 mb-5 text-sm text-[#7c886f]">Add your team, then set who can cover each role and when.</p><div className="space-y-2">{members.map((person) => <div key={person.id} className="flex items-center gap-3 rounded-xl border border-[#e2e5d8] bg-white p-3"><span className={`grid size-10 place-items-center rounded-full text-xs font-semibold ${person.color}`}>{person.initials}</span><div className="min-w-0 flex-1"><p className="text-sm font-semibold">{person.name}</p><p className="truncate text-xs text-[#7c886f]">{person.email || "No email added"}</p></div><button type="button" onClick={() => void openProfile(person)} className="text-xs font-semibold text-[#55715e] hover:underline">Scheduling</button></div>)}</div><form onSubmit={addMember} className="mt-5 space-y-3 border-t border-[#e3e4db] pt-5"><input name="name" required placeholder="Team member name" className="w-full rounded-xl border border-[#d6d9cf] bg-white px-3 py-3 text-sm" /><input name="email" type="email" placeholder="Email address (optional)" className="w-full rounded-xl border border-[#d6d9cf] bg-white px-3 py-3 text-sm" /><button disabled={saving} className={`${primaryButton} w-full`}>Add team member</button></form></Dialog>}
+    {dialog === "profile" && profileMember && <SchedulingProfileDialog member={profileMember} profile={profile} loading={profileLoading} saving={profileSaving} error={profileError} onClose={() => setDialog("team")} onSave={saveProfile} />}
+    {dialog === "draft" && <DraftRosterDialog weekStart={weekStart} dates={dates} members={members} draft={draft} generating={drafting} applying={saving} onClose={() => setDialog(null)} onGenerate={generateDraft} onApply={applyDraft} />}
     {dialog === "timeOff" && <Dialog title="A little time away." onClose={() => setDialog(null)}><p className="-mt-3 mb-5 text-sm text-[#7c886f]">Record a request, then review it from the dashboard.</p><form onSubmit={addTimeOff} className="space-y-4"><label className="block text-xs font-semibold">Team member<select name="teamMember" required className="mt-2 block w-full rounded-xl border border-[#d6d9cf] bg-white px-3 py-3 text-sm">{members.map((member) => <option key={member.id} value={member.id}>{member.name}</option>)}</select></label><div className="grid grid-cols-2 gap-4"><label className="block text-xs font-semibold">Starts<input name="startDate" type="date" required className="mt-2 block w-full rounded-xl border border-[#d6d9cf] bg-white px-3 py-3 text-sm" /></label><label className="block text-xs font-semibold">Ends<input name="endDate" type="date" required className="mt-2 block w-full rounded-xl border border-[#d6d9cf] bg-white px-3 py-3 text-sm" /></label></div><label className="block text-xs font-semibold">Reason<textarea name="reason" required rows={3} className="mt-2 block w-full rounded-xl border border-[#d6d9cf] bg-white px-3 py-3 text-sm" /></label><button disabled={saving} className={`${primaryButton} w-full`}>Create request</button></form></Dialog>}
     {dialog === "publish" && <Dialog title="Ready to call it a plan?" onClose={() => setDialog(null)}><div className="rounded-2xl bg-[#edf1e2] p-5"><p className="text-sm font-semibold">{dateRange}</p><p className="mt-2 text-xs text-[#7c886f]">{shifts.length} assigned shifts · {formatHours(hours)} · {scheduledTeam.length} teammates</p></div><p className="mt-5 text-sm leading-6 text-[#738069]">Publishing makes this roster available to your team.</p><button type="button" disabled={saving} onClick={publish} className={`${primaryButton} mt-6 w-full`}>Publish roster</button></Dialog>}
   </div>;

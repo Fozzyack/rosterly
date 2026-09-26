@@ -14,6 +14,9 @@ type RosterStore interface {
 	CreateTeamMember(context.Context, string, models.TeamMemberRequest) (*models.TeamMember, error)
 	UpdateTeamMember(context.Context, string, string, models.TeamMemberRequest) (*models.TeamMember, error)
 	DeleteTeamMember(context.Context, string, string) error
+	GetSchedulingProfile(context.Context, string, string) (*models.SchedulingProfile, error)
+	ReplaceSchedulingProfile(context.Context, string, models.SchedulingProfile) (*models.SchedulingProfile, error)
+	ListSchedulingProfiles(context.Context, string) ([]models.SchedulingProfile, error)
 	GetRoster(context.Context, string, time.Time) (*models.RosterResponse, error)
 	ReplaceRoster(context.Context, string, time.Time, []models.Shift) error
 	SetRosterPublished(context.Context, string, time.Time, bool) error
@@ -21,6 +24,96 @@ type RosterStore interface {
 	CreateTimeOff(context.Context, string, models.TimeOffRequest) (*models.TimeOff, error)
 	ReviewTimeOff(context.Context, string, string, string, string) (*models.TimeOff, error)
 	HasApprovedTimeOff(context.Context, string, string, time.Time) (bool, error)
+}
+
+func (ps *PostgresStore) GetSchedulingProfile(ctx context.Context, workspaceID, memberID string) (*models.SchedulingProfile, error) {
+	profiles, err := ps.ListSchedulingProfiles(ctx, workspaceID)
+	if err != nil {
+		return nil, err
+	}
+	for _, profile := range profiles {
+		if profile.TeamMemberID == memberID {
+			return &profile, nil
+		}
+	}
+	return nil, sql.ErrNoRows
+}
+
+func (ps *PostgresStore) ListSchedulingProfiles(ctx context.Context, workspaceID string) ([]models.SchedulingProfile, error) {
+	members, err := ps.ListTeamMembers(ctx, workspaceID)
+	if err != nil {
+		return nil, err
+	}
+	profiles := make([]models.SchedulingProfile, len(members))
+	byID := make(map[string]*models.SchedulingProfile, len(members))
+	for i, member := range members {
+		profiles[i] = models.SchedulingProfile{TeamMemberID: member.ID, Roles: []string{}, Availability: []models.AvailabilityWindow{}}
+		byID[member.ID] = &profiles[i]
+	}
+	roleRows, err := ps.db.QueryContext(ctx, `SELECT team_member_id, role FROM team_member_roles WHERE workspace_id = $1 ORDER BY team_member_id, role`, workspaceID)
+	if err != nil {
+		return nil, err
+	}
+	defer roleRows.Close()
+	for roleRows.Next() {
+		var memberID, role string
+		if err := roleRows.Scan(&memberID, &role); err != nil {
+			return nil, err
+		}
+		byID[memberID].Roles = append(byID[memberID].Roles, role)
+	}
+	if err := roleRows.Err(); err != nil {
+		return nil, err
+	}
+	availabilityRows, err := ps.db.QueryContext(ctx, `SELECT team_member_id, weekday, to_char(start_time, 'HH24:MI'), to_char(end_time, 'HH24:MI') FROM team_member_availability WHERE workspace_id = $1 ORDER BY team_member_id, weekday, start_time`, workspaceID)
+	if err != nil {
+		return nil, err
+	}
+	defer availabilityRows.Close()
+	for availabilityRows.Next() {
+		var memberID string
+		var window models.AvailabilityWindow
+		if err := availabilityRows.Scan(&memberID, &window.Weekday, &window.Start, &window.End); err != nil {
+			return nil, err
+		}
+		byID[memberID].Availability = append(byID[memberID].Availability, window)
+	}
+	return profiles, availabilityRows.Err()
+}
+
+func (ps *PostgresStore) ReplaceSchedulingProfile(ctx context.Context, workspaceID string, profile models.SchedulingProfile) (*models.SchedulingProfile, error) {
+	tx, err := ps.db.BeginTx(ctx, nil)
+	if err != nil {
+		return nil, err
+	}
+	defer tx.Rollback()
+	var exists bool
+	if err = tx.QueryRowContext(ctx, `SELECT EXISTS (SELECT 1 FROM team_members WHERE workspace_id = $1 AND id = $2)`, workspaceID, profile.TeamMemberID).Scan(&exists); err != nil {
+		return nil, err
+	}
+	if !exists {
+		return nil, sql.ErrNoRows
+	}
+	if _, err = tx.ExecContext(ctx, `DELETE FROM team_member_roles WHERE workspace_id = $1 AND team_member_id = $2`, workspaceID, profile.TeamMemberID); err != nil {
+		return nil, err
+	}
+	if _, err = tx.ExecContext(ctx, `DELETE FROM team_member_availability WHERE workspace_id = $1 AND team_member_id = $2`, workspaceID, profile.TeamMemberID); err != nil {
+		return nil, err
+	}
+	for _, role := range profile.Roles {
+		if _, err = tx.ExecContext(ctx, `INSERT INTO team_member_roles (workspace_id, team_member_id, role) VALUES ($1, $2, $3)`, workspaceID, profile.TeamMemberID, role); err != nil {
+			return nil, err
+		}
+	}
+	for _, window := range profile.Availability {
+		if _, err = tx.ExecContext(ctx, `INSERT INTO team_member_availability (workspace_id, team_member_id, weekday, start_time, end_time) VALUES ($1, $2, $3, $4, $5)`, workspaceID, profile.TeamMemberID, window.Weekday, window.Start, window.End); err != nil {
+			return nil, err
+		}
+	}
+	if err = tx.Commit(); err != nil {
+		return nil, err
+	}
+	return &profile, nil
 }
 
 func NewRosterStore(db *sql.DB) RosterStore { return &PostgresStore{db: db} }
@@ -90,7 +183,7 @@ func (ps *PostgresStore) GetRoster(ctx context.Context, workspaceID string, week
 	if err != nil && err != sql.ErrNoRows {
 		return nil, err
 	}
-	rows, err := ps.db.QueryContext(ctx, `SELECT id, team_member_id, shift_date, to_char(start_time, 'HH24:MI'), to_char(end_time, 'HH24:MI'), role FROM roster_shifts WHERE workspace_id = $1 AND shift_date >= $2 AND shift_date < $2 + 7 ORDER BY shift_date, start_time`, workspaceID, weekStart)
+	rows, err := ps.db.QueryContext(ctx, `SELECT id, team_member_id, shift_date, to_char(start_time, 'HH24:MI'), to_char(end_time, 'HH24:MI'), role FROM roster_shifts WHERE workspace_id = $1 AND shift_date >= $2 AND shift_date < $2 + 7 ORDER BY shift_date, start_time, id`, workspaceID, weekStart)
 	if err != nil {
 		return nil, err
 	}

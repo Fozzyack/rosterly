@@ -1,4 +1,4 @@
-import type { CreateTimeOffRequest, ReviewTimeOffRequest, Roster, TeamMember, TimeOffRequest, WorkspaceResponse } from "@/types/roster";
+import type { CreateTimeOffRequest, OpenShift, ReviewTimeOffRequest, Roster, RosterDraft, SchedulingProfile, TeamMember, TimeOffRequest, WorkspaceResponse } from "@/types/roster";
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const response = await fetch(`/api/roster/${path}`, {
@@ -17,6 +17,9 @@ export const getRoster = (week: string) => request<Roster>(`rosters/${week}`);
 export const saveRoster = (week: string, shifts: Roster["shifts"]) => request<Roster>(`rosters/${week}`, { method: "PUT", body: JSON.stringify({ shifts }) });
 export const publishRoster = (week: string) => request<Roster>(`rosters/${week}/publish`, { method: "POST" });
 export const createTeamMember = (member: Pick<TeamMember, "name" | "email">) => request<TeamMember>("team-members", { method: "POST", body: JSON.stringify(member) });
+export const getSchedulingProfile = (memberId: string) => request<SchedulingProfile>(`team-members/${memberId}/scheduling-profile`);
+export const saveSchedulingProfile = (memberId: string, profile: Pick<SchedulingProfile, "roles" | "availability">) => request<SchedulingProfile>(`team-members/${memberId}/scheduling-profile`, { method: "PUT", body: JSON.stringify(profile) });
+export const createRosterDraft = (week: string, openShifts: OpenShift[]) => request<RosterDraft>(`rosters/${week}/draft`, { method: "POST", body: JSON.stringify({ open_shifts: openShifts }) });
 export const getTimeOff = () => request<TimeOffRequest[]>("time-off");
 export const createTimeOff = (timeOff: CreateTimeOffRequest) => request<TimeOffRequest>("time-off", { method: "POST", body: JSON.stringify(timeOff) });
 export const reviewTimeOff = (requestId: string, review: ReviewTimeOffRequest) => request<TimeOffRequest>(`time-off/${requestId}/review`, { method: "POST", body: JSON.stringify(review) });

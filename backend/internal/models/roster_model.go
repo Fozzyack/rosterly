@@ -18,6 +18,20 @@ type TeamMemberRequest struct {
 	Email string `json:"email"`
 }
 
+// SchedulingProfile contains the recurring constraints used only when drafting.
+type SchedulingProfile struct {
+	TeamMemberID string               `json:"team_member_id"`
+	Roles        []string             `json:"roles"`
+	Availability []AvailabilityWindow `json:"availability"`
+}
+
+// AvailabilityWindow uses ISO weekdays: Monday is 1 and Sunday is 7.
+type AvailabilityWindow struct {
+	Weekday int    `json:"weekday"`
+	Start   string `json:"start"`
+	End     string `json:"end"`
+}
+
 type Shift struct {
 	ID           string `json:"id,omitempty"`
 	TeamMemberID string `json:"team_member_id"`
@@ -35,6 +49,24 @@ type RosterResponse struct {
 
 type RosterRequest struct {
 	Shifts []Shift `json:"shifts"`
+}
+
+type OpenShift struct {
+	Date  string `json:"date"`
+	Start string `json:"start"`
+	End   string `json:"end"`
+	Role  string `json:"role"`
+}
+
+type DraftRosterRequest struct {
+	OpenShifts []OpenShift `json:"open_shifts"`
+}
+
+type DraftRosterResponse struct {
+	WeekStart       string      `json:"week_start"`
+	ManualShifts    []Shift     `json:"manual_shifts"`
+	GeneratedShifts []Shift     `json:"generated_shifts"`
+	UnfilledShifts  []OpenShift `json:"unfilled_shifts"`
 }
 
 type TimeOffRequest struct {

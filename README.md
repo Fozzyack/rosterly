@@ -4,9 +4,9 @@
 
 > Rosterly was based on a hackathon project built during the 2026 WADSIH Hackathon.
 
-Simple, automated roster scheduling for small teams.
+Simple, assisted roster scheduling for small teams.
 
-Rosterly is in early development. The repository contains a marketing website, signup and login forms, an authenticated scheduling dashboard, and a Go API with PostgreSQL-backed workspace roster persistence. Automated scheduling is not implemented yet.
+Rosterly is in early development. The repository contains a marketing website, signup and login forms, an authenticated scheduling dashboard, and a Go API with PostgreSQL-backed workspace roster persistence. Managers can configure qualified roles and recurring availability, generate a reviewable weekly draft from open-shift demand, then explicitly save and publish it.
 
 ## Stack
 
@@ -123,7 +123,9 @@ The router currently registers these endpoints (including trailing slashes):
 | `GET` | `/workspace/` | Get the authenticated user's workspace and team members |
 | `GET`, `POST` | `/team-members/` | List or create workspace team members |
 | `PUT`, `DELETE` | `/team-members/{memberID}/` | Update or remove a workspace team member |
+| `GET`, `PUT` | `/team-members/{memberID}/scheduling-profile/` | Read or replace a member's qualified roles and recurring availability |
 | `GET`, `PUT` | `/rosters/{monday}/` | Read or replace a weekly manual roster |
+| `POST` | `/rosters/{monday}/draft/` | Generate a non-persisted draft from open-shift demand |
 | `POST` | `/rosters/{monday}/publish/` | Publish a weekly roster |
 | `POST` | `/rosters/{monday}/unpublish/` | Unpublish a weekly roster |
 | `GET`, `POST` | `/time-off/` | List or create workspace time-off requests |
@@ -158,7 +160,8 @@ Current frontend integration status:
 
 - Signup and login use same-origin Next.js route handlers. Login stores its backend session token in an httpOnly `session_token` cookie, and logout clears it.
 - The dashboard redirects visitors without a session cookie to `/login`. Its server-side proxy attaches the session as `Authorization: Bearer <token>` for workspace, roster, team, and time-off operations.
-- Dashboard changes to team members, shifts, roster publication, and time-off requests persist in the authenticated workspace. The token never reaches browser JavaScript.
+- Dashboard changes to team members, scheduling profiles, shifts, roster publication, and time-off requests persist in the authenticated workspace. The token never reaches browser JavaScript.
+- Draft generation preserves existing shifts, respects qualified roles, recurring availability, approved time off, and overlap constraints, then returns generated and unfilled shifts for review. Applying a draft is an explicit save operation; published rosters must be unpublished before they can change.
 - Google sign-in and password recovery are not wired into the UI flow.
 
 ## Development checks

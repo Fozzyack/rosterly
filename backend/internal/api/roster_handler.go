@@ -7,6 +7,7 @@ import (
 	"time"
 
 	"github.com/Fozzyack/rosterly/m/internal/models"
+	"github.com/Fozzyack/rosterly/m/internal/scheduling"
 	"github.com/Fozzyack/rosterly/m/internal/store"
 	"github.com/go-chi/chi/v5"
 	"github.com/rs/zerolog"
@@ -120,6 +121,46 @@ func (h *RosterHandler) TeamMember(w http.ResponseWriter, r *http.Request) {
 	sendJSON(w, member)
 }
 
+func (h *RosterHandler) SchedulingProfile(w http.ResponseWriter, r *http.Request) {
+	workspace, ok := h.workspaceWithWriter(w, r)
+	if !ok {
+		return
+	}
+	memberID := chi.URLParam(r, "memberID")
+	if r.Method == http.MethodGet {
+		profile, err := h.rosterStore.GetSchedulingProfile(r.Context(), workspace.ID, memberID)
+		if err == sql.ErrNoRows {
+			sendError(w, "Not found", http.StatusNotFound)
+			return
+		}
+		if err != nil {
+			h.internal(w, err)
+			return
+		}
+		sendJSON(w, profile)
+		return
+	}
+	var profile models.SchedulingProfile
+	if !decodeRequest(w, r, &profile) {
+		return
+	}
+	profile.TeamMemberID = memberID
+	if !validSchedulingProfile(profile) {
+		sendError(w, "Roles and availability must use nonblank roles, ISO weekdays 1 through 7, and valid times", http.StatusBadRequest)
+		return
+	}
+	updated, err := h.rosterStore.ReplaceSchedulingProfile(r.Context(), workspace.ID, profile)
+	if err == sql.ErrNoRows {
+		sendError(w, "Not found", http.StatusNotFound)
+		return
+	}
+	if err != nil {
+		h.internal(w, err)
+		return
+	}
+	sendJSON(w, updated)
+}
+
 func (h *RosterHandler) Roster(w http.ResponseWriter, r *http.Request) {
 	workspace, ok := h.workspaceWithWriter(w, r)
 	if !ok {
@@ -136,6 +177,15 @@ func (h *RosterHandler) Roster(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		sendJSON(w, roster)
+		return
+	}
+	existing, err := h.rosterStore.GetRoster(r.Context(), workspace.ID, week)
+	if err != nil {
+		h.internal(w, err)
+		return
+	}
+	if existing.Published {
+		sendError(w, "Unpublish the roster before changing it", http.StatusConflict)
 		return
 	}
 	var request models.RosterRequest
@@ -155,6 +205,50 @@ func (h *RosterHandler) Roster(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	sendJSON(w, roster)
+}
+
+func (h *RosterHandler) DraftRoster(w http.ResponseWriter, r *http.Request) {
+	workspace, ok := h.workspaceWithWriter(w, r)
+	if !ok {
+		return
+	}
+	week, ok := weekStart(w, chi.URLParam(r, "week"))
+	if !ok {
+		return
+	}
+	var request models.DraftRosterRequest
+	if !decodeRequest(w, r, &request) {
+		return
+	}
+	if !validOpenShifts(w, week, request.OpenShifts) {
+		return
+	}
+	manual, err := h.rosterStore.GetRoster(r.Context(), workspace.ID, week)
+	if err != nil {
+		h.internal(w, err)
+		return
+	}
+	if manual.Published {
+		sendError(w, "Unpublish the roster before building a draft", http.StatusConflict)
+		return
+	}
+	members, err := h.rosterStore.ListTeamMembers(r.Context(), workspace.ID)
+	if err != nil {
+		h.internal(w, err)
+		return
+	}
+	profiles, err := h.rosterStore.ListSchedulingProfiles(r.Context(), workspace.ID)
+	if err != nil {
+		h.internal(w, err)
+		return
+	}
+	timeOff, err := h.rosterStore.ListTimeOff(r.Context(), workspace.ID)
+	if err != nil {
+		h.internal(w, err)
+		return
+	}
+	generated, unfilled := scheduling.Draft(members, profiles, manual.Shifts, request.OpenShifts, timeOff)
+	sendJSON(w, models.DraftRosterResponse{WeekStart: week.Format("2006-01-02"), ManualShifts: manual.Shifts, GeneratedShifts: generated, UnfilledShifts: unfilled})
 }
 
 func (h *RosterHandler) PublishRoster(w http.ResponseWriter, r *http.Request) {
@@ -281,6 +375,40 @@ func (h *RosterHandler) validShifts(w http.ResponseWriter, r *http.Request, work
 				sendError(w, "Shifts for a team member cannot overlap", http.StatusBadRequest)
 				return false
 			}
+		}
+	}
+	return true
+}
+
+func validSchedulingProfile(profile models.SchedulingProfile) bool {
+	roles := make(map[string]bool, len(profile.Roles))
+	for i, role := range profile.Roles {
+		profile.Roles[i] = strings.TrimSpace(role)
+		if profile.Roles[i] == "" || roles[profile.Roles[i]] {
+			return false
+		}
+		roles[profile.Roles[i]] = true
+	}
+	for _, window := range profile.Availability {
+		start, startErr := time.Parse("15:04", window.Start)
+		end, endErr := time.Parse("15:04", window.End)
+		if window.Weekday < 1 || window.Weekday > 7 || startErr != nil || endErr != nil || !start.Before(end) {
+			return false
+		}
+	}
+	return true
+}
+
+func validOpenShifts(w http.ResponseWriter, week time.Time, shifts []models.OpenShift) bool {
+	for i := range shifts {
+		shifts[i].Role = strings.TrimSpace(shifts[i].Role)
+		shift := shifts[i]
+		date, dateErr := time.Parse("2006-01-02", shift.Date)
+		start, startErr := time.Parse("15:04", shift.Start)
+		end, endErr := time.Parse("15:04", shift.End)
+		if dateErr != nil || startErr != nil || endErr != nil || shift.Role == "" || date.Before(week) || !date.Before(week.AddDate(0, 0, 7)) || !start.Before(end) {
+			sendError(w, "Open shifts must use nonblank roles, valid times, and dates in the requested week", http.StatusBadRequest)
+			return false
 		}
 	}
 	return true
