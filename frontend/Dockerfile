@@ -12,10 +12,6 @@ RUN bun install
 
 COPY . .
 
-# public env vars are inlined into the browser bundle at build time
-ARG NEXT_PUBLIC_API_URL
-ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
-
 # [optional] tests & build
 # RUN bun test
 RUN bun run build

@@ -17,11 +17,23 @@ export async function POST(request: Request) {
     );
   }
 
+  if (
+    typeof email !== "string" ||
+    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ||
+    typeof password !== "string" ||
+    password.length === 0
+  ) {
+    return NextResponse.json(
+      { error: "Enter a valid email address and password." },
+      { status: 400 },
+    );
+  }
+
   try {
     const response = await fetch(`${getServerApiUrl()}/auth/login/`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ email: email.trim().toLowerCase(), password }),
       cache: "no-store",
     });
 

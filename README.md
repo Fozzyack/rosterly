@@ -6,7 +6,7 @@
 
 Simple, automated roster scheduling for small teams.
 
-Rosterly is in early development. The repository currently contains a marketing website, signup and login forms, a demo scheduling dashboard, and a Go API with PostgreSQL-backed user creation, password login, and session storage. The dashboard and scheduling views use demo data; automated scheduling and persistence of roster edits are not implemented yet.
+Rosterly is in early development. The repository contains a marketing website, signup and login forms, an authenticated scheduling dashboard, and a Go API with PostgreSQL-backed workspace roster persistence. Automated scheduling is not implemented yet.
 
 ## Stack
 
@@ -24,8 +24,8 @@ backend/
   internal/           API handlers, routing, models, stores, auth, and configuration
   migrations/         Embedded SQL migrations applied at startup
 frontend/
-  app/                App Router pages, account forms, demo dashboard, shared components, and styles
-  lib/                Shared API URL and server-side session helpers
+  app/                App Router pages, account forms, dashboard, shared components, and styles
+  lib/                Shared server-side session and roster helpers
   public/             Static assets
 compose.yaml          Database, API, and web services
 graphify-out/         Generated codebase knowledge graph
@@ -61,7 +61,7 @@ Install Docker with the Compose plugin. From the repository root:
 | API health | http://localhost:8000/health/ |
 | PostgreSQL | `localhost:5432` |
 
-The backend Dockerfile copies `backend/.env` into the image, so the file must exist before building. Compose overrides its `DATABASE_URL` with the database service address, so a host-local `.env` URL cannot be used inside the backend container. The API listens on port `8000`, despite the Dockerfile's `EXPOSE 8080` declaration. Compose passes `NEXT_PUBLIC_API_URL=http://localhost:8000` (browser bundle, supplied as a build arg) and `API_URL=http://backend:8000` (server-to-server) to the web service.
+The backend Dockerfile copies `backend/.env` into the image, so the file must exist before building. Compose overrides its `DATABASE_URL` with the database service address, so a host-local `.env` URL cannot be used inside the backend container. The API listens on and exposes port `8000`. Compose supplies `API_URL=http://backend:8000` for server-to-server requests from the web service.
 
 Stop the stack with `docker compose down`.
 
@@ -84,7 +84,7 @@ From `backend/`:
 go run .
 ```
 
-The server defaults to port `8000`; use `go run . -port 8001` to override it. Startup requires a readable `.env` file and an available database. Goose automatically applies the embedded migrations in `backend/migrations/`, including the users and sessions tables.
+The server defaults to port `8000`; use `go run . -port 8001` to override it. Startup requires a readable `.env` file and an available database. Goose automatically applies the embedded migrations in `backend/migrations/`, including users, sessions, workspaces, team members, rosters, and time-off requests.
 
 Seed a local test user with the same database configuration:
 
@@ -103,14 +103,13 @@ bun install
 bun run dev
 ```
 
-Open http://localhost:3000. Both API URLs are required — the helpers in `lib/api.ts` throw when a variable is missing. Create `frontend/.env.local`:
+Open http://localhost:3000. Frontend route handlers require `API_URL`; create `frontend/.env.local`:
 
 ```dotenv
-NEXT_PUBLIC_API_URL=http://localhost:8000
 API_URL=http://localhost:8000
 ```
 
-`NEXT_PUBLIC_API_URL` is read in the browser (the signup form still posts directly to the API) and is embedded into the browser bundle at build time, so restart or rebuild after changing it. `API_URL` is server-only and is used by the Next.js route handlers when they call the API, so it can point at an internal address such as `http://backend:8000` under Compose.
+`API_URL` is server-only and is used by the Next.js route handlers for signup, login, and roster requests, so it can point at an internal address such as `http://backend:8000` under Compose.
 
 ## API and current integration status
 
@@ -121,6 +120,14 @@ The router currently registers these endpoints (including trailing slashes):
 | `GET` | `/health/` | Health response |
 | `POST` | `/auth/login/` | Authenticate with email and password; creates a 24-hour session and returns its token |
 | `POST` | `/users/` | Create a user with a bcrypt password hash |
+| `GET` | `/workspace/` | Get the authenticated user's workspace and team members |
+| `GET`, `POST` | `/team-members/` | List or create workspace team members |
+| `PUT`, `DELETE` | `/team-members/{memberID}/` | Update or remove a workspace team member |
+| `GET`, `PUT` | `/rosters/{monday}/` | Read or replace a weekly manual roster |
+| `POST` | `/rosters/{monday}/publish/` | Publish a weekly roster |
+| `POST` | `/rosters/{monday}/unpublish/` | Unpublish a weekly roster |
+| `GET`, `POST` | `/time-off/` | List or create workspace time-off requests |
+| `POST` | `/time-off/{requestID}/review/` | Approve or reject a time-off request |
 
 Example requests:
 
@@ -136,15 +143,22 @@ curl -i http://localhost:8000/auth/login/ \
   -d '{"email":"alex@example.com","password":"example-password"}'
 ```
 
-User creation returns HTTP `201` with the user's name, email, and timestamps. Login returns a session token that expires after 24 hours; sessions are persisted in the `sessions` table.
+User creation validates required fields, returns `409` for a duplicate email, and creates a default workspace with owner membership. Login returns `401` for invalid credentials and otherwise returns a session token that expires after 24 hours. All workspace, team, roster, and time-off endpoints require `Authorization: Bearer <token>`, are scoped to the authenticated user's workspace, and use trailing slashes. Roster weeks must be Monday `yyyy-mm-dd` values; writes reject unknown team members, blank roles, overlapping shifts, invalid times, and shifts on approved time off.
+
+Replace a roster with a payload such as:
+
+```bash
+curl -X PUT http://localhost:8000/rosters/2026-04-06/ \
+  -H 'Authorization: Bearer <token>' \
+  -H 'Content-Type: application/json' \
+  -d '{"shifts":[{"team_member_id":"<member-id>","date":"2026-04-06","start":"09:00","end":"17:00","role":"Cashier"}]}'
+```
 
 Current frontend integration status:
 
-- The signup form posts to `/users/` and redirects to `/login` on success.
-- The login form posts to the same-origin `/api/auth/login` route handler, which calls the backend's `/auth/login/`, stores the returned token in an httpOnly `session_token` cookie, and redirects to `/dashboard`. Server-side requests to the backend attach the token as `Authorization: Bearer <token>` through `lib/auth.ts`. Logging out clears the cookie via `/api/auth/logout`. The backend does not yet validate tokens on every request, and the dashboard is not auth-gated.
-- The token never reaches browser JavaScript: the cookie is httpOnly and the backend is called from the Next.js server.
-- The dashboard is a client-side demo workspace with static sample data; edits reset on refresh.
-- The signup form still posts directly from the browser to port `8000`, so it needs CORS or a same-origin proxy; the backend has no CORS middleware. Login no longer has this problem because it runs through the Next.js server. Direct API requests such as `curl` are unaffected.
+- Signup and login use same-origin Next.js route handlers. Login stores its backend session token in an httpOnly `session_token` cookie, and logout clears it.
+- The dashboard redirects visitors without a session cookie to `/login`. Its server-side proxy attaches the session as `Authorization: Bearer <token>` for workspace, roster, team, and time-off operations.
+- Dashboard changes to team members, shifts, roster publication, and time-off requests persist in the authenticated workspace. The token never reaches browser JavaScript.
 - Google sign-in and password recovery are not wired into the UI flow.
 
 ## Development checks
@@ -165,4 +179,4 @@ bunx tsc --noEmit
 bun run build
 ```
 
-There is currently no frontend test script or CI workflow. Contributor guidance lives in [AGENTS.md](AGENTS.md) and [frontend/AGENTS.md](frontend/AGENTS.md).
+There is currently no frontend test script. GitHub Actions runs the backend checks and frontend lint, typecheck, and production build. Contributor guidance lives in [AGENTS.md](AGENTS.md) and [frontend/AGENTS.md](frontend/AGENTS.md).

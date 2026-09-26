@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-import { getApiUrl } from "@/lib/api";
+import type { AuthErrorResponse, SignupRequest } from "@/types/auth";
 
 export function SignupForm() {
   const router = useRouter();
@@ -14,32 +14,50 @@ export function SignupForm() {
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setPending(true);
     setError(null);
 
     const form = new FormData(event.currentTarget);
+    const name = form.get("name");
+    const email = form.get("email");
+    const password = form.get("password");
+
+    if (
+      typeof name !== "string" ||
+      name.trim().length === 0 ||
+      typeof email !== "string" ||
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ||
+      typeof password !== "string" ||
+      password.length < 8
+    ) {
+      setError("Enter your name, a valid email address, and a password of at least 8 characters.");
+      return;
+    }
+
+    setPending(true);
 
     try {
-      const response = await fetch(
-        `${getApiUrl()}/users/`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name: form.get("name"),
-            email: form.get("email"),
-            password: form.get("password"),
-          }),
-        },
-      );
+      const response = await fetch("/api/auth/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: name.trim(),
+          email: email.trim().toLowerCase(),
+          password,
+        } satisfies SignupRequest),
+      });
 
       if (!response.ok) {
-        throw new Error("Request failed");
+        const data = (await response.json().catch(() => null)) as AuthErrorResponse | null;
+        throw new Error(data?.error ?? "Couldn't create your account. Please try again.");
       }
 
       router.push("/login");
-    } catch {
-      setError("Couldn't create your account. Check your details, then try again.");
+    } catch (error) {
+      setError(
+        error instanceof Error
+          ? error.message
+          : "Couldn't create your account. Please try again.",
+      );
     } finally {
       setPending(false);
     }
