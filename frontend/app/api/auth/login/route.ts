@@ -4,6 +4,10 @@ import { NextResponse } from "next/server";
 import { getServerApiUrl } from "@/lib/api";
 import { SESSION_COOKIE, SESSION_MAX_AGE } from "@/lib/auth";
 
+function isSecureRequest(request: Request): boolean {
+  return new URL(request.url).protocol === "https:" || request.headers.get("x-forwarded-proto") === "https";
+}
+
 export async function POST(request: Request) {
   let email: unknown;
   let password: unknown;
@@ -59,7 +63,8 @@ export async function POST(request: Request) {
     const cookieStore = await cookies();
     cookieStore.set(SESSION_COOKIE, data.token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
+      // Compose runs a production Next server at http://localhost, where browsers reject Secure cookies.
+      secure: isSecureRequest(request),
       sameSite: "lax",
       path: "/",
       maxAge: SESSION_MAX_AGE,

@@ -94,6 +94,14 @@ go run ./cmd/seed-user
 
 This creates `Test User` (`test@example.com`, password `test-password`) if the email does not already exist. Override any value with `-name`, `-email`, or `-password`.
 
+Seed a complete sample workspace for that user, including team members, recurring availability, qualified roles, approved time off, and a weekly roster:
+
+```bash
+go run ./cmd/seed-workspace
+```
+
+The command defaults to `test@example.com` and the current Monday. It is safe to run again: it updates the sample members' scheduling profiles and does not duplicate people or time off. It leaves an existing weekly roster unchanged unless `-replace` is passed. Use `-email` to select another existing workspace owner and `-week 2026-04-06` to select a Monday.
+
 ### Frontend
 
 From `frontend/`:
