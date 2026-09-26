@@ -31,6 +31,8 @@ Simple roster scheduling for small teams. The repository includes a marketing si
 - Do not hand-edit generated `graphify-out/`, `.next/`, or `node_modules/` content.
 - For codebase questions prefer `graphify query "..."` (graph at `graphify-out/graph.json`; use `graphify-out/wiki/index.md` when present) over grepping, and use `graphify path` / `graphify explain` for focused lookups. After code changes run `graphify update .`; dirty `graphify-out/` files are expected.
 
+IMPORTANT - After code, document or other changes please commit work
+
 ## graphify
 
 This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships.
