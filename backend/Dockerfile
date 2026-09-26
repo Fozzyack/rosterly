@@ -1,4 +1,4 @@
-# frontend/Dockerfile
+# backend/Dockerfile
 
 FROM golang:1.27.1 AS builder
 
@@ -16,5 +16,5 @@ WORKDIR /app
 COPY .env .
 COPY --from=builder /app/server .
 
-EXPOSE 8080
+EXPOSE 8000
 CMD ["./server"]

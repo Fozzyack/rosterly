@@ -1,6 +1,6 @@
 # rosterly
 
-Simple roster scheduling for small teams. Early development: marketing site, signup/login forms, and a Go API exist; the dashboard is demo data and no roster edits are persisted yet.
+Simple roster scheduling for small teams. The repository includes a marketing site, authenticated workspace setup, and persisted manual roster management.
 
 ## Structure
 
@@ -18,11 +18,10 @@ Simple roster scheduling for small teams. Early development: marketing site, sig
 ## Gotchas
 
 - Every Chi route is registered with a trailing slash (`/health/`, `/auth/login/`, `/users/`); requests without it 404.
-- The backend has no CORS middleware and never validates session tokens. Browser requests from `:3000` to `:8000` fail until CORS or a same-origin proxy is added, and the dashboard is not auth-gated.
+- The backend has no CORS middleware. Frontend auth and roster requests use same-origin Next.js route handlers, which attach the httpOnly session token to backend requests.
 - `backend/.env` is gitignored and required: `go run .` exits without it, and `backend/Dockerfile` copies it into the image at build time (so it must exist before a Compose build).
 - `.env.example` uses password `rostlerly`; Compose uses `rosterly`. Use `rosterly` for the Compose/local database.
-- `backend/Dockerfile` declares `EXPOSE 8080`, but the server, Compose, and README use `8000`.
-- `NEXT_PUBLIC_API_URL` is baked into the browser bundle at build time (default `http://localhost:8000`); setting it only at container runtime does nothing.
+- `API_URL` is server-only and is used by Next.js route handlers. Under Compose it must use the internal backend address, `http://backend:8000`.
 
 ## Workflow
 

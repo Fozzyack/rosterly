@@ -102,6 +102,16 @@ func (ps *PostgresStore) CreateUser(ctx context.Context, newUserRequest models.N
 	if err != nil {
 		return nil, err
 	}
+	_, err = tx.ExecContext(ctx, `
+		WITH workspace AS (
+			INSERT INTO workspaces (name) VALUES ($1) RETURNING id
+		)
+		INSERT INTO workspace_memberships (workspace_id, user_id, role)
+		SELECT id, $2, 'owner' FROM workspace
+	`, newUserRequest.Name+"'s workspace", newUser.ID)
+	if err != nil {
+		return nil, err
+	}
 	err = tx.Commit()
 	if err != nil {
 		return nil, err

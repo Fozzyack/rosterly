@@ -2,6 +2,7 @@ package api
 
 import (
 	"context"
+	"database/sql"
 	"encoding/json"
 	"errors"
 	"net/http"
@@ -21,10 +22,11 @@ import (
 type loginUserStore struct {
 	store.UserStore
 	user *models.User
+	err  error
 }
 
 func (s *loginUserStore) GetUserByEmail(context.Context, string) (*models.User, error) {
-	return s.user, nil
+	return s.user, s.err
 }
 
 type loginSessionStore struct {
@@ -45,12 +47,14 @@ func TestLoginUserSession(t *testing.T) {
 		name        string
 		password    string
 		storeErr    error
+		userErr     error
 		wantSession bool
 		wantStatus  int
 	}{
 		{name: "persist before returning token", password: "password", wantSession: true, wantStatus: http.StatusOK},
 		{name: "persistence failure withholds token", password: "password", storeErr: errors.New("database unavailable"), wantSession: true, wantStatus: http.StatusInternalServerError},
-		{name: "invalid password creates no session", password: "wrong", wantStatus: http.StatusInternalServerError},
+		{name: "invalid password creates no session", password: "wrong", wantStatus: http.StatusUnauthorized},
+		{name: "missing user is unauthorized", password: "password", userErr: sql.ErrNoRows, wantStatus: http.StatusUnauthorized},
 	}
 
 	for _, tt := range testCases {
@@ -69,7 +73,7 @@ func TestLoginUserSession(t *testing.T) {
 				return &models.Session{}, tt.storeErr
 			}}
 			logger := zerolog.Nop()
-			handler := NewUserHandler(&logger, &loginUserStore{user: user}, sessions)
+			handler := NewUserHandler(&logger, &loginUserStore{user: user, err: tt.userErr}, sessions)
 			handler.LoginUser(w, r)
 
 			assert.Equal(t, tt.wantStatus, w.Code)
