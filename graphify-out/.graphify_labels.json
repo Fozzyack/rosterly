@@ -1,0 +1,19 @@
+{
+  "0": "next",
+  "1": "context.Context",
+  "2": "dashboard.tsx",
+  "3": "User",
+  "4": "seed-workspace/main.go",
+  "5": "package.json",
+  "6": "auth.ts",
+  "7": "README.md",
+  "8": "net/http.ResponseWriter",
+  "9": "compilerOptions",
+  "10": "00003_create_roster.sql",
+  "11": "fs.go",
+  "12": "postcss.config.mjs",
+  "13": "CLAUDE.md",
+  "14": "github.com/Fozzyack/rosterly/m",
+  "15": "00004_add_roster_shift_role.sql",
+  "16": "frontend_app_dashboard_data_role"
+}

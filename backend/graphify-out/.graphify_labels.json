@@ -1,0 +1,13 @@
+{
+  "0": "context.Context",
+  "1": "NewApplication",
+  "2": "user_handler_test.go",
+  "3": "net/http.ResponseWriter",
+  "4": "seed-user/main.go",
+  "5": "00003_create_roster.sql",
+  "6": "User",
+  "7": "auth.go",
+  "8": "AuthMiddleware",
+  "9": "go_pkg_embed",
+  "10": "github.com/Fozzyack/rosterly/m"
+}
